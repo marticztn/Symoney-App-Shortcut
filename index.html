@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symoney Quick Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .language-selector {
+            margin-bottom: 20px;
+        }
+        hr {
+            margin: 20px 0;
+        }
+    </style>
+    <script>
+        function changeLanguage(lang) {
+            document.querySelectorAll('.lang').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('.' + lang).forEach(el => {
+                el.style.display = 'block';
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- 语言选择器 -->
+    <div class="language-selector">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('zh-cn')">简体中文</button>
+        <button onclick="changeLanguage('zh-tw')">繁體中文</button>
+    </div>
+
+    <!-- English -->
+    <div class="lang en" style="display: block;">
+        <h1>簡錢 Symoney™ - Quick Record Guide</h1>
+        <ol>
+            <li>
+                Get <a href="https://www.icloud.com/shortcuts/bf351caa47504e918f3ba366c210073b" target="_blank"> Shortcut </a>
+            </li>
+            <li>Under improvement...</li>
+        </ol>
+        <hr/>
+    </div>
+
+    <!-- 繁體中文 (zh-tw) -->
+    <div class="lang zh-tw" style="display: none;">
+        <h1>簡錢 Symoney™ - 快速記帳指南</h1>
+        <ol>
+            <li>
+                獲取 <a href="https://www.icloud.com/shortcuts/bf351caa47504e918f3ba366c210073b" target="_blank"> 捷徑 </a>
+            </li>
+            <li>正在完善中...</li>
+        </ol>
+        <hr/>
+    </div>
+
+    <!-- 简体中文 (zh-cn) -->
+    <div class="lang zh-cn" style="display: none;">
+        <h1>简钱 Symoney™ - 快速记账指南</h1>
+        <ol>
+            <li>
+                获取 <a href="https://www.icloud.com/shortcuts/bf351caa47504e918f3ba366c210073b" target="_blank"> 快捷指令 </a>
+            </li>
+            <li>正在完善中...</li>
+        </ol>
+        <hr/>
+    </div>
+</body>
+</html>
