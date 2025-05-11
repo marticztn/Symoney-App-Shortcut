@@ -4,499 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symoney Guide</title>
-    <style>
-        :root {
-            --primary: #3b82f6;
-            --primary-light: #93c5fd;
-            --text: #334155;
-            --background: #f8fafc;
-            --card: #ffffff;
-            --border: #e2e8f0;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem 1rem;
-        }
-        
-        .language-selector {
-            margin-bottom: 1.5rem;
-        }
-        
-        .language-selector button {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 0.375rem;
-            padding: 0.5rem 1rem;
-            margin: 0 0.25rem;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .language-selector button:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .language-selector button.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .tab-container {
-            width: 100%;
-            max-width: 36rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 1rem;
-        }
-        
-        .tab {
-            padding: 0.75rem 1.5rem;
-            cursor: pointer;
-            position: relative;
-            transition: var(--transition);
-            color: var(--text);
-            font-weight: 500;
-            opacity: 0.7;
-        }
-        
-        .tab:hover {
-            opacity: 1;
-        }
-        
-        .tab.active {
-            opacity: 1;
-        }
-        
-        .tab::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary);
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-        
-        .tab.active::after {
-            transform: scaleX(1);
-        }
-        
-        .card {
-            background: var(--card);
-            width: 100%;
-            max-width: 36rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            padding: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-            text-align: center;
-        }
-        
-        ol {
-            list-style-position: inside;
-            margin-bottom: 1.5rem;
-        }
-        
-        ol > li {
-            margin-bottom: 1rem;
-            padding-left: 0.5rem;
-            animation: slideIn 0.5s ease;
-            animation-fill-mode: both;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        ol > li:nth-child(1) { animation-delay: 0.1s; }
-        ol > li:nth-child(2) { animation-delay: 0.2s; }
-        ol > li:nth-child(3) { animation-delay: 0.3s; }
-        ol > li:nth-child(4) { animation-delay: 0.4s; }
-        ol > li:nth-child(5) { animation-delay: 0.5s; }
-        ol > li:nth-child(6) { animation-delay: 0.6s; }
-        ol > li:nth-child(7) { animation-delay: 0.7s; }
-        ol > li:nth-child(8) { animation-delay: 0.8s; }
-        
-        ul {
-            list-style-type: none;
-            margin: 0.75rem 0 0.75rem 1.5rem;
-        }
-        
-        ul > li {
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-        
-        ul > li:before {
-            content: "•";
-            color: var(--primary);
-            font-weight: bold;
-            display: inline-block;
-            width: 1rem;
-            margin-left: -1rem;
-        }
-        
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 1.5rem 0;
-        }
-        
-        .note {
-            font-size: 0.875rem;
-            text-align: center;
-            color: var(--text);
-            opacity: 0.8;
-        }
-        
-        .api-key-example {
-            background-color: #f1f5f9;
-            border-radius: 0.375rem;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-family: monospace;
-            overflow-x: auto;
-            transition: var(--transition);
-        }
-        
-        .api-key-example:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 0.625rem 1.25rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-        
-        .button:hover {
-            background-color: #2563eb;
-            transform: translateY(-1px);
-            text-decoration: none;
-        }
-        
-        .copy-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background-color: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .copy-notification.show {
-            transform: translateX(-50%) translateY(0);
-        }
-    </style>
-    <script>
-        const translations = {
-          "en": {
-            "title": "Symoney Quick Guide",
-            "quickRecordTab": "Quick Record",
-            "apiKeyTab": "API Key",
-            "quickRecordTitle": "Quick Record Guide",
-            "apiKeyTitle": "API Key Application Guide",
-            "step1": "Get shortcuts:",
-            "shortcut1Text": "Quick Record (OCR Assistive)",
-            "shortcut2Text": "Smart Quick Record (Smart Recognition)",
-            "noteSmart": "(available for Symoney+ subscribers only)",
-            "step2": "Open iOS Settings.",
-            "step3": "Go to Accessibility.",
-            "step4": "Tap Touch.",
-            "step5": "Scroll to the bottom and tap Back Tap.",
-            "step6": "Tap Double Tap.",
-            "step7": "Scroll to the bottom to find the shortcut you just downloaded.",
-            "step8": "Configuration complete. Now you can quickly record by double-tapping the back of your phone.",
-            "actionNote": "Users with an Action Button (iPhone 15 Pro and above) can also set the shortcut to the Action Button.",
-            "apiStep1": "Log in to your Symoney account.",
-            "apiStep2": "Navigate to the Settings menu.",
-            "apiStep3": "Select 'Developer Options'.",
-            "apiStep4": "Click on 'Generate New API Key'.",
-            "apiStep5": "Set permissions and expiration date for your API key.",
-            "apiStep6": "Click 'Create' to generate your API key.",
-            "apiStep7": "Copy your API key and store it securely.",
-            "apiWarning": "Warning: Your API key will only be shown once. Make sure to save it in a secure location.",
-            "apiExample": "Your API key will look like this:",
-            "copyButton": "Copy Example",
-            "copiedNotification": "Copied to clipboard!"
-          },
-          "zh-cn": {
-            "title": "简钱 Symoney™ 指南",
-            "quickRecordTab": "快速记账",
-            "apiKeyTab": "API密钥",
-            "quickRecordTitle": "快速记账指南",
-            "apiKeyTitle": "API密钥申请教程",
-            "step1": "获取快捷指令：",
-            "shortcut1Text": "「快速记账 (OCR 识别)」",
-            "shortcut2Text": "「智能快速记账 (智能识别)」",
-            "noteSmart": "（仅「简钱+」订阅用户可用）",
-            "step2": "打开iOS「设置」。",
-            "step3": "进入「辅助功能」。",
-            "step4": "点击「触控」。",
-            "step5": "滑到最下面，点击「轻点背面」。",
-            "step6": "点击「轻点两下」。",
-            "step7": "滑动到最下面找到刚才下载的快捷指令。",
-            "step8": "配置完成，现在您可以通过敲击手机背部两下来进行快速记账了。",
-            "actionNote": "有 Action Button 的用户也可以将快捷指令设置到 Action Button 上去（iPhone 15 Pro 及以上）。",
-            "apiStep1": "登录您的简钱账户。",
-            "apiStep2": "进入「设置」菜单。",
-            "apiStep3": "选择「开发者选项」。",
-            "apiStep4": "点击「生成新的API密钥」。",
-            "apiStep5": "设置API密钥的权限和有效期。",
-            "apiStep6": "点击「创建」生成您的API密钥。",
-            "apiStep7": "复制您的API密钥并安全保存。",
-            "apiWarning": "警告：您的API密钥只会显示一次。请确保将其保存在安全的位置。",
-            "apiExample": "您的API密钥将如下所示：",
-            "copyButton": "复制示例",
-            "copiedNotification": "已复制到剪贴板！"
-          },
-          "zh-tw": {
-            "title": "簡錢 Symoney™ 指南",
-            "quickRecordTab": "快速記帳",
-            "apiKeyTab": "API金鑰",
-            "quickRecordTitle": "快速記帳指南",
-            "apiKeyTitle": "API金鑰申請教學",
-            "step1": "獲取捷徑：",
-            "shortcut1Text": "「快速記帳 (OCR 辨識)」",
-            "shortcut2Text": "「智能快速記帳 (智慧辨識)」",
-            "noteSmart": "（僅「簡錢+」訂閱用戶可用）",
-            "step2": "打開 iOS「設置」。",
-            "step3": "進入「輔助功能」。",
-            "step4": "點擊「觸控」。",
-            "step5": "滑到最下面，點擊「輕點背面」。",
-            "step6": "點擊「輕點兩下」。",
-            "step7": "滑動到最下面找到剛才下載的捷徑。",
-            "step8": "配置完成，現在您可以通過敲擊手機背部兩下來進行快速記帳了。",
-            "actionNote": "具有 Action Button（iPhone 15 Pro 及以上機型）的使用者，也可以將此捷徑設定到 Action Button。",
-            "apiStep1": "登入您的簡錢帳戶。",
-            "apiStep2": "進入「設定」選單。",
-            "apiStep3": "選擇「開發者選項」。",
-            "apiStep4": "點擊「產生新的API金鑰」。",
-            "apiStep5": "設定API金鑰的權限和有效期。",
-            "apiStep6": "點擊「創建」產生您的API金鑰。",
-            "apiStep7": "複製您的API金鑰並安全保存。",
-            "apiWarning": "警告：您的API金鑰只會顯示一次。請確保將其保存在安全的位置。",
-            "apiExample": "您的API金鑰將如下所示：",
-            "copyButton": "複製範例",
-            "copiedNotification": "已複製到剪貼簿！"
-          }
-        };
-
-        function changeLanguage(lang) {
-          const dict = translations[lang];
-          
-          // Update text translations
-          document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (dict[key]) {
-              el.textContent = dict[key];
-            }
-          });
-          
-          // Update active language button
-          document.querySelectorAll('.language-selector button').forEach(button => {
-            button.classList.remove('active');
-          });
-          document.querySelector(`.language-selector button[onclick="changeLanguage('${lang}')"]`).classList.add('active');
-        }
-        
-        function switchTab(tabName) {
-            // Update active tab
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelector(`.tab[data-tab="${tabName}"]`).classList.add('active');
-            
-            // Update active content
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.querySelector(`.tab-content[data-tab="${tabName}"]`).classList.add('active');
-            
-            // Animate new content
-            const activeContent = document.querySelector(`.tab-content[data-tab="${tabName}"]`);
-            activeContent.style.animation = 'none';
-            activeContent.offsetHeight; // Trigger reflow
-            activeContent.style.animation = 'fadeIn 0.5s ease forwards';
-            
-            // Animate list items
-            const listItems = activeContent.querySelectorAll('ol > li');
-            listItems.forEach((item, index) => {
-                item.style.animation = 'none';
-                item.offsetHeight; // Trigger reflow
-                item.style.animation = `slideIn 0.5s ease both ${0.1 * (index + 1)}s`;
-            });
-        }
-        
-        function copyExample() {
-            const exampleText = "sk_symoney_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-            navigator.clipboard.writeText(exampleText).then(() => {
-                const notification = document.getElementById('copyNotification');
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 2000);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-          changeLanguage('zh-cn');
-          switchTab('quickRecord');
-        });
-    </script>
+    <link rel="stylesheet" href="symoney-css.css">
 </head>
 <body>
-    <div class="language-selector">
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('zh-cn')" class="active">简体中文</button>
-        <button onclick="changeLanguage('zh-tw')">繁體中文</button>
-    </div>
-    
-    <h1 data-i18n="title"></h1>
-    
-    <div class="tab-container">
-        <div class="tabs">
-            <div class="tab active" data-tab="quickRecord" onclick="switchTab('quickRecord')">
-                <span data-i18n="quickRecordTab"></span>
+    <header class="header">
+        <div class="header-left">
+            <div class="header-logo">
+                <img src="symoney_logo.png" alt="Symoney Logo">
             </div>
-            <div class="tab" data-tab="apiKey" onclick="switchTab('apiKey')">
-                <span data-i18n="apiKeyTab"></span>
+            <div class="header-title" data-i18n="headerTitle"></div>
+        </div>
+        
+        <div class="language-dropdown">
+            <button class="dropdown-button" onclick="toggleDropdown()">
+                <span class="dropdown-button-text">简体中文</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="dropdown-content">
+                <div class="dropdown-item" data-lang="en" onclick="changeLanguage('en')">English</div>
+                <div class="dropdown-item active" data-lang="zh-cn" onclick="changeLanguage('zh-cn')">简体中文</div>
+                <div class="dropdown-item" data-lang="zh-tw" onclick="changeLanguage('zh-tw')">繁體中文</div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <div class="tab-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="quickRecord" onclick="switchTab('quickRecord')">
+                    <span data-i18n="quickRecordTab"></span>
+                </div>
+                <div class="tab" data-tab="apiKey" onclick="switchTab('apiKey')">
+                    <span data-i18n="apiKeyTab"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card tab-content active" data-tab="quickRecord">
+            <h1 data-i18n="quickRecordTitle"></h1>
+            <ol>
+                <li>
+                    <span data-i18n="step1"></span>
+                    <ul>
+                        <li>
+                            <a href="https://www.icloud.com/shortcuts/f154d368bd4d4c27a22ea352d4e1b366" target="_blank">
+                                <span data-i18n="shortcut1Text"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.icloud.com/shortcuts/77641f10db854a2aafb9872c58cd2d8c" target="_blank">
+                                <span data-i18n="shortcut2Text"></span>
+                            </a>
+                            <span data-i18n="noteSmart"></span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-i18n="step2"></li>
+                <li data-i18n="step3"></li>
+                <li data-i18n="step4"></li>
+                <li data-i18n="step5"></li>
+                <li data-i18n="step6"></li>
+                <li data-i18n="step7"></li>
+                <li data-i18n="step8"></li>
+            </ol>
+            <hr>
+            <p class="note" data-i18n="actionNote"></p>
+        </div>
+    
+        <div class="card tab-content" data-tab="apiKey">
+            <h1 data-i18n="apiKeyTitle"></h1>
+            
+            <div class="api-sub-tabs">
+                <div class="api-sub-tab active" data-api-tab="siluFlow" onclick="switchApiTab('siluFlow')">
+                    <span data-i18n="siluFlow"></span>
+                </div>
+                <div class="api-sub-tab" data-api-tab="volcanicEngine" onclick="switchApiTab('volcanicEngine')">
+                    <span data-i18n="volcanicEngine"></span>
+                </div>
+                <div class="api-sub-tab" data-api-tab="openai" onclick="switchApiTab('openai')">
+                    <span data-i18n="openai"></span>
+                </div>
+            </div>
+            
+            <!-- Silicon Flow API Key Guide -->
+            <div class="api-sub-content active" data-api-tab="siluFlow">
+                <h2 data-i18n="siluFlowTitle"></h2>
+                <ol>
+                    <li data-i18n="siluStep1"></li>
+                    <li data-i18n="siluStep2"></li>
+                    <li data-i18n="siluStep3"></li>
+                    <li data-i18n="siluStep4"></li>
+                    <li data-i18n="siluStep5"></li>
+                    <li data-i18n="siluStep6"></li>
+                    <li data-i18n="siluStep7"></li>
+                </ol>
+                
+                <a href="#" class="api-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    <span data-i18n="officialSite"></span>
+                </a>
+            </div>
+            
+            <!-- Volcanic Engine API Key Guide -->
+            <div class="api-sub-content" data-api-tab="volcanicEngine">
+                <h2 data-i18n="volcanicEngineTitle"></h2>
+                <ol>
+                    <li data-i18n="volcanicStep1"></li>
+                    <li data-i18n="volcanicStep2"></li>
+                    <li data-i18n="volcanicStep3"></li>
+                    <li data-i18n="volcanicStep4"></li>
+                    <li data-i18n="volcanicStep5"></li>
+                    <li data-i18n="volcanicStep6"></li>
+                    <li data-i18n="volcanicStep7"></li>
+                </ol>
+                
+                <a href="#" class="api-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    <span data-i18n="officialSite"></span>
+                </a>
+            </div>
+            
+            <!-- OpenAI API Key Guide -->
+            <div class="api-sub-content" data-api-tab="openai">
+                <h2 data-i18n="openaiTitle"></h2>
+                <ol>
+                    <li data-i18n="openaiStep1"></li>
+                    <li data-i18n="openaiStep2"></li>
+                    <li data-i18n="openaiStep3"></li>
+                    <li data-i18n="openaiStep4"></li>
+                    <li data-i18n="openaiStep5"></li>
+                    <li data-i18n="openaiStep6"></li>
+                    <li data-i18n="openaiStep7"></li>
+                </ol>
+                
+                <a href="https://platform.openai.com/" target="_blank" class="api-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    <span data-i18n="officialSite"></span>
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="card tab-content active" data-tab="quickRecord">
-        <h1 data-i18n="quickRecordTitle"></h1>
-        <ol>
-            <li>
-                <span data-i18n="step1"></span>
-                <ul>
-                    <li>
-                        <a href="https://www.icloud.com/shortcuts/f154d368bd4d4c27a22ea352d4e1b366" target="_blank">
-                            <span data-i18n="shortcut1Text"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.icloud.com/shortcuts/77641f10db854a2aafb9872c58cd2d8c" target="_blank">
-                            <span data-i18n="shortcut2Text"></span>
-                        </a>
-                        <span data-i18n="noteSmart"></span>
-                    </li>
-                </ul>
-            </li>
-            <li data-i18n="step2"></li>
-            <li data-i18n="step3"></li>
-            <li data-i18n="step4"></li>
-            <li data-i18n="step5"></li>
-            <li data-i18n="step6"></li>
-            <li data-i18n="step7"></li>
-            <li data-i18n="step8"></li>
-        </ol>
-        <hr>
-        <p class="note" data-i18n="actionNote"></p>
-    </div>
-    
-    <div class="card tab-content" data-tab="apiKey">
-        <h1 data-i18n="apiKeyTitle"></h1>
-        <ol>
-            <li data-i18n="apiStep1"></li>
-            <li data-i18n="apiStep2"></li>
-            <li data-i18n="apiStep3"></li>
-            <li data-i18n="apiStep4"></li>
-            <li data-i18n="apiStep5"></li>
-            <li data-i18n="apiStep6"></li>
-            <li data-i18n="apiStep7"></li>
-        </ol>
-        
-        <p class="note" data-i18n="apiWarning"></p>
-        
-        <p data-i18n="apiExample"></p>
-        <div class="api-key-example">sk_symoney_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-        <button class="button" onclick="copyExample()" data-i18n="copyButton"></button>
-    </div>
-    
-    <div id="copyNotification" class="copy-notification">
-        <span data-i18n="copiedNotification"></span>
-    </div>
+    <script src="symoney-javascript.js"></script>
 </body>
 </html>
