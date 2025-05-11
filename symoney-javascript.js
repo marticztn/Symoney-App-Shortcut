@@ -50,6 +50,15 @@ const translations = {
     "noticeDate1": "May 10, 2025",
     "noticeHeading1": "Welcome to Symoney Guide",
     "noticeContent1": "Thank you for using Symoney! This guide provides instructions for quick expense recording using iOS shortcuts and API key setup for advanced features. I will be continuously updating this guide with new features and improvements. If you have any questions, please contact me.",
+    
+    "noticeDate2": "May 10, 2025",
+    "noticeHeading2": "GitHub Website Access Issues",
+    "noticeContent2": "Some users have reported that GitHub websites are inaccessible in mainland China. This may be due to DNS issues. You can try changing your device's DNS settings or using a VPN to access the site. We apologize for any inconvenience this may cause!",
+    
+    "noticeDate3": "May 11, 2025",
+    "noticeHeading3": "Smart Quick Record (Shortcut) / Natural Language Recording Unavailable",
+    "noticeContent3": "Due to a sudden surge of users on May 9th and 10th, the servers for Smart Quick Record and Natural Language Recording could not handle the unexpected high traffic, resulting in service outages. I have temporarily taken down the servers and redesigned the logic for these two recording methods. The new version has been submitted to Apple for review (v1.1.84). Please be patient while we await approval. Thank you for your support of Symoney!",
+    "newBadge": "NEW",
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -101,6 +110,15 @@ const translations = {
     "noticeDate1": "2025年5月10日",
     "noticeHeading1": "欢迎使用简钱指南",
     "noticeContent1": "感谢您使用简钱！本指南提供了使用 iOS 快捷指令进行快速记账和设置 API 密钥以使用高级功能的说明。我将不断更新本指南，添加新功能和改进。如果您有任何疑问，请联系我。",
+    
+    "noticeDate2": "2025年5月10日",
+    "noticeHeading2": "GitHub网页无法打开的问题",
+    "noticeContent2": "有用户反馈GitHub网页在中国大陆地区无法访问的情况，有可能是DNS导致的，可以尝试修改设备的DNS，或者使用梯子进行访问。抱歉给大家带来的不便！",
+    
+    "noticeDate3": "2025年5月11日",
+    "noticeHeading3": "智能快速记账（快捷指令）/ 自然语言记账 不可用的问题",
+    "noticeContent3": "由于9号至10号，大量用户呈爆发式的涌入app，智能快速记账和自然语言记账的服务器无法承受突如其来的大流量，最终导致宕机。我已暂时撤下服务器，并且重新设计了这两种记账方式的使用逻辑，新版本已经提交苹果审核（v1.1.84），还请大家耐心等待。感谢大家对简钱的支持！",
+    "newBadge": "新",
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -151,7 +169,16 @@ const translations = {
     "noticeIntro": "這是簡錢 Symoney 的官方公告板。在這裡，您可以找到重要更新、功能發布和其他關於應用的關鍵信息。請定期查看此頁面以獲取最新消息。",
     "noticeDate1": "2025年5月10日",
     "noticeHeading1": "歡迎使用簡錢指南",
-    "noticeContent1": "感謝您使用簡錢！本指南提供了使用 iOS 捷徑進行快速記帳和設置 API 金鑰以使用高級功能的說明。我將不斷更新本指南，添加新功能和改進。如果您有任何疑問，請聯繫我。"
+    "noticeContent1": "感謝您使用簡錢！本指南提供了使用 iOS 捷徑進行快速記帳和設置 API 金鑰以使用高級功能的說明。我將不斷更新本指南，添加新功能和改進。如果您有任何疑問，請聯繫我。",
+    
+    "noticeDate2": "2025年5月10日",
+    "noticeHeading2": "GitHub網頁無法打開的問題",
+    "noticeContent2": "有用戶反饋GitHub網頁在中國大陸地區無法訪問的情況，有可能是DNS導致的，可以嘗試修改設備的DNS，或者使用梯子進行訪問。抱歉給大家帶來的不便！",
+    
+    "noticeDate3": "2025年5月11日", 
+    "noticeHeading3": "智能快速記帳（捷徑）/ 自然語言記帳 不可用的問題",
+    "noticeContent3": "由於9號至10號，大量用戶呈爆發式的湧入app，智能快速記帳和自然語言記帳的服務器無法承受突如其來的大流量，最終導致宕機。我已暫時撤下服務器，並且重新設計了這兩種記帳方式的使用邏輯，新版本已經提交蘋果審核（v1.1.84），還請大家耐心等待。感謝大家對簡錢的支持！",
+    "newBadge": "新",
   }
 };
 
@@ -201,6 +228,11 @@ function switchTab(tabName) {
     });
     document.querySelector(`.tab-content[data-tab="${tabName}"]`).classList.add('active');
     
+    // If notice tab is selected, mark notices as viewed
+    if (tabName === 'notice') {
+        markNoticesAsViewed();
+    }
+    
     // Animate new content
     const activeContent = document.querySelector(`.tab-content[data-tab="${tabName}"]`);
     activeContent.style.animation = 'none';
@@ -249,10 +281,83 @@ function switchApiTab(apiTabName) {
     });
 }
 
+// Function to check for new notices
+function checkNewNotices() {
+    // Get viewed notices from localStorage
+    const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
+    
+    // Check if there are any unviewed notices
+    const noticeItems = document.querySelectorAll('.notice-item');
+    let hasNewNotices = false;
+    
+    noticeItems.forEach(item => {
+        const noticeId = item.getAttribute('data-notice-id');
+        const newBadge = item.querySelector('.notice-new');
+        
+        // Skip items without a new badge
+        if (!newBadge) return;
+        
+        if (!viewedNotices[noticeId]) {
+            // This notice is new (not viewed)
+            hasNewNotices = true;
+            newBadge.style.display = 'inline-block';
+        } else {
+            // This notice has been viewed
+            newBadge.style.display = 'none';
+        }
+    });
+    
+    // Update tab badge
+    const noticeTabBadge = document.getElementById('noticeTabBadge');
+    if (noticeTabBadge) {
+        noticeTabBadge.style.display = hasNewNotices ? 'inline-block' : 'none';
+    }
+}
+
+// Function to mark notices as viewed
+function markNoticesAsViewed() {
+    // Get viewed notices from localStorage
+    const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
+    
+    // Mark all current notices as viewed
+    const noticeItems = document.querySelectorAll('.notice-item');
+    let hasUpdates = false;
+    
+    noticeItems.forEach(item => {
+        const noticeId = item.getAttribute('data-notice-id');
+        const newBadge = item.querySelector('.notice-new');
+        
+        // Skip items without an ID or new badge
+        if (!noticeId || !newBadge) return;
+        
+        // If this notice hasn't been viewed yet
+        if (!viewedNotices[noticeId]) {
+            // Mark as viewed
+            viewedNotices[noticeId] = Date.now();
+            newBadge.style.display = 'none';
+            hasUpdates = true;
+        }
+    });
+    
+    if (hasUpdates) {
+        // Save updated viewed notices to localStorage
+        localStorage.setItem('symoneyViewedNotices', JSON.stringify(viewedNotices));
+        
+        // Update tab badge
+        const noticeTabBadge = document.getElementById('noticeTabBadge');
+        if (noticeTabBadge) {
+            noticeTabBadge.style.display = 'none';
+        }
+    }
+}
+
 // Initialize the page when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Set default language
     changeLanguage('zh-cn');
+    
+    // Check for new notices
+    setTimeout(checkNewNotices, 500);
     
     // Set default tab
     switchTab('quickRecord');
@@ -260,7 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         const dropdown = document.querySelector('.language-dropdown');
-        const dropdownButton = document.querySelector('.dropdown-button');
         
         if (!dropdown.contains(e.target) && dropdown.classList.contains('open')) {
             dropdown.classList.remove('open');

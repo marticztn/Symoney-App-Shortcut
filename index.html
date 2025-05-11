@@ -37,8 +37,9 @@
                 <div class="tab" data-tab="apiKey" onclick="switchTab('apiKey')">
                     <span data-i18n="apiKeyTab"></span>
                 </div>
-                <div class="tab" data-tab="notice" onclick="switchTab('notice')">
+                <div class="tab notice-tab-indicator" data-tab="notice" onclick="switchTab('notice')">
                     <span data-i18n="noticeTab"></span>
+                    <span class="new-badge" id="noticeTabBadge" data-i18n="newBadge"></span>
                 </div>
             </div>
         </div>
@@ -153,13 +154,37 @@
             <div class="notice-intro" data-i18n="noticeIntro"></div>
             
             <div class="notice-container">
-                <div class="notice-item">
+                <div class="notice-item urgent" data-notice-id="notice3">
+                    <div class="notice-date" data-i18n="noticeDate3"></div>
+                    <h3 class="notice-heading">
+                        <span data-i18n="noticeHeading3"></span>
+                        <span class="notice-new" data-i18n="newBadge"></span>
+                    </h3>
+                    <div class="notice-content" data-i18n="noticeContent3"></div>
+                </div>
+                
+                <div class="notice-item" data-notice-id="notice2">
+                    <div class="notice-date" data-i18n="noticeDate2"></div>
+                    <h3 class="notice-heading">
+                        <span data-i18n="noticeHeading2"></span>
+                        <span class="notice-new" data-i18n="newBadge"></span>
+                    </h3>
+                    <div class="notice-content" data-i18n="noticeContent2"></div>
+                </div>
+                
+                <div class="notice-item" data-notice-id="notice1">
                     <div class="notice-date" data-i18n="noticeDate1"></div>
                     <h3 class="notice-heading" data-i18n="noticeHeading1"></h3>
                     <div class="notice-content" data-i18n="noticeContent1"></div>
                 </div>
-            </div>
-        </div>
+
+
+
+
+
+
+
+</html></body>    <script src="symoney-js.js"></script>    </div>        </div>            </div>        </div>
     </div>
 
     <script src="symoney-javascript.js"></script>

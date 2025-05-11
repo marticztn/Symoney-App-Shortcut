@@ -530,23 +530,55 @@ hr {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.notice-date {
-    font-size: 0.85rem;
-    color: #64748b;
-    margin-bottom: 0.5rem;
+.notice-item.urgent {
+    border-left: 4px solid #ef4444;
+    background-color: #fef2f2;
 }
 
-.notice-heading {
-    font-size: 1.2rem;
+.notice-item.urgent .notice-heading {
+    color: #b91c1c;
+}
+
+.notice-tab-indicator {
+    position: relative;
+}
+
+.new-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.65rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--text);
+    padding: 2px 5px;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite;
 }
 
-.notice-content {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text);
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.notice-new {
+    display: inline-block;
+    margin-left: 8px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 8px;
+    vertical-align: middle;
+    animation: pulse 1.5s infinite;
 }
 
 /* 快捷指令总容器 */
