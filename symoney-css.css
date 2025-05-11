@@ -548,3 +548,66 @@ hr {
     line-height: 1.6;
     color: var(--text);
 }
+
+/* 快捷指令总容器 */
+.shortcut-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0.75rem 0 0.75rem 1.5rem;
+}
+
+/* 高级快捷指令（智能识别）容器 */
+.premium-shortcut {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* 快捷指令按钮基本样式 */
+.shortcut-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: fit-content;
+}
+
+.shortcut-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+/* 高级版（智能快速记账）按钮的特殊样式 */
+.shortcut-button.premium {
+    background-color: #8b5cf6; /* 紫色，表示高级特性 */
+}
+
+.shortcut-button.premium:hover {
+    background-color: #7c3aed;
+}
+
+/* 高级版说明文字 */
+.premium-note {
+    font-size: 0.85rem;
+    color: #8b5cf6;
+    padding-left: 0.25rem;
+}
+
+/* 响应式样式 */
+@media (min-width: 640px) {
+    .shortcut-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
