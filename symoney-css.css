@@ -137,7 +137,7 @@ body {
 
 .main-content {
     width: 100%;
-    max-width: 36rem;
+    max-width: 700px; /* 从36rem增加到700px */
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
@@ -174,7 +174,7 @@ body {
 
 .tab-container {
     width: 100%;
-    max-width: 36rem;
+    max-width: 700px; /* 从36rem增加到700px */
     margin-bottom: 1.5rem;
 }
 
@@ -221,7 +221,7 @@ body {
 .card {
     background: var(--card);
     width: 100%;
-    max-width: 36rem;
+    max-width: 700px; /* 从36rem增加到700px */
     border-radius: 0.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     padding: 2rem;
@@ -393,6 +393,7 @@ hr {
     padding: 4px;
     background-color: #f5f7fa;
     border-radius: 8px;
+    justify-content: center; /* 居中显示标签 */
 }
 
 .api-sub-tab {
@@ -403,7 +404,7 @@ hr {
     font-size: 0.95rem;
     font-weight: 500;
     text-align: center;
-    min-width: 100px;
+    min-width: 110px; /* 稍微增加宽度 */
     color: #64748b;
     background-color: transparent;
     border: 1px solid transparent;
