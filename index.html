@@ -53,6 +53,12 @@
             border-color: var(--primary);
         }
         
+        .language-selector button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
         .card {
             background: var(--card);
             max-width: 36rem;
@@ -173,12 +179,20 @@
 
         function changeLanguage(lang) {
           const dict = translations[lang];
+          
+          // Update text translations
           document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (dict[key]) {
               el.textContent = dict[key];
             }
           });
+          
+          // Update active language button
+          document.querySelectorAll('.language-selector button').forEach(button => {
+            button.classList.remove('active');
+          });
+          document.querySelector(`.language-selector button[onclick="changeLanguage('${lang}')"]`).classList.add('active');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -189,7 +203,7 @@
 <body>
     <div class="language-selector">
         <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('zh-cn')">简体中文</button>
+        <button onclick="changeLanguage('zh-cn')" class="active">简体中文</button>
         <button onclick="changeLanguage('zh-tw')">繁體中文</button>
     </div>
 
