@@ -18,6 +18,7 @@ const translations = {
     "step7": "Scroll to the bottom to find the shortcut you just downloaded.",
     "step8": "Configuration complete. Now you can quickly record by double-tapping the back of your phone.",
     "actionNote": "Users with an Action Button (iPhone 15 Pro and above) can also set the shortcut to the Action Button.",
+
     "siluFlow": "Silicone Flow",
     "volcanicEngine": "Volcanic Engine",
     "openai": "OpenAI",
@@ -41,7 +42,14 @@ const translations = {
     "openaiStep3New": "Once on the page, click the 'Create new secret key' button in the top right.",
     "openaiStep4New": "You may enter a name (recommended for easier management) or leave it blank. Keep other options as default.",
     "openaiStep5New": "Click 'Create secret key' and securely save your API key.",
-    "officialSite": "Official Website"
+    "officialSite": "Official Website",
+
+    "noticeTab": "Notices",
+    "noticeTitle": "Notices",
+    "noticeIntro": "This is the official announcement board for Symoney. Here you'll find important updates, feature releases, and other critical information about the app. Please check this page regularly for the latest news.",
+    "noticeDate1": "May 10, 2025",
+    "noticeHeading1": "Welcome to Symoney Guide",
+    "noticeContent1": "Thank you for using Symoney! This guide provides instructions for quick expense recording using iOS shortcuts and API key setup for advanced features. I will be continuously updating this guide with new features and improvements. If you have any questions, please contact me.",
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -61,6 +69,7 @@ const translations = {
     "step7": "滑动到最下面找到刚才下载的快捷指令。",
     "step8": "配置完成，现在您可以通过敲击手机背部两下来进行快速记账了。",
     "actionNote": "有 Action Button 的用户也可以将快捷指令设置到 Action Button 上去（iPhone 15 Pro 及以上）。",
+
     "siluFlow": "硅基流动",
     "volcanicEngine": "火山引擎",
     "openai": "OpenAI",
@@ -84,7 +93,14 @@ const translations = {
     "openaiStep3New": "进入网页后，点击右上角「Create new secret key」。",
     "openaiStep4New": "名称可以不填，但是建议写一个比较方便管理，其他选项默认。",
     "openaiStep5New": "点击「Create secret key」即可。",
-    "officialSite": "官方网站"
+    "officialSite": "官方网站",
+
+    "noticeTab": "公告",
+    "noticeTitle": "公告",
+    "noticeIntro": "这是简钱 Symoney 的官方公告板。在这里，您可以找到重要更新、功能发布和其他关于应用的关键信息。请定期查看此页面以获取最新消息。",
+    "noticeDate1": "2025年5月10日",
+    "noticeHeading1": "欢迎使用简钱指南",
+    "noticeContent1": "感谢您使用简钱！本指南提供了使用 iOS 快捷指令进行快速记账和设置 API 密钥以使用高级功能的说明。我将不断更新本指南，添加新功能和改进。如果您有任何疑问，请联系我。",
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -104,6 +120,7 @@ const translations = {
     "step7": "滑動到最下面找到剛才下載的捷徑。",
     "step8": "配置完成，現在您可以通過敲擊手機背部兩下來進行快速記帳了。",
     "actionNote": "具有 Action Button（iPhone 15 Pro 及以上機型）的使用者，也可以將此捷徑設定到 Action Button。",
+    
     "siluFlow": "矽基流動",
     "volcanicEngine": "火山引擎",
     "openai": "OpenAI",
@@ -127,7 +144,14 @@ const translations = {
     "openaiStep3New": "進入網頁後，點擊右上角「Create new secret key」。",
     "openaiStep4New": "名稱可以不填，但是建議寫一個比較方便管理，其他選項默認。",
     "openaiStep5New": "點擊「Create secret key」即可。",
-    "officialSite": "官方網站"
+    "officialSite": "官方網站",
+
+    "noticeTab": "公告",
+    "noticeTitle": "公告",
+    "noticeIntro": "這是簡錢 Symoney 的官方公告板。在這裡，您可以找到重要更新、功能發布和其他關於應用的關鍵信息。請定期查看此頁面以獲取最新消息。",
+    "noticeDate1": "2025年5月10日",
+    "noticeHeading1": "歡迎使用簡錢指南",
+    "noticeContent1": "感謝您使用簡錢！本指南提供了使用 iOS 捷徑進行快速記帳和設置 API 金鑰以使用高級功能的說明。我將不斷更新本指南，添加新功能和改進。如果您有任何疑問，請聯繫我。"
   }
 };
 
