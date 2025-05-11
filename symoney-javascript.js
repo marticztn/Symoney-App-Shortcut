@@ -1,8 +1,7 @@
 // Translations object with all supported languages
 const translations = {
   "en": {
-    "headerTitle": "Symoney Guide",
-    "title": "Symoney Quick Guide",
+    "headerTitle": "Symoney® Guide",
     "quickRecordTab": "Quick Record",
     "apiKeyTab": "API Key",
     "quickRecordTitle": "Quick Record Guide",
@@ -27,31 +26,25 @@ const translations = {
     "openaiTitle": "OpenAI API Key Guide",
     "siluStep1": "Visit the Silicone Flow official website.",
     "siluStep2": "Register or log in to your account.",
-    "siluStep3": "Navigate to the dashboard and select 'API Management'.",
-    "siluStep4": "Click 'Create New API Key'.",
+    "siluStep3New": "Go to the console, select 'API Keys' in the left panel, then click 'Create New API Key'.",
     "siluStep5": "Set up usage limits and permissions.",
     "siluStep6": "Confirm and generate your API key.",
     "siluStep7": "Copy and securely store your API key.",
     "volcanicStep1": "Go to the Volcanic Engine developer portal.",
     "volcanicStep2": "Sign up or sign in to your developer account.",
-    "volcanicStep3": "Select 'API Keys' from the developer dashboard.",
-    "volcanicStep4": "Click 'Create Key' button.",
-    "volcanicStep5": "Choose the services you need access to.",
-    "volcanicStep6": "Set any usage limits or restrictions.",
-    "volcanicStep7": "Generate and save your API key securely.",
+    "volcanicStep3New": "In the console, scroll down the left panel, select 'API Key Management', then click 'Create API Key'. Enter any name and click 'Create'.",
+    "volcanicStep4New": "Then in the console's left panel, scroll up and select 'Online Inference', click 'Create Inference Endpoint'.",
+    "volcanicStep5New": "Enter any name for the endpoint, select 'Doubao-1.5-pro-32k' as the model, and choose version 250115.",
+    "volcanicStep6New": "Click OK, then click 'Confirm Access'.",
     "openaiStep1": "Go to OpenAI's website at openai.com.",
     "openaiStep2": "Sign up or log in to your OpenAI account.",
-    "openaiStep3": "Navigate to the API section.",
-    "openaiStep4": "Go to 'API Keys' in your account settings.",
-    "openaiStep5": "Click 'Create New Secret Key'.",
-    "openaiStep6": "Give your key a name (optional).",
-    "openaiStep7": "Create and safely store your new API key.",
-    "officialSite": "Visit Official Website",
-    "languageText": "Language"
+    "openaiStep3New": "Once on the page, click the 'Create new secret key' button in the top right.",
+    "openaiStep4New": "You may enter a name (recommended for easier management) or leave it blank. Keep other options as default.",
+    "openaiStep5New": "Click 'Create secret key' and securely save your API key.",
+    "officialSite": "Official Website"
   },
   "zh-cn": {
-    "headerTitle": "简钱 Symoney™ 指南",
-    "title": "简钱 Symoney™ 指南",
+    "headerTitle": "简钱 Symoney® 指南",
     "quickRecordTab": "快速记账",
     "apiKeyTab": "API密钥",
     "quickRecordTitle": "快速记账指南",
@@ -76,31 +69,25 @@ const translations = {
     "openaiTitle": "OpenAI API 密钥申请教程",
     "siluStep1": "访问硅基流动官方网站。",
     "siluStep2": "注册或登录您的账户。",
-    "siluStep3": "进入控制台，选择「API 管理」。",
-    "siluStep4": "点击「创建新的 API 密钥」。",
+    "siluStep3New": "进入控制台，左侧面板中选择「API密钥」，然后点击「新建API密钥」。",
     "siluStep5": "设置使用限制和权限。",
     "siluStep6": "确认并生成您的 API 密钥。",
     "siluStep7": "复制并安全保存您的 API 密钥。",
     "volcanicStep1": "前往火山引擎开发者平台。",
     "volcanicStep2": "注册或登录您的开发者账户。",
-    "volcanicStep3": "在开发者控制台中选择「API 密钥」。",
-    "volcanicStep4": "点击「创建密钥」按钮。",
-    "volcanicStep5": "选择您需要访问的服务。",
-    "volcanicStep6": "设置任何使用限制或约束。",
-    "volcanicStep7": "生成并安全保存您的 API 密钥。",
+    "volcanicStep3New": "控制台左侧面板往下滑动，选择「API Key 管理」，然后选择「创建API Key」，然后名称随意，然后点击「创建」即可。",
+    "volcanicStep4New": "然后在控制台左侧面板中，向上滑动，选中「在线推理」，点击「创建推理接入点」。",
+    "volcanicStep5New": "接入点名称随意，模型必须选择「Doubao-1.5-pro-32k」，然后选择250115版本。",
+    "volcanicStep6New": "点击确定，最后点击「确认接入」即可。",
     "openaiStep1": "访问 OpenAI 官网 openai.com。",
     "openaiStep2": "注册或登录您的 OpenAI 账户。",
-    "openaiStep3": "导航至 API 部分。",
-    "openaiStep4": "在账户设置中找到「API 密钥」。",
-    "openaiStep5": "点击「创建新密钥」。",
-    "openaiStep6": "为您的密钥命名（可选）。",
-    "openaiStep7": "创建并安全保存您的新 API 密钥。",
-    "officialSite": "访问官方网站",
-    "languageText": "语言"
+    "openaiStep3New": "进入网页后，点击右上角「Create new secret key」。",
+    "openaiStep4New": "名称可以不填，但是建议写一个比较方便管理，其他选项默认。",
+    "openaiStep5New": "点击「Create secret key」即可。",
+    "officialSite": "官方网站"
   },
   "zh-tw": {
-    "headerTitle": "簡錢 Symoney™ 指南",
-    "title": "簡錢 Symoney™ 指南",
+    "headerTitle": "簡錢 Symoney® 指南",
     "quickRecordTab": "快速記帳",
     "apiKeyTab": "API金鑰",
     "quickRecordTitle": "快速記帳指南",
@@ -125,27 +112,22 @@ const translations = {
     "openaiTitle": "OpenAI API 金鑰申請教學",
     "siluStep1": "訪問矽基流動官方網站。",
     "siluStep2": "註冊或登入您的帳戶。",
-    "siluStep3": "進入控制台，選擇「API 管理」。",
-    "siluStep4": "點擊「創建新的 API 金鑰」。",
+    "siluStep3New": "進入控制台，左側面板中選擇「API金鑰」，然後點擊「新建API金鑰」。",
     "siluStep5": "設置使用限制和權限。",
     "siluStep6": "確認並產生您的 API 金鑰。",
     "siluStep7": "複製並安全保存您的 API 金鑰。",
     "volcanicStep1": "前往火山引擎開發者平台。",
     "volcanicStep2": "註冊或登入您的開發者帳戶。",
-    "volcanicStep3": "在開發者控制台中選擇「API 金鑰」。",
-    "volcanicStep4": "點擊「創建金鑰」按鈕。",
-    "volcanicStep5": "選擇您需要訪問的服務。",
-    "volcanicStep6": "設置任何使用限制或約束。",
-    "volcanicStep7": "產生並安全保存您的 API 金鑰。",
+    "volcanicStep3New": "控制台左側面板往下滑動，選擇「API Key 管理」，然後選擇「創建API Key」，然後名稱隨意，然後點擊「創建」即可。",
+    "volcanicStep4New": "然後在控制台左側面板中，向上滑動，選中「在線推理」，點擊「創建推理接入點」。",
+    "volcanicStep5New": "接入點名稱隨意，模型必須選擇「Doubao-1.5-pro-32k」，然後選擇250115版本。",
+    "volcanicStep6New": "點擊確定，最後點擊「確認接入」即可。",
     "openaiStep1": "訪問 OpenAI 官網 openai.com。",
     "openaiStep2": "註冊或登入您的 OpenAI 帳戶。",
-    "openaiStep3": "導航至 API 部分。",
-    "openaiStep4": "在帳戶設置中找到「API 金鑰」。",
-    "openaiStep5": "點擊「創建新金鑰」。",
-    "openaiStep6": "為您的金鑰命名（可選）。",
-    "openaiStep7": "創建並安全保存您的新 API 金鑰。",
-    "officialSite": "訪問官方網站",
-    "languageText": "語言"
+    "openaiStep3New": "進入網頁後，點擊右上角「Create new secret key」。",
+    "openaiStep4New": "名稱可以不填，但是建議寫一個比較方便管理，其他選項默認。",
+    "openaiStep5New": "點擊「Create secret key」即可。",
+    "officialSite": "官方網站"
   }
 };
 
@@ -241,11 +223,6 @@ function switchApiTab(apiTabName) {
         item.offsetHeight; // Trigger reflow
         item.style.animation = `slideIn 0.5s ease both ${0.1 * (index + 1)}s`;
     });
-}
-
-// Function for copying example (removed in this version)
-function copyExample(type) {
-    // Removed functionality
 }
 
 // Initialize the page when DOM is fully loaded
