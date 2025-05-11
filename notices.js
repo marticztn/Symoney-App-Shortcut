@@ -1,0 +1,108 @@
+/**
+ * Symoney Notices
+ * This file contains all notices to be displayed in the app
+ * Notices are stored in reverse chronological order (newest first)
+ */
+
+const notices = {
+  "en": [
+    {
+      id: "notice3",
+      date: "May 11, 2025",
+      heading: "Smart Quick Record (Shortcut) / Natural Language Recording Unavailable",
+      content: "Due to a sudden surge of users on May 9th and 10th, the servers for Smart Quick Record and Natural Language Recording could not handle the unexpected high traffic, resulting in service outages. I have temporarily taken down the servers and redesigned the logic for these two recording methods. The new version has been submitted to Apple for review (v1.1.84). Please be patient while we await approval. Thank you for your support of Symoney!",
+      urgent: true,
+      isNew: true
+    },
+    {
+      id: "notice2",
+      date: "May 10, 2025",
+      heading: "GitHub Website Access Issues",
+      content: "Some users have reported that GitHub websites are inaccessible in mainland China. This may be due to DNS issues. You can try changing your device's DNS settings or using a VPN to access the site. We apologize for any inconvenience this may cause!",
+      urgent: false,
+      isNew: true
+    },
+    {
+      id: "notice1",
+      date: "May 10, 2025",
+      heading: "Welcome to Symoney Guide",
+      content: "Thank you for using Symoney! This guide provides instructions for quick expense recording using iOS shortcuts and API key setup for advanced features. I will be continuously updating this guide with new features and improvements. If you have any questions, please contact me.",
+      urgent: false,
+      isNew: false
+    }
+  ],
+  "zh-cn": [
+    {
+      id: "notice3",
+      date: "2025年5月11日",
+      heading: "智能快速记账（快捷指令）/ 自然语言记账 不可用的问题",
+      content: "由于9号至10号，大量用户呈爆发式的涌入app，智能快速记账和自然语言记账的服务器无法承受突如其来的大流量，最终导致宕机。我已暂时撤下服务器，并且重新设计了这两种记账方式的使用逻辑，新版本已经提交苹果审核（v1.1.84），还请大家耐心等待。感谢大家对简钱的支持！",
+      urgent: true,
+      isNew: true
+    },
+    {
+      id: "notice2",
+      date: "2025年5月10日",
+      heading: "GitHub网页无法打开的问题",
+      content: "有用户反馈GitHub网页在中国大陆地区无法访问的情况，有可能是DNS导致的，可以尝试修改设备的DNS，或者使用梯子进行访问。抱歉给大家带来的不便！",
+      urgent: false,
+      isNew: true
+    },
+    {
+      id: "notice1",
+      date: "2025年5月10日",
+      heading: "欢迎使用简钱指南",
+      content: "感谢您使用简钱！本指南提供了使用 iOS 快捷指令进行快速记账和设置 API 密钥以使用高级功能的说明。我将不断更新本指南，添加新功能和改进。如果您有任何疑问，请联系我。",
+      urgent: false,
+      isNew: false
+    }
+  ],
+  "zh-tw": [
+    {
+      id: "notice3",
+      date: "2025年5月11日",
+      heading: "智能快速記帳（捷徑）/ 自然語言記帳 不可用的問題",
+      content: "由於9號至10號，大量用戶呈爆發式的湧入app，智能快速記帳和自然語言記帳的服務器無法承受突如其來的大流量，最終導致宕機。我已暫時撤下服務器，並且重新設計了這兩種記帳方式的使用邏輯，新版本已經提交蘋果審核（v1.1.84），還請大家耐心等待。感謝大家對簡錢的支持！",
+      urgent: true,
+      isNew: true
+    },
+    {
+      id: "notice2",
+      date: "2025年5月10日",
+      heading: "GitHub網頁無法打開的問題",
+      content: "有用戶反饋GitHub網頁在中國大陸地區無法訪問的情況，有可能是DNS導致的，可以嘗試修改設備的DNS，或者使用梯子進行訪問。抱歉給大家帶來的不便！",
+      urgent: false,
+      isNew: true
+    },
+    {
+      id: "notice1",
+      date: "2025年5月10日",
+      heading: "歡迎使用簡錢指南",
+      content: "感謝您使用簡錢！本指南提供了使用 iOS 捷徑進行快速記帳和設置 API 金鑰以使用高級功能的說明。我將不斷更新本指南，添加新功能和改進。如果您有任何疑問，請聯繫我。",
+      urgent: false,
+      isNew: false
+    }
+  ]
+};
+
+// Common translations for notice-related text
+const noticeTranslations = {
+  "en": {
+    "noticeTab": "Notices",
+    "noticeTitle": "Notices",
+    "noticeIntro": "This is the official announcement board for Symoney. Here you'll find important updates, feature releases, and other critical information about the app. Please check this page regularly for the latest news.",
+    "newBadge": "NEW"
+  },
+  "zh-cn": {
+    "noticeTab": "公告",
+    "noticeTitle": "公告",
+    "noticeIntro": "这是简钱 Symoney 的官方公告板。在这里，您可以找到重要更新、功能发布和其他关于应用的关键信息。请定期查看此页面以获取最新消息。",
+    "newBadge": "新"
+  },
+  "zh-tw": {
+    "noticeTab": "公告",
+    "noticeTitle": "公告",
+    "noticeIntro": "這是簡錢 Symoney 的官方公告板。在這裡，您可以找到重要更新、功能發布和其他關於應用的關鍵信息。請定期查看此頁面以獲取最新消息。",
+    "newBadge": "新"
+  }
+};

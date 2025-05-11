@@ -182,8 +182,17 @@ const translations = {
   }
 };
 
+// Add notice translations to main translations object
+for (const lang in noticeTranslations) {
+  Object.assign(translations[lang], noticeTranslations[lang]);
+}
+
+// Current language
+let currentLanguage = 'zh-cn';
+
 // Function to change the language
 function changeLanguage(lang) {
+  currentLanguage = lang;
   const dict = translations[lang];
   
   // Update text translations
@@ -206,6 +215,63 @@ function changeLanguage(lang) {
   
   // Close dropdown
   document.querySelector('.language-dropdown').classList.remove('open');
+  
+  // Refresh notices for the new language
+  renderNotices(lang);
+  checkNewNotices();
+}
+
+// Function to render notices based on current language
+function renderNotices(lang) {
+  const noticeContainer = document.getElementById('noticeContainer');
+  if (!noticeContainer) return;
+  
+  // Clear existing notices
+  noticeContainer.innerHTML = '';
+  
+  // Get notices for current language
+  const currentNotices = notices[lang];
+  if (!currentNotices || !currentNotices.length) return;
+  
+  // Add each notice to the container
+  currentNotices.forEach(notice => {
+    const noticeElement = document.createElement('div');
+    noticeElement.className = `notice-item${notice.urgent ? ' urgent' : ''}`;
+    noticeElement.setAttribute('data-notice-id', notice.id);
+    noticeElement.onclick = () => markNoticeAsRead(notice.id);
+    
+    const dateElement = document.createElement('div');
+    dateElement.className = 'notice-date';
+    dateElement.textContent = notice.date;
+    
+    const headingElement = document.createElement('h3');
+    headingElement.className = 'notice-heading';
+    
+    const headingText = document.createElement('span');
+    headingText.textContent = notice.heading;
+    headingElement.appendChild(headingText);
+    
+    // Only add NEW badge if the notice is new
+    if (notice.isNew) {
+      const newBadge = document.createElement('span');
+      newBadge.className = 'notice-new';
+      newBadge.textContent = translations[lang].newBadge;
+      headingElement.appendChild(newBadge);
+    }
+    
+    const contentElement = document.createElement('div');
+    contentElement.className = 'notice-content';
+    contentElement.textContent = notice.content;
+    
+    noticeElement.appendChild(dateElement);
+    noticeElement.appendChild(headingElement);
+    noticeElement.appendChild(contentElement);
+    
+    noticeContainer.appendChild(noticeElement);
+  });
+  
+  // Check for new notices after rendering
+  setTimeout(checkNewNotices, 100);
 }
 
 // Function to toggle the language dropdown
@@ -328,7 +394,7 @@ function checkAllNoticesRead() {
     }
 }
 
-// Function to check for new notices
+// Function to check for new notices - modified to work with dynamic notices
 function checkNewNotices() {
     const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
     const noticeItems = document.querySelectorAll('.notice-item');
@@ -360,9 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set default language
     changeLanguage('zh-cn');
     
-    // Check for new notices
-    checkNewNotices();
-    
     // Set default tab
     switchTab('quickRecord');
     
@@ -374,9 +437,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Add hover effect to notices
-    const noticeItems = document.querySelectorAll('.notice-item');
-    noticeItems.forEach(item => {
-        item.style.cursor = 'pointer';
-    });
+    // Make sure the badges are visible
+    setTimeout(checkNewNotices, 500);
 });
+
+// Add this to ensure styles are applied properly
+document.head.insertAdjacentHTML('beforeend', `
+<style>
+.notice-new {
+    display: inline-block !important;
+    margin-left: 8px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 8px;
+    vertical-align: middle;
+    animation: pulse 1.5s infinite;
+}
+
+.new-badge {
+    display: inline-block !important;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite;
+}
+</style>
+`);
