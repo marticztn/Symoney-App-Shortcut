@@ -228,10 +228,10 @@ function switchTab(tabName) {
     });
     document.querySelector(`.tab-content[data-tab="${tabName}"]`).classList.add('active');
     
-    // If notice tab is selected, mark notices as viewed
-    if (tabName === 'notice') {
-        markNoticesAsViewed();
-    }
+    // Remove this line since we don't want notices to be auto-marked as read
+    // if (tabName === 'notice') {
+    //     markNoticesAsViewed();
+    // }
     
     // Animate new content
     const activeContent = document.querySelector(`.tab-content[data-tab="${tabName}"]`);
@@ -281,12 +281,56 @@ function switchApiTab(apiTabName) {
     });
 }
 
-// Function to check for new notices
-function checkNewNotices() {
+// Function to mark a specific notice as read
+function markNoticeAsRead(noticeId) {
     // Get viewed notices from localStorage
     const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
     
-    // Check if there are any unviewed notices
+    // Get the notice element
+    const noticeItem = document.querySelector(`.notice-item[data-notice-id="${noticeId}"]`);
+    if (!noticeItem) return;
+    
+    // Get the new badge element
+    const newBadge = noticeItem.querySelector('.notice-new');
+    if (!newBadge) return;
+    
+    // If this notice hasn't been viewed yet
+    if (!viewedNotices[noticeId]) {
+        // Mark as viewed
+        viewedNotices[noticeId] = Date.now();
+        newBadge.style.display = 'none';
+        
+        // Save updated viewed notices to localStorage
+        localStorage.setItem('symoneyViewedNotices', JSON.stringify(viewedNotices));
+        
+        // Check if all notices have been read
+        checkAllNoticesRead();
+    }
+}
+
+// Function to check if all notices have been read
+function checkAllNoticesRead() {
+    const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
+    const noticeItems = document.querySelectorAll('.notice-item[data-notice-id]');
+    let allRead = true;
+    
+    noticeItems.forEach(item => {
+        const noticeId = item.getAttribute('data-notice-id');
+        if (!viewedNotices[noticeId]) {
+            allRead = false;
+        }
+    });
+    
+    // Update tab badge visibility
+    const noticeTabBadge = document.getElementById('noticeTabBadge');
+    if (noticeTabBadge) {
+        noticeTabBadge.style.display = allRead ? 'none' : 'inline-block';
+    }
+}
+
+// Function to check for new notices
+function checkNewNotices() {
+    const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
     const noticeItems = document.querySelectorAll('.notice-item');
     let hasNewNotices = false;
     
@@ -294,15 +338,12 @@ function checkNewNotices() {
         const noticeId = item.getAttribute('data-notice-id');
         const newBadge = item.querySelector('.notice-new');
         
-        // Skip items without a new badge
         if (!newBadge) return;
         
         if (!viewedNotices[noticeId]) {
-            // This notice is new (not viewed)
             hasNewNotices = true;
             newBadge.style.display = 'inline-block';
         } else {
-            // This notice has been viewed
             newBadge.style.display = 'none';
         }
     });
@@ -314,50 +355,13 @@ function checkNewNotices() {
     }
 }
 
-// Function to mark notices as viewed
-function markNoticesAsViewed() {
-    // Get viewed notices from localStorage
-    const viewedNotices = JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}');
-    
-    // Mark all current notices as viewed
-    const noticeItems = document.querySelectorAll('.notice-item');
-    let hasUpdates = false;
-    
-    noticeItems.forEach(item => {
-        const noticeId = item.getAttribute('data-notice-id');
-        const newBadge = item.querySelector('.notice-new');
-        
-        // Skip items without an ID or new badge
-        if (!noticeId || !newBadge) return;
-        
-        // If this notice hasn't been viewed yet
-        if (!viewedNotices[noticeId]) {
-            // Mark as viewed
-            viewedNotices[noticeId] = Date.now();
-            newBadge.style.display = 'none';
-            hasUpdates = true;
-        }
-    });
-    
-    if (hasUpdates) {
-        // Save updated viewed notices to localStorage
-        localStorage.setItem('symoneyViewedNotices', JSON.stringify(viewedNotices));
-        
-        // Update tab badge
-        const noticeTabBadge = document.getElementById('noticeTabBadge');
-        if (noticeTabBadge) {
-            noticeTabBadge.style.display = 'none';
-        }
-    }
-}
-
 // Initialize the page when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Set default language
     changeLanguage('zh-cn');
     
     // Check for new notices
-    setTimeout(checkNewNotices, 500);
+    checkNewNotices();
     
     // Set default tab
     switchTab('quickRecord');
@@ -365,9 +369,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         const dropdown = document.querySelector('.language-dropdown');
-        
         if (!dropdown.contains(e.target) && dropdown.classList.contains('open')) {
             dropdown.classList.remove('open');
         }
+    });
+    
+    // Add hover effect to notices
+    const noticeItems = document.querySelectorAll('.notice-item');
+    noticeItems.forEach(item => {
+        item.style.cursor = 'pointer';
     });
 });
