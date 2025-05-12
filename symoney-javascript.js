@@ -59,6 +59,10 @@ const translations = {
     "noticeHeading3": "Smart Quick Record (Shortcut) / Natural Language Recording Unavailable",
     "noticeContent3": "Due to a sudden surge of users on May 9th and 10th, the servers for Smart Quick Record and Natural Language Recording could not handle the unexpected high traffic, resulting in service outages. I have temporarily taken down the servers and redesigned the logic for these two recording methods (users now need to provide their own API Key, see API Key tutorial for details). The new version has been submitted to Apple for review (v1.1.84). Please be patient while we await approval. Thank you for your support of Symoney!",
     "newBadge": "NEW",
+
+    "noticeDate4": "May 12, 2025",
+    "noticeHeading4": "v1.1.84 users need to download the new shortcuts",
+    "noticeContent4": "For 'Symoney+' users who have upgraded to v1.1.84, please go to the 'Quick Record' tab on this page to get the latest shortcuts, and delete the previously downloaded shortcuts. Otherwise, Natural Language Recording/Smart Quick Record will not work. Thank you!",
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -119,6 +123,10 @@ const translations = {
     "noticeHeading3": "智能快速记账（快捷指令）/ 自然语言记账 不可用的问题",
     "noticeContent3": "由于9号至10号，大量用户呈爆发式的涌入app，智能快速记账和自然语言记账的服务器无法承受突如其来的大流量，最终导致宕机。我已暂时撤下服务器，并且重新设计了这两种记账方式的使用逻辑（需要用户自行提供API Key来使用，详见API密钥教程），新版本已经提交苹果审核（v1.1.84），还请大家耐心等待。感谢大家对简钱的支持！",
     "newBadge": "新",
+
+    "noticeDate4": "2025年5月12日",
+    "noticeHeading4": "v1.1.84版本需要重新下载新的快捷指令",
+    "noticeContent4": "已经升级到v1.1.84版本的「简钱+」用户，请前往本网页的「快速记账」选项卡，获取最新的快捷指令，并删除之前下载的快捷指令，否则自然语言记账/智能快速记账将无法使用，谢谢！",
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -175,10 +183,14 @@ const translations = {
     "noticeHeading2": "GitHub網頁無法打開的問題",
     "noticeContent2": "有用戶反饋GitHub網頁在中國大陸地區無法訪問的情況，有可能是DNS導致的，可以嘗試修改設備的DNS，或者使用梯子進行訪問。抱歉給大家帶來的不便！",
     
-    "noticeDate3": "2025年5月11日", 
+    "noticeDate3": "2025年5月11日",
     "noticeHeading3": "智能快速記帳（捷徑）/ 自然語言記帳 不可用的問題",
     "noticeContent3": "由於9號至10號，大量用戶呈爆發式的湧入app，智能快速記帳和自然語言記帳的服務器無法承受突如其來的大流量，最終導致宕機。我已暫時撤下服務器，並且重新設計了這兩種記帳方式的使用邏輯（需要用戶自行提供API Key來使用，詳見API金鑰教程），新版本已經提交蘋果審核（v1.1.84），還請大家耐心等待。感謝大家對簡錢的支持！",
     "newBadge": "新",
+
+    "noticeDate4": "2025年5月12日",
+    "noticeHeading4": "v1.1.84版本需要重新下載新的捷徑",
+    "noticeContent4": "已經升級到v1.1.84版本的「簡錢+」用戶，請前往本網頁的「快速記帳」選項卡，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
   }
 };
 
@@ -262,6 +274,17 @@ function renderNotices(lang) {
     const contentElement = document.createElement('div');
     contentElement.className = 'notice-content';
     contentElement.textContent = notice.content;
+    
+    // Add button directly if the notice has buttonText and buttonAction properties
+    if (notice.buttonText && notice.buttonAction) {
+      const readMoreLink = document.createElement('div');
+      readMoreLink.className = 'read-more-link';
+      readMoreLink.innerHTML = `<a href="#" onclick="event.stopPropagation(); switchTab('${notice.buttonAction}'); return false;">${notice.buttonText}</a>`;
+      
+      // Add spacing between content and button
+      contentElement.appendChild(document.createElement('br'));
+      contentElement.appendChild(readMoreLink);
+    }
     
     noticeElement.appendChild(dateElement);
     noticeElement.appendChild(headingElement);
@@ -359,24 +382,11 @@ function markNoticeAsRead(noticeId) {
     // Get the new badge element
     const newBadge = noticeItem.querySelector('.notice-new');
     
-    // If this notice is about API Key (notice3) and is clicked, offer to navigate to API Key tab
-    if (noticeId === 'notice3') {
-        // If notice contains a reference to API Key
-        const content = noticeItem.querySelector('.notice-content');
-        if (content && content.textContent.includes('API Key')) {
-            // Add a "Read More" link if it doesn't exist already
-            if (!noticeItem.querySelector('.read-more-link')) {
-                const readMoreLink = document.createElement('div');
-                readMoreLink.className = 'read-more-link';
-                readMoreLink.innerHTML = `<a href="#" onclick="event.stopPropagation(); switchTab('apiKey'); return false;">${
-                    currentLanguage === 'en' ? 'View API Key Guide' : 
-                    (currentLanguage === 'zh-cn' ? '查看API密钥教程' : '查看API金鑰教程')
-                }</a>`;
-                content.appendChild(document.createElement('br'));
-                content.appendChild(readMoreLink);
-            }
-        }
-    }
+    // We no longer need this part since buttons are rendered directly
+    // if (noticeId === 'notice3' || noticeId === 'notice4') {
+    //   // Special handling for specific notices is no longer needed
+    //   // since buttons are already rendered
+    // }
     
     // If this notice hasn't been viewed yet and has a new badge
     if (!viewedNotices[noticeId] && newBadge) {

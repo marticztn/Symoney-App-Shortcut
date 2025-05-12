@@ -637,10 +637,35 @@ hr {
     padding-left: 0.25rem;
 }
 
-/* 响应式样式 */
-@media (min-width: 640px) {
-    .shortcut-container {
-        flex-direction: row;
-        align-items: flex-start;
-    }
+.read-more-link {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.read-more-link a {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.read-more-link a:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.notice-item.urgent .read-more-link a {
+    background-color: #dc2626;
+}
+
+.notice-item.urgent .read-more-link a:hover {
+    background-color: #b91c1c;
 }
