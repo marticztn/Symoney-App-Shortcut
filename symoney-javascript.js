@@ -50,12 +50,12 @@ const translations = {
     
     "noticeDate3": "May 11, 2025",
     "noticeHeading3": "Smart Quick Record (Shortcut) / Natural Language Recording Unavailable",
-    "noticeContent3": "Due to a sudden surge of users on May 9th and 10th, the servers for Smart Quick Record and Natural Language Recording could not handle the unexpected high traffic, resulting in service outages. I have temporarily taken down the servers and redesigned the logic for these two recording methods (users now need to provide their own API Key, see API Key tutorial for details). The new version has been submitted to Apple for review (v1.1.84). Please be patient while we await approval. Thank you for your support of Symoney!",
+    "noticeContent3": "Due to a sudden surge of users on May 9th and 10th, the servers for Smart Quick Record and Natural Language Recording could not handle the unexpected high traffic, resulting in service outages. I have temporarily taken down the servers and redesigned the logic for these two recording methods (users now need to provide their own API Key, see API Key tutorial for details). The new version has been submitted to Apple for review (v1.1.84+). Please be patient while we await approval. Thank you for your support of Symoney!",
     "newBadge": "NEW",
 
     "noticeDate4": "May 12, 2025",
-    "noticeHeading4": "v1.1.84 users need to download the new shortcuts",
-    "noticeContent4": "For 'Symoney+' users who have upgraded to v1.1.84, please go to the 'Quick Record' tab on this page to get the latest shortcuts, and delete the previously downloaded shortcuts. Otherwise, Natural Language Recording/Smart Quick Record will not work. Thank you!",
+    "noticeHeading4": "v1.1.84+ users need to download the new shortcuts",
+    "noticeContent4": "For 'Symoney+' users who have upgraded to v1.1.84+, please go to the 'Quick Record' tab on this page to get the latest shortcuts, and delete the previously downloaded shortcuts. Otherwise, Natural Language Recording/Smart Quick Record will not work. Thank you!",
     
     "billingPage": "Billing Page"
   },
@@ -109,12 +109,12 @@ const translations = {
     
     "noticeDate3": "2025年5月11日",
     "noticeHeading3": "智能快速记账（快捷指令）/ 自然语言记账 不可用的问题",
-    "noticeContent3": "由于9号至10号，大量用户呈爆发式的涌入app，智能快速记账和自然语言记账的服务器无法承受突如其来的大流量，最终导致宕机。我已暂时撤下服务器，并且重新设计了这两种记账方式的使用逻辑（需要用户自行提供API Key来使用，详见API密钥教程），新版本已经提交苹果审核（v1.1.84），还请大家耐心等待。感谢大家对简钱的支持！",
+    "noticeContent3": "由于9号至10号，大量用户呈爆发式的涌入app，智能快速记账和自然语言记账的服务器无法承受突如其来的大流量，最终导致宕机。我已暂时撤下服务器，并且重新设计了这两种记账方式的使用逻辑（需要用户自行提供API Key来使用，详见API密钥教程），新版本已经提交苹果审核（v1.1.84+），还请大家耐心等待。感谢大家对简钱的支持！",
     "newBadge": "新",
 
     "noticeDate4": "2025年5月12日",
-    "noticeHeading4": "v1.1.84版本需要重新下载新的快捷指令",
-    "noticeContent4": "已经升级到v1.1.84版本的「简钱+」用户，请前往本网页的「快速记账」选项卡，获取最新的快捷指令，并删除之前下载的快捷指令，否则自然语言记账/智能快速记账将无法使用，谢谢！",
+    "noticeHeading4": "v1.1.84+版本需要重新下载新的快捷指令",
+    "noticeContent4": "已经升级到v1.1.84+版本的「简钱+」用户，请前往本网页的「快速记账」选项卡，获取最新的快捷指令，并删除之前下载的快捷指令，否则自然语言记账/智能快速记账将无法使用，谢谢！",
     
     "billingPage": "账单页面"
   },
@@ -168,12 +168,12 @@ const translations = {
     
     "noticeDate3": "2025年5月11日",
     "noticeHeading3": "智能快速記帳（捷徑）/ 自然語言記帳 不可用的問題",
-    "noticeContent3": "由於9號至10號，大量用戶呈爆發式的湧入app，智能快速記帳和自然語言記帳的服務器無法承受突如其來的大流量，最終導致宕機。我已暫時撤下服務器，並且重新設計了這兩種記帳方式的使用邏輯（需要用戶自行提供API Key來使用，詳見API金鑰教程），新版本已經提交蘋果審核（v1.1.84），還請大家耐心等待。感謝大家對簡錢的支持！",
+    "noticeContent3": "由於9號至10號，大量用戶呈爆發式的湧入app，智能快速記帳和自然語言記帳的服務器無法承受突如其來的大流量，最終導致宕機。我已暫時撤下服務器，並且重新設計了這兩種記帳方式的使用邏輯（需要用戶自行提供API Key來使用，詳見API金鑰教程），新版本已經提交蘋果審核（v1.1.84+），還請大家耐心等待。感謝大家對簡錢的支持！",
     "newBadge": "新",
 
     "noticeDate4": "2025年5月12日",
-    "noticeHeading4": "v1.1.84版本需要重新下載新的捷徑",
-    "noticeContent4": "已經升級到v1.1.84版本的「簡錢+」用戶，請前往本網頁的「快速記帳」選項卡，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
+    "noticeHeading4": "v1.1.84+版本需要重新下載新的捷徑",
+    "noticeContent4": "已經升級到v1.1.84+版本的「簡錢+」用戶，請前往本網頁的「快速記帳」選項卡，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
     
     "billingPage": "賬單頁面"
   }
@@ -183,6 +183,25 @@ const translations = {
 for (const lang in noticeTranslations) {
   Object.assign(translations[lang], noticeTranslations[lang]);
 }
+
+// Update Custom API tab translations to clarify it's using OpenAI as an example
+translations["en"]["custom"] = "Custom";
+translations["en"]["customTitle"] = "Custom API Key Guide (OpenAI Example)";
+translations["en"]["customStep1"] = "Enter the request URL (e.g., https://api.openai.com/v1/chat/completions)";
+translations["en"]["customStep2"] = "Enter the model name (e.g., gpt-4o)";
+translations["en"]["customStep3"] = "Enter the API Key generated from OpenAI or your chosen provider";
+
+translations["zh-cn"]["custom"] = "自定义";
+translations["zh-cn"]["customTitle"] = "自定义 API 密钥教程（以 OpenAI 为例）";
+translations["zh-cn"]["customStep1"] = "输入请求URL（例如：https://api.openai.com/v1/chat/completions）";
+translations["zh-cn"]["customStep2"] = "输入模型名称（例如：gpt-4o）";
+translations["zh-cn"]["customStep3"] = "输入从 OpenAI 或您选择的服务提供商获取的 API Key";
+
+translations["zh-tw"]["custom"] = "自定義";
+translations["zh-tw"]["customTitle"] = "自定義 API 金鑰教學（以 OpenAI 為例）";
+translations["zh-tw"]["customStep1"] = "輸入請求URL（例如：https://api.openai.com/v1/chat/completions）";
+translations["zh-tw"]["customStep2"] = "輸入模型名稱（例如：gpt-4o）";
+translations["zh-tw"]["customStep3"] = "輸入從 OpenAI 或您選擇的服務提供商獲取的 API Key";
 
 // Current language
 let currentLanguage = 'zh-cn';
