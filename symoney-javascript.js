@@ -21,10 +21,8 @@ const translations = {
 
     "siluFlow": "Silicone Flow",
     "volcanicEngine": "Volcanic Engine",
-    "openai": "OpenAI",
     "siluFlowTitle": "Silicone Flow API Key Guide",
     "volcanicEngineTitle": "Volcanic Engine API Key Guide",
-    "openaiTitle": "OpenAI API Key Guide",
     "siluStep1": "Visit the Silicone Flow official website.",
     "siluStep2": "Register or log in to your account.",
     "siluStep3New": "Go to the console, select 'API Keys' in the left panel, then click 'Create New API Key'.",
@@ -37,12 +35,6 @@ const translations = {
     "volcanicStep4New": "Then in the console's left panel, scroll up and select 'Online Inference', click 'Create Inference Endpoint'.",
     "volcanicStep5New": "Enter any name for the endpoint, select 'Doubao-1.5-pro-32k' as the model, and choose version 250115.",
     "volcanicStep6New": "Click OK, then click 'Confirm Access'.",
-    "openaiStep1": "Go to OpenAI's website.",
-    "openaiStep2": "Sign up or log in to your OpenAI account.",
-    "openaiStep3New": "Once on the page, click the 'Create new secret key' button in the top right.",
-    "openaiStep4New": "You may enter a name (recommended for easier management) or leave it blank. Keep other options as default.",
-    "openaiStep5New": "Click 'Create secret key' and securely save your API key.",
-    "openaiStep6": "OpenAI now requires pre-payment for API usage. Make sure your account has a payment method linked and a balance before you can use the API.",
     "officialSite": "Official Website",
 
     "noticeTab": "Notices",
@@ -88,10 +80,8 @@ const translations = {
 
     "siluFlow": "硅基流动",
     "volcanicEngine": "火山引擎",
-    "openai": "OpenAI",
     "siluFlowTitle": "硅基流动 API 密钥申请教程",
     "volcanicEngineTitle": "火山引擎 API 密钥申请教程",
-    "openaiTitle": "OpenAI API 密钥申请教程",
     "siluStep1": "访问硅基流动官方网站。",
     "siluStep2": "注册或登录您的账户。",
     "siluStep3New": "进入控制台，左侧面板中选择「API密钥」，然后点击「新建API密钥」。",
@@ -104,12 +94,6 @@ const translations = {
     "volcanicStep4New": "然后在控制台左侧面板中，向上滑动，选中「在线推理」，点击「创建推理接入点」。",
     "volcanicStep5New": "接入点名称随意，模型必须选择「Doubao-1.5-pro-32k」，然后选择250115版本。",
     "volcanicStep6New": "点击确定，最后点击「确认接入」即可。",
-    "openaiStep1": "访问 OpenAI 官网。",
-    "openaiStep2": "注册或登录您的 OpenAI 账户。",
-    "openaiStep3New": "进入网页后，点击右上角「Create new secret key」。",
-    "openaiStep4New": "名称可以不填，但是建议写一个比较方便管理，其他选项默认。",
-    "openaiStep5New": "点击「Create secret key」即可。",
-    "openaiStep6": "OpenAI现在使用API需要先预付费，所以确保你的账户中有绑定支付方式，并且有余额才能正常使用API。",
     "officialSite": "官方网站",
 
     "noticeTab": "公告",
@@ -155,10 +139,8 @@ const translations = {
     
     "siluFlow": "矽基流動",
     "volcanicEngine": "火山引擎",
-    "openai": "OpenAI",
     "siluFlowTitle": "矽基流動 API 金鑰申請教學",
     "volcanicEngineTitle": "火山引擎 API 金鑰申請教學",
-    "openaiTitle": "OpenAI API 金鑰申請教學",
     "siluStep1": "訪問矽基流動官方網站。",
     "siluStep2": "註冊或登入您的帳戶。",
     "siluStep3New": "進入控制台，左側面板中選擇「API金鑰」，然後點擊「新建API金鑰」。",
@@ -171,12 +153,6 @@ const translations = {
     "volcanicStep4New": "然後在控制台左側面板中，向上滑動，選中「在線推理」，點擊「創建推理接入點」。",
     "volcanicStep5New": "接入點名稱隨意，模型必須選擇「Doubao-1.5-pro-32k」，然後選擇250115版本。",
     "volcanicStep6New": "點擊確定，最後點擊「確認接入」即可。",
-    "openaiStep1": "訪問 OpenAI 官網。",
-    "openaiStep2": "註冊或登入您的 OpenAI 帳戶。",
-    "openaiStep3New": "進入網頁後，點擊右上角「Create new secret key」。",
-    "openaiStep4New": "名稱可以不填，但是建議寫一個比較方便管理，其他選項默認。",
-    "openaiStep5New": "點擊「Create secret key」即可。",
-    "openaiStep6": "OpenAI現在使用API需要先預付費，所以確保你的賬戶中有綁定支付方式，並且有餘額才能正常使用API。",
     "officialSite": "官方網站",
 
     "noticeTab": "公告",
@@ -353,6 +329,11 @@ function switchTab(tabName) {
 
 // Function to switch between API sub-tabs
 function switchApiTab(apiTabName) {
+    // If trying to switch to the removed openai tab, default to siluFlow
+    if (apiTabName === 'openai') {
+        apiTabName = 'siluFlow';
+    }
+    
     // Update active sub-tab
     document.querySelectorAll('.api-sub-tab').forEach(tab => {
         tab.classList.remove('active');
