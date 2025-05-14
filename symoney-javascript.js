@@ -37,11 +37,12 @@ const translations = {
     "volcanicStep4New": "Then in the console's left panel, scroll up and select 'Online Inference', click 'Create Inference Endpoint'.",
     "volcanicStep5New": "Enter any name for the endpoint, select 'Doubao-1.5-pro-32k' as the model, and choose version 250115.",
     "volcanicStep6New": "Click OK, then click 'Confirm Access'.",
-    "openaiStep1": "Go to OpenAI's website at openai.com.",
+    "openaiStep1": "Go to OpenAI's website.",
     "openaiStep2": "Sign up or log in to your OpenAI account.",
     "openaiStep3New": "Once on the page, click the 'Create new secret key' button in the top right.",
     "openaiStep4New": "You may enter a name (recommended for easier management) or leave it blank. Keep other options as default.",
     "openaiStep5New": "Click 'Create secret key' and securely save your API key.",
+    "openaiStep6": "OpenAI now requires pre-payment for API usage. Make sure your account has a payment method linked and a balance before you can use the API.",
     "officialSite": "Official Website",
 
     "noticeTab": "Notices",
@@ -63,6 +64,8 @@ const translations = {
     "noticeDate4": "May 12, 2025",
     "noticeHeading4": "v1.1.84 users need to download the new shortcuts",
     "noticeContent4": "For 'Symoney+' users who have upgraded to v1.1.84, please go to the 'Quick Record' tab on this page to get the latest shortcuts, and delete the previously downloaded shortcuts. Otherwise, Natural Language Recording/Smart Quick Record will not work. Thank you!",
+    
+    "billingPage": "Billing Page"
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -101,11 +104,12 @@ const translations = {
     "volcanicStep4New": "然后在控制台左侧面板中，向上滑动，选中「在线推理」，点击「创建推理接入点」。",
     "volcanicStep5New": "接入点名称随意，模型必须选择「Doubao-1.5-pro-32k」，然后选择250115版本。",
     "volcanicStep6New": "点击确定，最后点击「确认接入」即可。",
-    "openaiStep1": "访问 OpenAI 官网 openai.com。",
+    "openaiStep1": "访问 OpenAI 官网。",
     "openaiStep2": "注册或登录您的 OpenAI 账户。",
     "openaiStep3New": "进入网页后，点击右上角「Create new secret key」。",
     "openaiStep4New": "名称可以不填，但是建议写一个比较方便管理，其他选项默认。",
     "openaiStep5New": "点击「Create secret key」即可。",
+    "openaiStep6": "OpenAI现在使用API需要先预付费，所以确保你的账户中有绑定支付方式，并且有余额才能正常使用API。",
     "officialSite": "官方网站",
 
     "noticeTab": "公告",
@@ -127,6 +131,8 @@ const translations = {
     "noticeDate4": "2025年5月12日",
     "noticeHeading4": "v1.1.84版本需要重新下载新的快捷指令",
     "noticeContent4": "已经升级到v1.1.84版本的「简钱+」用户，请前往本网页的「快速记账」选项卡，获取最新的快捷指令，并删除之前下载的快捷指令，否则自然语言记账/智能快速记账将无法使用，谢谢！",
+    
+    "billingPage": "账单页面"
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -165,11 +171,12 @@ const translations = {
     "volcanicStep4New": "然後在控制台左側面板中，向上滑動，選中「在線推理」，點擊「創建推理接入點」。",
     "volcanicStep5New": "接入點名稱隨意，模型必須選擇「Doubao-1.5-pro-32k」，然後選擇250115版本。",
     "volcanicStep6New": "點擊確定，最後點擊「確認接入」即可。",
-    "openaiStep1": "訪問 OpenAI 官網 openai.com。",
+    "openaiStep1": "訪問 OpenAI 官網。",
     "openaiStep2": "註冊或登入您的 OpenAI 帳戶。",
     "openaiStep3New": "進入網頁後，點擊右上角「Create new secret key」。",
     "openaiStep4New": "名稱可以不填，但是建議寫一個比較方便管理，其他選項默認。",
     "openaiStep5New": "點擊「Create secret key」即可。",
+    "openaiStep6": "OpenAI現在使用API需要先預付費，所以確保你的賬戶中有綁定支付方式，並且有餘額才能正常使用API。",
     "officialSite": "官方網站",
 
     "noticeTab": "公告",
@@ -191,6 +198,8 @@ const translations = {
     "noticeDate4": "2025年5月12日",
     "noticeHeading4": "v1.1.84版本需要重新下載新的捷徑",
     "noticeContent4": "已經升級到v1.1.84版本的「簡錢+」用戶，請前往本網頁的「快速記帳」選項卡，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
+    
+    "billingPage": "賬單頁面"
   }
 };
 
