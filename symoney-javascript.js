@@ -57,7 +57,11 @@ const translations = {
     "noticeHeading4": "v1.1.84+ users need to download the new shortcuts",
     "noticeContent4": "For 'Symoney+' users who have upgraded to v1.1.84+, please go to the 'Quick Record' tab on this page to get the latest shortcuts, and delete the previously downloaded shortcuts. Otherwise, Natural Language Recording/Smart Quick Record will not work. Thank you!",
     
-    "billingPage": "Billing Page"
+    "billingPage": "Billing Page",
+
+    // Update translations for copying API key to Symoney with correct paths
+    "copyToSymoney": "Open Symoney app, go to Settings > Quick Record > Smart, and paste your API key into the appropriate field.",
+    "copyToSymoneyCustom": "Open Symoney app, go to Settings > Quick Record > Smart > Select Custom Provider, fill in all three fields with the information above."
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -116,7 +120,11 @@ const translations = {
     "noticeHeading4": "v1.1.84+版本需要重新下载新的快捷指令",
     "noticeContent4": "已经升级到v1.1.84+版本的「简钱+」用户，请前往本网页的「快速记账」选项卡，获取最新的快捷指令，并删除之前下载的快捷指令，否则自然语言记账/智能快速记账将无法使用，谢谢！",
     
-    "billingPage": "账单页面"
+    "billingPage": "账单页面",
+
+    // Update translations for copying API key to Symoney with correct paths
+    "copyToSymoney": "打开简钱app，进入设置 > 快速记账 > 智能，将API密钥粘贴到相应字段中。",
+    "copyToSymoneyCustom": "打开简钱app，进入设置 > 快速记账 > 智能 > 选择自定义服务商，将上述三个字段的信息填入对应位置。"
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -175,7 +183,11 @@ const translations = {
     "noticeHeading4": "v1.1.84+版本需要重新下載新的捷徑",
     "noticeContent4": "已經升級到v1.1.84+版本的「簡錢+」用戶，請前往本網頁的「快速記帳」選項卡，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
     
-    "billingPage": "賬單頁面"
+    "billingPage": "賬單頁面",
+
+    // Update translations for copying API key to Symoney with correct paths
+    "copyToSymoney": "打開簡錢app，進入設置 > 快速記帳 > 智能，將API金鑰粘貼到相應字段中。",
+    "copyToSymoneyCustom": "打開簡錢app，進入設置 > 快速記帳 > 智能 > 選擇自定義服務商，將上述三個字段的信息填入對應位置。"
   }
 };
 
