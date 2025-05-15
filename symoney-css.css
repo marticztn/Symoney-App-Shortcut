@@ -669,3 +669,14 @@ hr {
 .notice-item.urgent .read-more-link a:hover {
     background-color: #b91c1c;
 }
+
+/* URL notice styling */
+.url-notice {
+    background-color: rgba(246, 189, 59, 0.15);
+    border-left: 3px solid #f6bd3b;
+    padding: 0.8rem 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}

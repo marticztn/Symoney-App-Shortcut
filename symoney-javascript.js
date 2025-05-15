@@ -61,7 +61,10 @@ const translations = {
 
     // Update translations for copying API key to Symoney with correct paths
     "copyToSymoney": "Open Symoney app, go to Settings > Quick Record > Smart, and paste your API key into the appropriate field.",
-    "copyToSymoneyCustom": "Open Symoney app, go to Settings > Quick Record > Smart > Select Custom Provider, fill in all three fields with the information above."
+    "copyToSymoneyCustom": "Open Symoney app, go to Settings > Quick Record > Smart > Select Custom Provider, fill in all three fields with the information above.",
+
+    // Add the URL notice for the custom section
+    "customUrlNotice": "Note: You need to enter the complete URL<br>Example 1 - https://api.openai.com/v1/chat/completions (not just https://api.openai.com)<br>Example 2 - https://api.deepseek.com/v1/chat/completions (not just https://api.deepseek.com)"
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -124,7 +127,10 @@ const translations = {
 
     // Update translations for copying API key to Symoney with correct paths
     "copyToSymoney": "打开简钱app，进入设置 > 快速记账 > 智能，将API密钥粘贴到相应字段中。",
-    "copyToSymoneyCustom": "打开简钱app，进入设置 > 快速记账 > 智能 > 选择自定义服务商，将上述三个字段的信息填入对应位置。"
+    "copyToSymoneyCustom": "打开简钱app，进入设置 > 快速记账 > 智能 > 选择自定义服务商，将上述三个字段的信息填入对应位置。",
+
+    // Add the URL notice for the custom section
+    "customUrlNotice": "注意：URL需要填入完整的URL<br>举例1 - https://api.openai.com/v1/chat/completions 而非 https://api.openai.com<br>举例2 - https://api.deepseek.com/v1/chat/completions 而非 https://api.deepseek.com"
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -187,7 +193,10 @@ const translations = {
 
     // Update translations for copying API key to Symoney with correct paths
     "copyToSymoney": "打開簡錢app，進入設置 > 快速記帳 > 智能，將API金鑰粘貼到相應字段中。",
-    "copyToSymoneyCustom": "打開簡錢app，進入設置 > 快速記帳 > 智能 > 選擇自定義服務商，將上述三個字段的信息填入對應位置。"
+    "copyToSymoneyCustom": "打開簡錢app，進入設置 > 快速記帳 > 智能 > 選擇自定義服務商，將上述三個字段的信息填入對應位置。",
+
+    // Add the URL notice for the custom section
+    "customUrlNotice": "注意：URL需要填入完整的URL<br>舉例1 - https://api.openai.com/v1/chat/completions 而非 https://api.openai.com<br>舉例2 - https://api.deepseek.com/v1/chat/completions 而非 https://api.deepseek.com"
   }
 };
 
@@ -227,7 +236,12 @@ function changeLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
-      el.textContent = dict[key];
+      // Check if the content contains HTML tags
+      if (dict[key].includes('<br>')) {
+        el.innerHTML = dict[key];
+      } else {
+        el.textContent = dict[key];
+      }
     }
   });
   
