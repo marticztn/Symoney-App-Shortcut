@@ -10,7 +10,7 @@
     <header class="header">
         <div class="header-left">
             <div class="header-logo">
-                <img src="symoney_logo.png" alt="Symoney Logo">
+                <img src="asset/symoney_logo.png" alt="Symoney Logo">
             </div>
             <div class="header-title" data-i18n="headerTitle"></div>
         </div>
@@ -40,6 +40,9 @@
                 <div class="tab notice-tab-indicator" data-tab="notice" onclick="switchTab('notice')">
                     <span data-i18n="noticeTab"></span>
                     <span class="new-badge" id="noticeTabBadge" data-i18n="newBadge"></span>
+                </div>
+                <div class="tab" data-tab="contact" onclick="switchTab('contact')">
+                    <span data-i18n="contactTab"></span>
                 </div>
             </div>
         </div>
@@ -151,6 +154,44 @@
             
             <div class="notice-container" id="noticeContainer">
                 <!-- Notices will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <!-- Contact Me Section -->
+        <div class="card tab-content" data-tab="contact">
+            <h1 data-i18n="contactTitle"></h1>
+            
+            <div class="contact-list">
+                <div class="contact-item">
+                    <div class="contact-label" data-i18n="authorEmail"></div>
+                    <div class="contact-value">
+                        <a href="mailto:fuzzyerazhu@gmail.com">fuzzyerazhu@gmail.com</a>
+                    </div>
+                </div>
+                
+                <!-- Redbook section in a row -->
+                <div class="redbook-row">
+                    <div class="redbook-item">
+                        <div class="contact-label" data-i18n="authorRedbook"></div>
+                        <div class="contact-value">
+                            <img src="asset/author_red.JPG" alt="Author Xiaohongshu" class="contact-img">
+                        </div>
+                    </div>
+                    
+                    <div class="redbook-item">
+                        <div class="contact-label" data-i18n="redbookGroup"></div>
+                        <div class="contact-value">
+                            <img src="asset/red_group.JPG" alt="Xiaohongshu Group" class="contact-img">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label" data-i18n="wechatGroup"></div>
+                    <div class="contact-value">
+                        <img src="asset/wechat_group.JPG" alt="WeChat Group" class="contact-img">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

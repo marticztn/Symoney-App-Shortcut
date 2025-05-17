@@ -680,3 +680,68 @@ hr {
     line-height: 1.6;
     font-size: 0.9rem;
 }
+
+/* Contact section styling */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-label {
+    font-weight: 500;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.contact-value {
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-value a {
+    font-size: 1.05rem;
+}
+
+.contact-img {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    margin-right: 15px;
+}
+
+.contact-img:hover {
+    transform: scale(1.02);
+}
+
+/* Special row for Xiaohongshu items */
+.redbook-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.redbook-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 600px) {
+    .contact-img {
+        max-width: 100%;
+    }
+    
+    .redbook-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
