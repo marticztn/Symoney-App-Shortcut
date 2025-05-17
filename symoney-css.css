@@ -681,67 +681,172 @@ hr {
     font-size: 0.9rem;
 }
 
-/* Contact section styling */
-.contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 1.5rem;
+/* Contact section styling - redesigned */
+.contact-intro {
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    background-color: rgba(59, 130, 246, 0.1);
+    border-left: 3px solid var(--primary);
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
 }
 
-.contact-item {
+.contact-container {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1.5rem;
+}
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.contact-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    color: var(--primary);
+}
+
+.contact-content {
+    flex: 1;
 }
 
 .contact-label {
-    font-weight: 500;
-    color: var(--text);
-    font-size: 1.1rem;
-}
-
-.contact-value {
-    display: flex;
-    align-items: flex-start;
+    font-weight: 600;
+    color: #475569;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
 }
 
 .contact-value a {
     font-size: 1.05rem;
+    color: var(--primary);
+    text-decoration: none;
 }
 
-.contact-img {
-    max-width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    margin-right: 15px;
+.contact-value a:hover {
+    text-decoration: underline;
 }
 
-.contact-img:hover {
-    transform: scale(1.02);
+.contact-divider {
+    height: 1px;
+    background-color: var(--border);
+    margin: 0.5rem 0;
 }
 
-/* Special row for Xiaohongshu items */
-.redbook-row {
+.social-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #334155;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.social-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.social-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.social-card-header {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-.redbook-item {
-    flex: 1;
-    min-width: 200px;
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
 }
 
-@media (max-width: 600px) {
-    .contact-img {
-        max-width: 100%;
-    }
-    
-    .redbook-row {
-        flex-direction: column;
-        gap: 2rem;
+.xiaohongshu-icon {
+    background-color: #ff2442;
+}
+
+.wechat-icon {
+    background-color: #07c160;
+}
+
+.social-title {
+    font-weight: 600;
+    color: #334155;
+}
+
+.social-card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.qr-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-code {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.qr-code:hover {
+    transform: scale(1.05);
+}
+
+.social-note {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .social-grid {
+        grid-template-columns: 1fr;
     }
 }

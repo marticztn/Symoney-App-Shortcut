@@ -161,27 +161,57 @@
         <div class="card tab-content" data-tab="contact">
             <h1 data-i18n="contactTitle"></h1>
             
-            <div class="contact-list">
-                <div class="contact-item">
-                    <div class="contact-label" data-i18n="authorEmail"></div>
-                    <div class="contact-value">
-                        <a href="mailto:fuzzyerazhu@gmail.com">fuzzyerazhu@gmail.com</a>
+            <div class="contact-intro" data-i18n="contactIntro"></div>
+            
+            <div class="contact-container">
+                <!-- Email section -->
+                <div class="contact-section">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-label" data-i18n="authorEmail"></div>
+                        <div class="contact-value">
+                            <a href="mailto:fuzzyerazhu@gmail.com">fuzzyerazhu@gmail.com</a>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Redbook section in a row -->
-                <div class="redbook-row">
-                    <div class="contact-item">
-                        <div class="contact-label" data-i18n="wechatGroup"></div>
-                        <div class="contact-value">
-                            <img src="asset/wechat_group.JPG" alt="WeChat Group" class="contact-img">
+                <div class="contact-divider"></div>
+                
+                <!-- Social Media Sections -->
+                <div class="social-heading" data-i18n="socialHeading"></div>
+                
+                <div class="social-grid">
+                    <!-- Xiaohongshu User Group -->
+                    <div class="social-card">
+                        <div class="social-card-header">
+                            <div class="social-icon xiaohongshu-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="social-title" data-i18n="redbookGroup"></div>
+                        </div>
+                        <div class="social-card-body">
+                            <div class="qr-container">
+                                <img src="asset/red_group.JPG" alt="Xiaohongshu Group" class="qr-code">
+                            </div>
+                            <div class="social-note" data-i18n="scanToJoin"></div>
                         </div>
                     </div>
                     
-                    <div class="redbook-item">
-                        <div class="contact-label" data-i18n="redbookGroup"></div>
-                        <div class="contact-value">
-                            <img src="asset/red_group.JPG" alt="Xiaohongshu Group" class="contact-img">
+                    <!-- WeChat User Group -->
+                    <div class="social-card">
+                        <div class="social-card-header">
+                            <div class="social-icon wechat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="social-title" data-i18n="wechatGroup"></div>
+                        </div>
+                        <div class="social-card-body">
+                            <div class="qr-container">
+                                <img src="asset/wechat_group.JPG" alt="WeChat Group" class="qr-code">
+                            </div>
+                            <div class="social-note" data-i18n="scanToJoin"></div>
                         </div>
                     </div>
                 </div>

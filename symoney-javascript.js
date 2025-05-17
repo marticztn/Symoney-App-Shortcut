@@ -69,10 +69,15 @@ const translations = {
     // Add contact section translations
     "contactTab": "Contact Me",
     "contactTitle": "Contact Me",
-    "authorEmail": "Author Email:",
-    "authorRedbook": "Author Xiaohongshu:",
-    "redbookGroup": "Xiaohongshu User Group:",
-    "wechatGroup": "WeChat User Group:"
+    "contactIntro": "Have questions about Symoney? Need help with the app? Feel free to reach out through any of the channels below. I'm always happy to assist users and hear your feedback.",
+    "authorEmail": "Email",
+    "socialHeading": "Social Media & User Groups",
+    "authorRedbook": "Author's Xiaohongshu",
+    "redbookGroup": "Xiaohongshu User Group",
+    "wechatGroup": "WeChat User Group",
+    "scanToFollow": "Scan to follow",
+    "scanToJoin": "Scan to join"
+
   },
   "zh-cn": {
     "headerTitle": "简钱 Symoney® 指南",
@@ -143,10 +148,15 @@ const translations = {
     // Add contact section translations
     "contactTab": "与我联系",
     "contactTitle": "与我联系",
-    "authorEmail": "作者电子邮件：",
-    "authorRedbook": "作者小红书：",
-    "redbookGroup": "小红书用户群：",
-    "wechatGroup": "微信用户群："
+    "contactIntro": "关于简钱有任何疑问？需要帮助解决问题？欢迎通过以下任何渠道与我联系。我很乐意为用户提供帮助并听取您的反馈。",
+    "authorEmail": "电子邮件",
+    "socialHeading": "社交媒体 & 用户群",
+    "authorRedbook": "作者小红书",
+    "redbookGroup": "小红书用户群",
+    "wechatGroup": "微信用户群",
+    "scanToFollow": "扫码关注",
+    "scanToJoin": "扫码加入"
+
   },
   "zh-tw": {
     "headerTitle": "簡錢 Symoney® 指南",
@@ -217,10 +227,15 @@ const translations = {
     // Add contact section translations
     "contactTab": "與我聯繫",
     "contactTitle": "與我聯繫",
-    "authorEmail": "作者電子郵件：",
-    "authorRedbook": "作者小紅書：",
-    "redbookGroup": "小紅書用戶群：",
-    "wechatGroup": "微信用戶群："
+    "contactIntro": "關於簡錢有任何疑問？需要幫助解決問題？歡迎通過以下任何渠道與我聯繫。我很樂意為用戶提供幫助並聽取您的反饋。",
+    "authorEmail": "電子郵件",
+    "socialHeading": "社交媒體 & 用戶群",
+    "authorRedbook": "作者小紅書",
+    "redbookGroup": "小紅書用戶群",
+    "wechatGroup": "微信用戶群",
+    "scanToFollow": "掃碼關注",
+    "scanToJoin": "掃碼加入"
+
   }
 };
 
