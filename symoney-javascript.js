@@ -73,7 +73,7 @@ const translations = {
     "authorEmail": "Email",
     "socialHeading": "Social Media & User Groups",
     "authorRedbook": "Author's Xiaohongshu",
-    "redbookGroup": "Xiaohongshu User Group",
+    "redbookGroup": "RED（小紅書） User Group",
     "wechatGroup": "WeChat User Group",
     "scanToFollow": "Scan to follow",
     "scanToJoin": "Scan to join"
