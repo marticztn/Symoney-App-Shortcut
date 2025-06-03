@@ -540,6 +540,15 @@ hr {
     color: #b91c1c;
 }
 
+.notice-item.warning {
+    border-left: 4px solid #f59e0b;
+    background-color: #fffbeb;
+}
+
+.notice-item.warning .notice-heading {
+    color: #d97706;
+}
+
 .notice-tab-indicator {
     position: relative;
 }

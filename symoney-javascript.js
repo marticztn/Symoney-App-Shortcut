@@ -317,7 +317,13 @@ function renderNotices(lang) {
   // Add each notice to the container
   currentNotices.forEach(notice => {
     const noticeElement = document.createElement('div');
-    noticeElement.className = `notice-item${notice.urgent ? ' urgent' : ''}`;
+    let className = 'notice-item';
+    if (notice.urgent) {
+      className += ' urgent';
+    } else if (notice.warning) {
+      className += ' warning';
+    }
+    noticeElement.className = className;
     noticeElement.setAttribute('data-notice-id', notice.id);
     noticeElement.onclick = () => markNoticeAsRead(notice.id);
     
