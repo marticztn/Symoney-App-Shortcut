@@ -734,6 +734,13 @@ hr {
     color: var(--primary);
 }
 
+.discord-icon {
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .contact-content {
     flex: 1;
 }

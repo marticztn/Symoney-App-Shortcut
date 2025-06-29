@@ -71,6 +71,7 @@ const translations = {
     "contactTitle": "Contact Me",
     "contactIntro": "Have questions about Symoney? Need help with the app? Feel free to reach out through any of the channels below. I'm always happy to assist users and hear your feedback.",
     "authorEmail": "Email",
+    "discordServer": "Discord Official Server",
     "socialHeading": "Social Media & User Groups",
     "authorRedbook": "Author's Xiaohongshu",
     "redbookGroup": "RED（小紅書） User Group",
@@ -150,6 +151,7 @@ const translations = {
     "contactTitle": "与我联系",
     "contactIntro": "关于简钱有任何疑问？需要帮助解决问题？欢迎通过以下任何渠道与我联系。我很乐意为用户提供帮助并听取您的反馈。",
     "authorEmail": "电子邮件",
+    "discordServer": "Discord 官方服务器",
     "socialHeading": "社交媒体 & 用户群",
     "authorRedbook": "作者小红书",
     "redbookGroup": "小红书用户群",
@@ -167,14 +169,14 @@ const translations = {
     "step1": "獲取捷徑：",
     "shortcut1Text": "「快速記帳 (OCR 辨識)」",
     "shortcut2Text": "「智能快速記帳 (智慧辨識)」",
-    "noteSmart": "（僅「簡錢+」訂閱用戶可用）",
-    "step2": "打開 iOS「設置」。",
-    "step3": "進入「輔助功能」。",
-    "step4": "點擊「觸控」。",
-    "step5": "滑到最下面，點擊「輕點背面」。",
-    "step6": "點擊「輕點兩下」。",
+    "noteSmart": "（僅「簡錢+」訂閱使用者可用）",
+    "step2": "開啟 iOS「設定」。",
+    "step3": "進入「輔助使用」。",
+    "step4": "點選「觸控」。",
+    "step5": "滑到最下面，點選「輕點背面」。",
+    "step6": "點選「輕點兩下」。",
     "step7": "滑動到最下面找到剛才下載的捷徑。",
-    "step8": "配置完成，現在您可以通過敲擊手機背部兩下來進行快速記帳了。",
+    "step8": "設定完成，現在您可以透過敲擊手機背部兩下來進行快速記帳了。",
     "actionNote": "具有 Action Button（iPhone 15 Pro 及以上機型）的使用者，也可以將此捷徑設定到 Action Button。",
     
     "siluFlow": "矽基流動",
@@ -183,43 +185,43 @@ const translations = {
     "volcanicEngineTitle": "火山引擎 API 金鑰申請教學",
     "siluStep1": "訪問矽基流動官方網站。",
     "siluStep2": "註冊或登入您的帳戶。",
-    "siluStep3New": "進入控制台，左側面板中選擇「API金鑰」，然後點擊「新建API金鑰」。",
-    "siluStep5": "設置使用限制和權限。",
+    "siluStep3New": "進入控制台，左側面板中選擇「API金鑰」，然後點選「新建API金鑰」。",
+    "siluStep5": "設定使用限制和權限。",
     "siluStep6": "確認並產生您的 API 金鑰。",
     "siluStep7": "複製並安全保存您的 API 金鑰。",
     "volcanicStep1": "前往火山引擎開發者平台。",
     "volcanicStep2": "註冊或登入您的開發者帳戶。",
-    "volcanicStep3New": "控制台左側面板往下滑動，選擇「API Key 管理」，然後選擇「創建API Key」，然後名稱隨意，然後點擊「創建」即可。",
-    "volcanicStep4New": "然後在控制台左側面板中，向上滑動，選中「在線推理」，點擊「創建推理接入點」。",
+    "volcanicStep3New": "控制台左側面板往下滑動，選擇「API Key 管理」，然後選擇「創建API Key」，然後名稱隨意，然後點選「創建」即可。",
+    "volcanicStep4New": "然後在控制台左側面板中，向上滑動，選中「在線推理」，點選「創建推理接入點」。",
     "volcanicStep5New": "接入點名稱隨意，模型必須選擇「Doubao-1.5-pro-32k」，然後選擇250115版本。",
-    "volcanicStep6New": "點擊確定，最後點擊「確認接入」即可。",
+    "volcanicStep6New": "點選確定，最後點選「確認接入」即可。",
     "officialSite": "官方網站",
 
     "noticeTab": "公告",
     "noticeTitle": "公告",
-    "noticeIntro": "這是簡錢 Symoney 的官方公告板。在這裡，您可以找到重要更新、功能發布和其他關於應用的關鍵信息。請定期查看此頁面以獲取最新消息。",
+    "noticeIntro": "這是簡錢 Symoney 的官方公告板。在這裡，您可以找到重要更新、功能發布和其他關於應用程式的關鍵資訊。請定期查看此頁面以獲取最新消息。",
     "noticeDate1": "2025年5月10日",
     "noticeHeading1": "歡迎使用簡錢指南",
-    "noticeContent1": "感謝您使用簡錢！本指南提供了使用 iOS 捷徑進行快速記帳和設置 API 金鑰以使用高級功能的說明。我將不斷更新本指南，添加新功能和改進。如果您有任何疑問，請聯繫我。",
+    "noticeContent1": "感謝您使用簡錢！本指南提供了使用 iOS 捷徑進行快速記帳和設定 API 金鑰以使用進階功能的說明。我將不斷更新本指南，新增新功能和改進。如果您有任何疑問，請聯繫我。",
     
     "noticeDate2": "2025年5月10日",
     "noticeHeading2": "GitHub網頁無法打開的問題",
-    "noticeContent2": "有用戶反饋GitHub網頁在中國大陸地區無法訪問的情況，有可能是DNS導致的，可以嘗試修改設備的DNS，或者使用梯子進行訪問。抱歉給大家帶來的不便！",
+    "noticeContent2": "有使用者反映GitHub網頁在中國大陸地區無法訪問的情況，有可能是DNS導致的，可以嘗試修改設備的DNS，或者使用梯子進行訪問。抱歉給大家帶來的不便！",
     
     "noticeDate3": "2025年5月11日",
     "noticeHeading3": "智能快速記帳（捷徑）/ 自然語言記帳 不可用的問題",
-    "noticeContent3": "由於9號至10號，大量用戶呈爆發式的湧入app，智能快速記帳和自然語言記帳的服務器無法承受突如其來的大流量，最終導致宕機。我已暫時撤下服務器，並且重新設計了這兩種記帳方式的使用邏輯（需要用戶自行提供API Key來使用，詳見API金鑰教程），新版本已經提交蘋果審核（v1.1.84+），還請大家耐心等待。感謝大家對簡錢的支持！",
+    "noticeContent3": "由於9號至10號，大量使用者呈爆發式的湧入app，智能快速記帳和自然語言記帳的伺服器無法承受突如其來的大流量，最終導致當機。我已暫時撤下伺服器，並且重新設計了這兩種記帳方式的使用邏輯（需要使用者自行提供API Key來使用，詳見API金鑰教學），新版本已經提交蘋果審核（v1.1.84+），還請大家耐心等待。感謝大家對簡錢的支持！",
     "newBadge": "新",
 
     "noticeDate4": "2025年5月12日",
     "noticeHeading4": "v1.1.84+版本需要重新下載新的捷徑",
-    "noticeContent4": "已經升級到v1.1.84+版本的「簡錢+」用戶，請前往本網頁的「快速記帳」選項卡，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
+    "noticeContent4": "已經升級到v1.1.84+版本的「簡錢+」使用者，請前往本網頁的「快速記帳」分頁，獲取最新的捷徑，並刪除之前下載的捷徑，否則自然語言記帳/智能快速記帳將無法使用，謝謝！",
     
     "billingPage": "賬單頁面",
 
     // Update translations for copying API key to Symoney with correct paths
-    "copyToSymoney": "打開簡錢app，進入設置 > 快速記帳 > 智能，將API金鑰粘貼到相應字段中。",
-    "copyToSymoneyCustom": "打開簡錢app，進入設置 > 快速記帳 > 智能 > 選擇自定義服務商，將上述三個字段的信息填入對應位置。",
+    "copyToSymoney": "開啟簡錢app，進入設定 > 快速記帳 > 智能，將API金鑰貼上到相應欄位中。",
+    "copyToSymoneyCustom": "開啟簡錢app，進入設定 > 快速記帳 > 智能 > 選擇自訂服務商，將上述三個欄位的資訊填入對應位置。",
 
     // Add the URL notice for the custom section
     "customUrlNotice": "注意：URL需要填入完整的URL<br>舉例1 - https://api.openai.com/v1/chat/completions 而非 https://api.openai.com<br>舉例2 - https://api.deepseek.com/v1/chat/completions 而非 https://api.deepseek.com",
@@ -227,12 +229,13 @@ const translations = {
     // Add contact section translations
     "contactTab": "與我聯繫",
     "contactTitle": "與我聯繫",
-    "contactIntro": "關於簡錢有任何疑問？需要幫助解決問題？歡迎通過以下任何渠道與我聯繫。我很樂意為用戶提供幫助並聽取您的反饋。",
+    "contactIntro": "對於簡錢有任何疑問？需要協助解決問題？歡迎透過以下任何管道與我聯繫。我很樂意為使用者提供協助並聽取您的意見回饋。",
     "authorEmail": "電子郵件",
-    "socialHeading": "社交媒體 & 用戶群",
+    "discordServer": "Discord 官方伺服器",
+    "socialHeading": "社群媒體 & 使用者群組",
     "authorRedbook": "作者小紅書",
-    "redbookGroup": "小紅書用戶群",
-    "wechatGroup": "微信用戶群",
+    "redbookGroup": "小紅書使用者群組",
+    "wechatGroup": "微信使用者群組",
     "scanToFollow": "掃碼關注",
     "scanToJoin": "掃碼加入"
 
@@ -257,8 +260,8 @@ translations["zh-cn"]["customStep1"] = "输入请求URL（例如：https://api.o
 translations["zh-cn"]["customStep2"] = "输入模型名称（例如：gpt-4o）";
 translations["zh-cn"]["customStep3"] = "输入从 OpenAI 或您选择的服务提供商获取的 API Key";
 
-translations["zh-tw"]["custom"] = "自定義";
-translations["zh-tw"]["customTitle"] = "自定義 API 金鑰教學（以 OpenAI 為例）";
+translations["zh-tw"]["custom"] = "自訂";
+translations["zh-tw"]["customTitle"] = "自訂 API 金鑰教學（以 OpenAI 為例）";
 translations["zh-tw"]["customStep1"] = "輸入請求URL（例如：https://api.openai.com/v1/chat/completions）";
 translations["zh-tw"]["customStep2"] = "輸入模型名稱（例如：gpt-4o）";
 translations["zh-tw"]["customStep3"] = "輸入從 OpenAI 或您選擇的服務提供商獲取的 API Key";
