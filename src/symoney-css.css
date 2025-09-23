@@ -547,126 +547,125 @@ hr {
     color: var(--text);
 }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+.contact-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.contact-card {
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
     background-color: #ffffff;
-    border-radius: 16px;
-    padding: 1.75rem;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-    border: 1px solid #f1f5f9;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+    background-color: #f8fafc;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.contact-link svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.contact-link img {
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.contact-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 1rem 0;
+}
+
+.social-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.social-simple {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
 }
 
-.contact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
-}
-
-.contact-card__header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.contact-card__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    color: #2563eb;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.05));
-}
-
-.contact-card__icon svg {
-    width: 26px;
-    height: 26px;
-}
-
-.contact-card__icon--primary {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0.08));
-    color: #1d4ed8;
-}
-
-.contact-card__icon--community {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(16, 185, 129, 0.08));
-    color: #047857;
-}
-
-.contact-card__header h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1f2937;
-}
-
-.contact-card__header p {
-    margin: 0.35rem 0 0;
-    color: #6b7280;
-    font-size: 0.95rem;
-}
-
-.contact-card__body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding-top: 0.5rem;
-}
-
-.contact-list__icon,
-.contact-item__symbol {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
+.qr-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
-    background-color: rgba(59, 130, 246, 0.15);
-    color: #1d4ed8;
-    font-weight: 700;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.2s ease;
 }
 
-.discord-icon {
-    border-radius: 10px;
-    background-color: rgba(88, 101, 242, 0.12);
-    padding: 4px;
+.qr-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
 }
 
-.contact-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.contact-section:hover .contact-label {
-    color: #2563eb;
-}
-
-.contact-label {
+.qr-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
     font-weight: 600;
-    color: #1f2937;
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    color: #1e293b;
 }
 
-.contact-value a {
-    font-size: 1rem;
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 500;
+.qr-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contact-value a:hover {
-    text-decoration: underline;
+.qr-card p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+/* 响应式设计 - 联系部分 */
+@media (max-width: 768px) {
+    .contact-simple {
+        gap: 1.5rem;
+    }
+    
+    .social-simple {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .qr-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .contact-link {
+        padding: 0.875rem 1rem;
+    }
 }
 
 .social-grid {
