@@ -37,35 +37,35 @@ export function ContactTab({ isActive, translations }: ContactTabProps) {
       <div className="contact-container">
         <ContactSection
           icon={emailIcon}
-          label={translations.authorEmail}
+          label={translations.authorEmail ?? 'Email'}
           value={<a href="mailto:fuzzyerazhu@gmail.com">fuzzyerazhu@gmail.com</a>}
         />
 
         <ContactSection
           icon={discordIcon}
-          label={translations.discordServer}
+          label={translations.discordServer ?? 'Discord'}
           value={<a href="https://discord.gg/mDxtajfCrY" target="_blank">Discord Official Server</a>}
         />
 
         <div className="contact-divider"></div>
 
-        <div className="social-heading">{translations.socialHeading}</div>
+        <div className="social-heading">{translations.socialHeading ?? 'Join the community'}</div>
 
         <div className="social-grid">
           <SocialCard
             icon={userGroupIcon}
-            title={translations.redbookGroup}
+            title={translations.redbookGroup ?? 'Xiaohongshu Group'}
             qrImageSrc="/asset/red_group.JPG"
             qrImageAlt="Xiaohongshu Group"
-            note={translations.scanToJoin}
+            note={translations.scanToJoin ?? 'Scan to join'}
           />
 
           <SocialCard
             icon={userGroupIcon}
-            title={translations.wechatGroup}
+            title={translations.wechatGroup ?? 'WeChat Group'}
             qrImageSrc="/asset/wechat_group.JPG"
             qrImageAlt="WeChat Group"
-            note={translations.scanToJoin}
+            note={translations.scanToJoin ?? 'Scan to join'}
           />
         </div>
       </div>
