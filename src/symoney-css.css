@@ -761,12 +761,15 @@ hr {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    background: #f8fafc;
 }
 
 .qr-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 保持原有的视觉效果 */
+    transition: transform 0.3s ease;
 }
 
 .qr-image--redbook {
@@ -928,8 +931,59 @@ hr {
         height: 200px;
     }
     
+    .qr-image--redbook {
+        scale: 1.4; /* 减少缩放以适应移动端 */
+    }
+    
+    .qr-image--wechat {
+        scale: 1.0; /* 减少缩放以适应移动端 */
+    }
+    
     .contact-link {
         padding: 0.875rem 1rem;
+    }
+}
+
+/* Responsive design - smaller mobile devices */
+@media (max-width: 480px) {
+    .qr-container {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .qr-image--redbook {
+        scale: 1.1; /* 适合小屏幕的缩放 */
+        object-position: center 52%;
+    }
+    
+    .qr-image--wechat {
+        scale: 0.85; /* 适合小屏幕的缩放 */
+        object-position: center 75%;
+    }
+    
+    .qr-card {
+        padding: 1rem;
+    }
+    
+    .social-simple {
+        gap: 0.75rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .qr-container {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .qr-image--redbook {
+        scale: 1.0;
+    }
+    
+    .qr-image--wechat {
+        scale: 0.8;
     }
 }
 
