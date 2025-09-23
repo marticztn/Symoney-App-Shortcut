@@ -17,3 +17,6 @@ export { SiteLink } from './UI/SiteLink'
 export { NoticeItem } from './UI/NoticeItem'
 export { ContactSection } from './UI/ContactSection'
 export { SocialCard } from './UI/SocialCard'
+
+// Background Components
+export { default as BubbleBackground } from './BubbleBackground'
