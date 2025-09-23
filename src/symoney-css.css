@@ -547,78 +547,126 @@ hr {
     color: var(--text);
 }
 
-.contact-container {
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    border: 1px solid #f1f5f9;
+    transition: var(--transition);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+}
+
+.contact-card__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    color: #2563eb;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.05));
+}
+
+.contact-card__icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.contact-card__icon--primary {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0.08));
+    color: #1d4ed8;
+}
+
+.contact-card__icon--community {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(16, 185, 129, 0.08));
+    color: #047857;
+}
+
+.contact-card__header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.contact-card__header p {
+    margin: 0.35rem 0 0;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.contact-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+}
+
+.contact-list__icon,
+.contact-item__symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+.discord-icon {
+    border-radius: 10px;
+    background-color: rgba(88, 101, 242, 0.12);
+    padding: 4px;
 }
 
 .contact-section {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    transition: var(--transition);
 }
 
-.contact-section:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-}
-
-.contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background-color: rgba(59, 130, 246, 0.1);
-    border-radius: 50%;
-    color: var(--primary);
-}
-
-.discord-icon {
-    border-radius: 6px;
-    background-color: #ffffff;
-    padding: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.contact-content {
-    flex: 1;
+.contact-section:hover .contact-label {
+    color: #2563eb;
 }
 
 .contact-label {
     font-weight: 600;
-    color: #475569;
+    color: #1f2937;
     font-size: 1rem;
     margin-bottom: 0.25rem;
 }
 
 .contact-value a {
-    font-size: 1.05rem;
-    color: var(--primary);
+    font-size: 1rem;
+    color: #2563eb;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .contact-value a:hover {
     text-decoration: underline;
-}
-
-.contact-divider {
-    height: 1px;
-    background-color: var(--border);
-    margin: 0.5rem 0;
-}
-
-.social-heading {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #334155;
-    margin: 1rem 0;
-    text-align: center;
 }
 
 .social-grid {
