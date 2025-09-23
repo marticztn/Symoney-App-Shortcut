@@ -13,14 +13,13 @@ const generateBubbleData = () => {
   const minSize = isMobile ? 90 : 130;
   const maxSize = isMobile ? 280 : 420;
   
-  return Array.from({ length: 45 }, (_, i) => ({
+  return Array.from({ length: 35 }, (_, i) => ({ // 减少数量提升性能
     id: i,
     size: Math.random() * (maxSize - minSize) + minSize,
     x: Math.random() * (window.innerWidth + 200) - 100,
     y: Math.random() * (window.innerHeight + 200) - 100,
     color: themeColors[Math.floor(Math.random() * themeColors.length)],
     opacity: Math.random() * 0.05 + 0.04,
-    animationDuration: Math.random() * 40 + 60,
     animationDelay: Math.random() * 3,
   }));
 };
@@ -69,13 +68,9 @@ const BubbleBackground: React.FC = () => {
             opacity: 0,
             left: `${bubble.x}px`,
             top: `${bubble.y}px`,
-            animation: `
-              bubbleFadeIn 1.5s ease-out ${bubble.animationDelay + 0.2}s forwards,
-              bubbleFloat ${bubble.animationDuration}s infinite linear ${bubble.animationDelay + 1.5}s
-            `,
-            animationFillMode: 'both',
+            animation: `bubbleFadeIn 1.5s ease-out ${bubble.animationDelay + 0.2}s forwards`,
+            animationFillMode: 'forwards',
             filter: 'blur(20px)',
-            willChange: 'transform, opacity',
             boxShadow: `0 0 ${bubble.size * 0.3}px ${bubble.color}30`,
           }}
         />
