@@ -38,13 +38,17 @@ export function ContactTab({ isActive, translations }: ContactTabProps) {
           <div className="social-simple">
             <div className="qr-card">
               <h3>{translations.redbookGroup ?? '小红书交流群'}</h3>
-              <img src="/asset/red_group.JPG" alt="小红书群" className="qr-image" />
+              <div className="qr-container">
+                <img src="/asset/red_group.JPG" alt="小红书群" className="qr-image qr-image--redbook" />
+              </div>
               <p>{translations.scanToJoin ?? '扫码加入群聊'}</p>
             </div>
 
             <div className="qr-card">
               <h3>{translations.wechatGroup ?? '微信群'}</h3>
-              <img src="/asset/wechat_group.JPG" alt="微信群" className="qr-image" />
+              <div className="qr-container">
+                <img src="/asset/wechat_group.JPG" alt="微信群" className="qr-image qr-image--wechat" />
+              </div>
               <p>{translations.scanToJoin ?? '扫码加入群聊'}</p>
             </div>
           </div>
