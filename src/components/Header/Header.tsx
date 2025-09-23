@@ -12,7 +12,7 @@ export function Header({ currentLang, onLanguageChange, translations }: HeaderPr
     <header className="header">
       <div className="header-left">
         <div className="header-logo">
-          <img src="/asset/symoney_logo.png" alt="Symoney Logo" />
+          <img src="/asset/symoney_logo_rounded.svg" alt="Symoney Logo" />
         </div>
         <div className="header-title">{translations.headerTitle}</div>
       </div>
