@@ -93,7 +93,7 @@ const baseTranslations: Record<Language, Translations> = {
     customStep3: '输入从 OpenAI 或您选择的服务提供商获取的 API Key',
     customUrlNotice: '注意：URL需要填入完整的URL<br>举例1 - https://api.openai.com/v1/chat/completions 而非 https://api.openai.com<br>举例2 - https://api.deepseek.com/v1/chat/completions 而非 https://api.deepseek.com',
     contactTitle: '与我联系',
-    contactIntro: '关于简钱有任何疑问？需要帮助解决问题？欢迎通过以下任何渠道与我联系。我很乐意为用户提供帮助并听取您的反馈。',
+    contactIntro: '关于简钱有任何疑问？需要帮助解决问题？欢迎通过以下任何渠道与我联系。我很乐意提供帮助并听取反馈。',
     authorEmail: '电子邮件',
     discordServer: 'Discord 官方服务器',
     socialHeading: '社交媒体 & 用户群',
