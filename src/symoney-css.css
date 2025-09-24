@@ -277,7 +277,7 @@ body {
 
 .tab-content.active {
     display: block;
-    animation: tabContentSlideIn 0.5s cubic-bezier(.2,.8,.2,1) forwards;
+    animation: tabContentSlideIn 0.65s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
 @keyframes fadeIn {
@@ -290,7 +290,7 @@ body {
 @keyframes tabContentSlideIn {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(18px);
     }
     to {
         opacity: 1;
