@@ -994,18 +994,24 @@ hr {
 }
 
 @media (max-width: 480px) {
-    .tab-text {
-        display: none;
-    }
-    
     .tab {
-        flex-direction: row;
-        gap: 0;
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px 6px;
+        min-height: 60px; /* 增加高度以容纳图标和文字 */
     }
     
     .tab-icon {
         width: 20px;
         height: 20px;
+    }
+    
+    .tab-text {
+        font-size: 0.7rem;
+        line-height: 1.1;
+        text-align: center;
+        /* 确保文字显示 */
+        display: block;
     }
 }
 
