@@ -10,8 +10,9 @@ const generateBubbleData = (isResize = false) => {
   ];
 
   const isMobile = window.innerWidth < 768;
-  const minSize = isMobile ? 90 : 130;
-  const maxSize = isMobile ? 280 : 420;
+  const isTablet = window.innerWidth < 1024;
+  const minSize = isMobile ? 80 : (isTablet ? 100 : 130);
+  const maxSize = isMobile ? 220 : (isTablet ? 300 : 420);
   
   return Array.from({ length: 35 }, (_, i) => ({
     id: i,
@@ -141,8 +142,8 @@ const BubbleBackground: React.FC = () => {
             animation: isInitialLoad ? `bubbleFadeIn 1.5s ease-out ${bubble.animationDelay + 0.2}s forwards` : 'none',
             transition: isInitialLoad ? 'none' : 'opacity 0.8s ease-out',
             animationFillMode: 'forwards',
-            filter: 'blur(9px)',
-            boxShadow: `0 0 ${bubble.size * 0.38}px ${bubble.color}45`,
+            filter: window.innerWidth < 768 ? 'blur(6px)' : 'blur(9px)', // 移动端降低模糊强度
+            boxShadow: window.innerWidth < 768 ? `0 0 ${bubble.size * 0.2}px ${bubble.color}35` : `0 0 ${bubble.size * 0.38}px ${bubble.color}45`, // 移动端减少阴影
             zIndex: 0,
           }}
         />
@@ -164,8 +165,8 @@ const BubbleBackground: React.FC = () => {
             top: `${bubble.y}px`,
             animation: `bubbleFadeIn 0.8s ease-out ${bubble.animationDelay}s forwards`,
             animationFillMode: 'forwards',
-            filter: 'blur(9px)',
-            boxShadow: `0 0 ${bubble.size * 0.38}px ${bubble.color}45`,
+            filter: window.innerWidth < 768 ? 'blur(6px)' : 'blur(9px)', // 移动端降低模糊强度
+            boxShadow: window.innerWidth < 768 ? `0 0 ${bubble.size * 0.2}px ${bubble.color}35` : `0 0 ${bubble.size * 0.38}px ${bubble.color}45`, // 移动端减少阴影
             zIndex: 1, // 新气泡在上层
           }}
         />
@@ -177,8 +178,12 @@ const BubbleBackground: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          backdropFilter: 'saturate(140%) blur(30px)',
-          WebkitBackdropFilter: 'saturate(140%) blur(30px)',
+          backdropFilter: window.innerWidth < 768 
+            ? 'saturate(120%) blur(15px)' // 移动端降低模糊和饱和度
+            : 'saturate(140%) blur(30px)',
+          WebkitBackdropFilter: window.innerWidth < 768 
+            ? 'saturate(120%) blur(15px)' 
+            : 'saturate(140%) blur(30px)',
           background: 'rgba(255, 255, 255, 0.08)',
           zIndex: 1,
         }}

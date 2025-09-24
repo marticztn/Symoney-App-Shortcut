@@ -945,6 +945,25 @@ hr {
 /* 确保动画结束后状态稳定 */
 .bubble {
     animation-fill-mode: forwards !important;
+    /* 移动端性能优化 */
+    will-change: opacity;
+    transform: translateZ(0); /* 开启硬件加速 */
+    backface-visibility: hidden; /* 避免背面可见导致的重绘 */
+}
+
+/* 移动端性能优化 */
+@media (max-width: 767px) {
+    .bubble {
+        /* 减少移动端的动画复杂度 */
+        animation-duration: 1s !important;
+        transition-duration: 0.4s !important;
+    }
+    
+    .bubble-background {
+        /* 移动端降低渲染质量以提升性能 */
+        transform: translateZ(0);
+        will-change: transform;
+    }
 }
 
 
@@ -1132,16 +1151,18 @@ hr {
 @media (max-width: 480px) {
     .api-sub-tabs {
         padding: 3px;
-        gap: 3px;
-        flex-direction: column;
+        gap: 2px;
+        /* 保持水平排列 */
+        flex-direction: row;
     }
     
     .api-sub-tab {
-        padding: 8px 12px;
+        padding: 8px 10px;
         font-size: var(--font-xs);
         min-width: auto;
+        flex: 1; /* 平均分配宽度 */
         flex-direction: row;
-        gap: 6px;
+        gap: 4px;
     }
     
     .api-sub-tab svg {
