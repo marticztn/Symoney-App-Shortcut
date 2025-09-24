@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.467"/>
+      <stop offset="0.547" stop-color="#e2e2e2" stop-opacity="0.122"/>
+      <stop offset="1" stop-color="gray" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="top" x="326.714" y="106.144" width="591.142" height="591.141" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-App_Logo_Design_Rounded">
+      <rect width="1024" height="1024"/>
+    </clipPath>
+  </defs>
+  <g id="App_Logo_Design_Rounded" data-name="App Logo – Design Rounded" clip-path="url(#clip-App_Logo_Design_Rounded)">
+    <rect id="Rectangle_97" data-name="Rectangle 97" width="1024" height="1024" rx="250" fill="#292929"/>
+    <g id="Circles" transform="translate(580.238 -46.268) rotate(45)">
+      <path id="bot" d="M155.967,0A155.967,155.967,0,1,1,0,155.967,155.967,155.967,0,0,1,155.967,0Z" transform="translate(190.537 443.007)" fill="url(#linear-gradient)"/>
+      <g transform="matrix(0.71, -0.71, 0.71, 0.71, -377.57, 443.01)" filter="url(#top)">
+        <g id="top-2" data-name="top" transform="translate(622.29 181.14) rotate(45)" fill="none" opacity="0.855">
+          <path d="M155.967,0A155.967,155.967,0,1,1,0,155.967,155.967,155.967,0,0,1,155.967,0Z" stroke="none"/>
+          <path d="M 155.9670257568359 32.00003051757812 C 87.61138916015625 32.00003051757812 32.00003051757812 87.61138916015625 32.00003051757812 155.9670257568359 C 32.00003051757812 224.3226623535156 87.61138916015625 279.9340209960938 155.9670257568359 279.9340209960938 C 224.3226623535156 279.9340209960938 279.9340209960938 224.3226623535156 279.9340209960938 155.9670257568359 C 279.9340209960938 87.61138916015625 224.3226623535156 32.00003051757812 155.9670257568359 32.00003051757812 M 155.9670257568359 3.0517578125e-05 C 242.1052398681641 3.0517578125e-05 311.9340209960938 69.82881164550781 311.9340209960938 155.9670257568359 C 311.9340209960938 242.1052398681641 242.1052398681641 311.9340209960938 155.9670257568359 311.9340209960938 C 69.82881164550781 311.9340209960938 3.0517578125e-05 242.1052398681641 3.0517578125e-05 155.9670257568359 C 3.0517578125e-05 69.82881164550781 69.82881164550781 3.0517578125e-05 155.9670257568359 3.0517578125e-05 Z" stroke="none" fill="#e6e6e6"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
