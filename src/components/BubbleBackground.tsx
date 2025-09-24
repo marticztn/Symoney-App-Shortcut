@@ -30,9 +30,9 @@ const BubbleBackground: React.FC = () => {
   const [showOld, setShowOld] = useState(true);
   const [showNew, setShowNew] = useState(false);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const resizeTimeoutRef = useRef<number>();
-  const fadeOutTimeoutRef = useRef<number>();
-  const cleanupTimeoutRef = useRef<number>();
+  const resizeTimeoutRef = useRef<number | undefined>(undefined);
+  const fadeOutTimeoutRef = useRef<number | undefined>(undefined);
+  const cleanupTimeoutRef = useRef<number | undefined>(undefined);
   const isInitialLoadRef = useRef(true);
   
   const smoothTransition = () => {
