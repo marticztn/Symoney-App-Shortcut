@@ -934,21 +934,19 @@ hr {
 @keyframes bubbleFadeIn {
     from {
         opacity: 0;
-        transform: scale(0.3);
-    }
-    33% {
-        opacity: 0.12;
-        transform: scale(0.7);
-    }
-    66% {
-        opacity: 0.18;
-        transform: scale(0.9);
+        transform: scale(0.5);
     }
     to {
-        opacity: 0.2;
+        opacity: 0.26;
         transform: scale(1);
     }
 }
+
+/* 确保动画结束后状态稳定 */
+.bubble {
+    animation-fill-mode: forwards !important;
+}
+
 
 /* Responsive design - tabs */
 @media (max-width: 768px) {
