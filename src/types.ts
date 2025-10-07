@@ -1,6 +1,6 @@
 export type Language = 'en' | 'zh-cn' | 'zh-tw';
 
-export type MainTab = 'quickRecord' | 'apiKey' | 'notice' | 'contact';
+export type MainTab = 'quickRecord' | 'apiKey' | 'automation' | 'notice' | 'contact';
 
 export type ApiTab = 'siluFlow' | 'volcanicEngine' | 'custom';
 

@@ -8,6 +8,7 @@ export { TabNavigation } from './Navigation/TabNavigation'
 // Tab Components
 export { QuickRecordTab } from './Tabs/QuickRecordTab'
 export { ApiKeyTab } from './Tabs/ApiKeyTab'
+export { AutomationTab } from './Tabs/AutomationTab'
 export { NoticeTab } from './Tabs/NoticeTab'
 export { ContactTab } from './Tabs/ContactTab'
 

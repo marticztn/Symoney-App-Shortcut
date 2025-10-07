@@ -187,7 +187,7 @@ body {
 
 .main-content {
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1rem;
     display: flex;
@@ -197,7 +197,7 @@ body {
 
 .tab-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     margin-bottom: 1rem;
 }
 
@@ -259,7 +259,7 @@ body {
 .card {
     background: rgba(255,255,255,0.68);
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     border-radius: 16px;
     border: 1px solid rgba(226,232,240,0.6);
     box-shadow: var(--shadow-xl);
@@ -1205,4 +1205,34 @@ h1, h2, h3, .notice-heading {
         animation: none !important;
         transition: none !important;
     }
+}
+
+/* Automation video grid styles */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Automation video title area with fixed height */
+.video-title-area {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.video-title-area h2 {
+    margin-top: 0;
+}
+
+.video-title-area p {
+    margin-bottom: 0;
 }

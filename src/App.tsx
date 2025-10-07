@@ -8,6 +8,7 @@ import {
   TabNavigation,
   QuickRecordTab,
   ApiKeyTab,
+  AutomationTab,
   NoticeTab,
   ContactTab,
   BubbleBackground
@@ -48,6 +49,12 @@ function App() {
 
         <ApiKeyTab
           isActive={tab === 'apiKey'}
+          translations={t}
+        />
+
+        <AutomationTab
+          isActive={tab === 'automation'}
+          currentLang={lang}
           translations={t}
         />
 
