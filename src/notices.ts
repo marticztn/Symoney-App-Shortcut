@@ -6,7 +6,7 @@ export const notices: NoticesByLang = {
       id: "notice5",
       date: "June 3, 2025",
       heading: "Misconceptions about Third-Party Bill Import",
-      content: "Recently, users have reported issues with third-party bill imports, mostly due to attempts to import bills from accounting software that Symoney does not currently support (such as: QianJi（錢跡）, 鯊魚記帳, 小青帳, etc.). Symoney currently only supports bills exported from iCost. Although most accounting software exports in .csv format, the different columns in the CSV exported by each accounting software may contain different content, and Symoney may fail to import due to inability to recognize the corresponding columns. Therefore, I need to adapt the bills from each accounting software individually. Please understand any inconvenience this may cause. Additionally, since bills exported from iCost are in .xlsx format, users need to convert this format to UTF-8 encoded .csv format before importing into Symoney, otherwise it may also cause garbled text or abnormal display of imported bills.",
+      content: "Recently, users have reported issues with third-party bill imports, mostly due to attempts to import bills from accounting software that Symoney does not currently support (such as: XiaoQingZhang, etc.). Although most accounting software exports in .csv format, the different columns in the CSV exported by each accounting software may contain different content, and Symoney may fail to import due to inability to recognize the corresponding columns. Therefore, I need to adapt the bills from each accounting software individually. Please understand any inconvenience this may cause. Additionally, since bills exported from iCost are in .xlsx format, users need to convert this format to UTF-8 encoded .csv format before importing into Symoney, otherwise it may also cause garbled text or abnormal display of imported bills.",
       urgent: false,
       warning: true,
       isNew: true
@@ -45,7 +45,7 @@ export const notices: NoticesByLang = {
       id: "notice5",
       date: "2025年6月3日",
       heading: "关于第三方账单导入的误区",
-      content: "有用户近期反馈第三方账单无法导入，大多都是因为用户在尝试导入简钱目前尚未支持的第三方记账软件所导出的账单（例如：钱迹、鲨鱼记账、小青账等）。简钱目前仅支持 iCost 所导出的账单。虽然大多数记账软件导出的格式都是 .csv，但是每个记账软件导出的 CSV 中的不同数列可能是不同内容，简钱可能会因为无法识别对应数列导致导入失败。因此，每一个记账软件的账单我都需要去单独适配，如有不便，还请谅解。另外，由于 iCost 导出后的账单格式为 .xlsx，用户需要将该格式转换为 UTF-8 编码的 .csv 格式，再导入简钱，否则也有可能会导致乱码、导入的账单显示不正常的情况。",
+      content: "有用户近期反馈第三方账单无法导入，大多都是因为用户在尝试导入简钱目前尚未支持的第三方记账软件所导出的账单（例如：小青账等）。虽然大多数记账软件导出的格式都是 .csv，但是每个记账软件导出的 CSV 中的不同数列可能是不同内容，简钱可能会因为无法识别对应数列导致导入失败。因此，每一个记账软件的账单我都需要去单独适配，如有不便，还请谅解。另外，由于 iCost 导出后的账单格式为 .xlsx，用户需要将该格式转换为 UTF-8 编码的 .csv 格式，再导入简钱，否则也有可能会导致乱码、导入的账单显示不正常的情况。",
       urgent: false,
       warning: true,
       isNew: true
@@ -84,7 +84,7 @@ export const notices: NoticesByLang = {
       id: "notice5",
       date: "2025年6月3日",
       heading: "關於第三方帳單匯入的誤區",
-      content: "有用戶近期反饋第三方帳單無法匯入，大多都是因為用戶在嘗試匯入簡錢目前尚未支援的第三方記帳軟體所匯出的帳單（例如：錢跡、鯊魚記帳、小青帳等）。簡錢目前僅支援 iCost 所匯出的帳單。雖然大多數記帳軟體匯出的格式都是 .csv，但是每個記帳軟體匯出的 CSV 中的不同數列可能是不同內容，簡錢可能會因為無法識別對應數列導致匯入失敗。因此，每一個記帳軟體的帳單我都需要去單獨適配，如有不便，還請諒解。另外，由於 iCost 匯出後的帳單格式為 .xlsx，用戶需要將該格式轉換為 UTF-8 編碼的 .csv 格式，再匯入簡錢，否則也有可能會導致亂碼、匯入的帳單顯示不正常的情況。",
+      content: "有用戶近期反饋第三方帳單無法匯入，大多都是因為用戶在嘗試匯入簡錢目前尚未支援的第三方記帳軟體所匯出的帳單（例如：小青帳等）。雖然大多數記帳軟體匯出的格式都是 .csv，但是每個記帳軟體匯出的 CSV 中的不同數列可能是不同內容，簡錢可能會因為無法識別對應數列導致匯入失敗。因此，每一個記帳軟體的帳單我都需要去單獨適配，如有不便，還請諒解。另外，由於 iCost 匯出後的帳單格式為 .xlsx，用戶需要將該格式轉換為 UTF-8 編碼的 .csv 格式，再匯入簡錢，否則也有可能會導致亂碼、匯入的帳單顯示不正常的情況。",
       urgent: false,
       warning: true,
       isNew: true
