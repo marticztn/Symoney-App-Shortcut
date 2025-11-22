@@ -8,8 +8,8 @@
     --background: #f8fafc;
     --card: #ffffff;
     --border: #e2e8f0;
-    --transition: all 0.45s cubic-bezier(.2,.8,.2,1);
-    
+    --transition: all 0.45s cubic-bezier(.2, .8, .2, 1);
+
     /* Soft shadow system */
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -17,11 +17,11 @@
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.03);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.06), 0 10px 10px rgba(0, 0, 0, 0.02);
     --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.08);
-    
+
     /* Soft colored shadows */
     --shadow-primary: 0 4px 12px rgba(59, 130, 246, 0.08);
     --shadow-primary-lg: 0 8px 25px rgba(59, 130, 246, 0.1);
-    
+
     /* Enhanced typography scale */
     --font-xs: 0.75rem;
     --font-sm: 0.875rem;
@@ -30,11 +30,11 @@
     --font-xl: 1.25rem;
     --font-2xl: 1.5rem;
     --font-3xl: 1.875rem;
-    
+
     /* Text contrast improvements for accessibility */
     --text-high-contrast: #0f172a;
     --text-readable: #334155;
-    
+
     /* Enhanced content font weights */
     --font-weight-light: 420;
     --font-weight-normal: 480;
@@ -51,13 +51,14 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: radial-gradient(1200px 600px at 20% -10%, #e0ebff 0%, rgba(224,235,255,0) 60%),
-                radial-gradient(1400px 800px at 110% 10%, #fbe7ff 0%, rgba(251,231,255,0) 55%),
-                linear-gradient(180deg, #f9fbff 0%, #f6f9ff 100%);
+    background: radial-gradient(1200px 600px at 20% -10%, #e0ebff 0%, rgba(224, 235, 255, 0) 60%),
+        radial-gradient(1400px 800px at 110% 10%, #fbe7ff 0%, rgba(251, 231, 255, 0) 55%),
+        linear-gradient(180deg, #f9fbff 0%, #f6f9ff 100%);
     color: var(--text);
     line-height: 1.7;
     letter-spacing: -0.01em;
-    font-weight: 480; /* 进一步增加基础字重 */
+    font-weight: 480;
+    /* 进一步增加基础字重 */
     font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1, 'cv01' 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -73,11 +74,11 @@ body {
 }
 
 .app-container {
-  min-height: 100vh;
-  width: 100%;
-  background: rgba(250, 250, 250, 0.8);
-  position: relative;
-  z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(250, 250, 250, 0.8);
+    position: relative;
+    z-index: 1;
 }
 
 .header {
@@ -257,11 +258,11 @@ body {
 }
 
 .card {
-    background: rgba(255,255,255,0.68);
+    background: rgba(255, 255, 255, 0.68);
     width: 100%;
     max-width: 1000px;
     border-radius: 16px;
-    border: 1px solid rgba(226,232,240,0.6);
+    border: 1px solid rgba(226, 232, 240, 0.6);
     box-shadow: var(--shadow-xl);
     padding: 2rem;
     opacity: 1;
@@ -277,7 +278,11 @@ body {
 
 .tab-content.active {
     display: block;
-    animation: tabContentSlideIn 0.65s cubic-bezier(.2,.8,.2,1) forwards;
+    opacity: 1;
+    /* 直接设置为可见,作为回退 */
+    transform: translateY(0);
+    /* 直接设置最终位置,作为回退 */
+    animation: tabContentSlideIn 0.65s cubic-bezier(.2, .8, .2, 1) forwards;
 }
 
 @keyframes fadeIn {
@@ -292,6 +297,7 @@ body {
         opacity: 0;
         transform: translateY(18px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -324,10 +330,10 @@ ol {
     margin-bottom: 1.5rem;
 }
 
-ol > li {
+ol>li {
     margin-bottom: 1rem;
     padding-left: 0.5rem;
-    animation: slideIn 0.5s cubic-bezier(.2,.8,.2,1);
+    animation: slideIn 0.5s cubic-bezier(.2, .8, .2, 1);
     animation-fill-mode: both;
     line-height: 1.7;
     letter-spacing: -0.005em;
@@ -340,20 +346,44 @@ ol > li {
         opacity: 0;
         transform: translateX(-12px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-ol > li:nth-child(1) { animation-delay: 0.1s; }
-ol > li:nth-child(2) { animation-delay: 0.2s; }
-ol > li:nth-child(3) { animation-delay: 0.3s; }
-ol > li:nth-child(4) { animation-delay: 0.4s; }
-ol > li:nth-child(5) { animation-delay: 0.5s; }
-ol > li:nth-child(6) { animation-delay: 0.6s; }
-ol > li:nth-child(7) { animation-delay: 0.7s; }
-ol > li:nth-child(8) { animation-delay: 0.8s; }
+ol>li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+ol>li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+ol>li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+ol>li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+ol>li:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+ol>li:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+ol>li:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+ol>li:nth-child(8) {
+    animation-delay: 0.8s;
+}
 
 a {
     color: var(--primary);
@@ -565,10 +595,12 @@ hr {
         transform: scale(1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 0.8;
     }
+
     100% {
         transform: scale(1);
         opacity: 1;
@@ -581,6 +613,7 @@ hr {
         transform: translateY(20px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -591,10 +624,21 @@ hr {
     animation: slideInFromBottom 0.6s ease-out;
 }
 
-.tab:nth-child(1) { animation-delay: 0.1s; }
-.tab:nth-child(2) { animation-delay: 0.2s; }
-.tab:nth-child(3) { animation-delay: 0.3s; }
-.tab:nth-child(4) { animation-delay: 0.4s; }
+.tab:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tab:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.tab:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.tab:nth-child(4) {
+    animation-delay: 0.4s;
+}
 
 .notice-new {
     display: inline-block;
@@ -904,19 +948,25 @@ hr {
 
 /* QR Animation */
 @keyframes qrSlideIn {
-    from { 
+    from {
         opacity: 0;
         transform: scale(0.8);
     }
-    to { 
+
+    to {
         opacity: 1;
         transform: scale(1);
     }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 
@@ -926,6 +976,7 @@ hr {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -936,6 +987,7 @@ hr {
         opacity: 0;
         transform: scale(0.5);
     }
+
     to {
         opacity: 0.26;
         transform: scale(1);
@@ -947,8 +999,10 @@ hr {
     animation-fill-mode: forwards !important;
     /* 移动端性能优化 */
     will-change: opacity;
-    transform: translateZ(0); /* 开启硬件加速 */
-    backface-visibility: hidden; /* 避免背面可见导致的重绘 */
+    transform: translateZ(0);
+    /* 开启硬件加速 */
+    backface-visibility: hidden;
+    /* 避免背面可见导致的重绘 */
 }
 
 /* 移动端性能优化 */
@@ -958,7 +1012,7 @@ hr {
         animation-duration: 1s !important;
         transition-duration: 0.4s !important;
     }
-    
+
     .bubble-background {
         /* 移动端降低渲染质量以提升性能 */
         transform: translateZ(0);
@@ -973,7 +1027,7 @@ hr {
         padding: 4px;
         gap: 2px;
     }
-    
+
     .tab {
         padding: 10px 12px;
         font-size: 0.8rem;
@@ -981,12 +1035,12 @@ hr {
         flex-direction: column;
         gap: 4px;
     }
-    
+
     .tab-icon {
         width: 16px;
         height: 16px;
     }
-    
+
     .tab-text {
         font-size: var(--font-xs);
         line-height: 1.2;
@@ -998,14 +1052,15 @@ hr {
         flex-direction: column;
         gap: 4px;
         padding: 8px 6px;
-        min-height: 60px; /* 增加高度以容纳图标和文字 */
+        min-height: 60px;
+        /* 增加高度以容纳图标和文字 */
     }
-    
+
     .tab-icon {
         width: 20px;
         height: 20px;
     }
-    
+
     .tab-text {
         font-size: 0.7rem;
         line-height: 1.1;
@@ -1020,37 +1075,37 @@ hr {
     .contact-simple {
         gap: 1.5rem;
     }
-    
+
     .social-simple {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .qr-display-container {
         width: 180px;
         height: 180px;
     }
-    
+
     .contact-link {
         padding: 0.875rem 1rem;
     }
-    
+
     .api-sub-tabs {
         gap: 4px;
         padding: 4px;
     }
-    
+
     .api-sub-tab {
         padding: 10px 16px;
         min-width: 100px;
         font-size: 0.8rem;
     }
-    
+
     .shortcut-button {
         padding: 10px 16px;
         font-size: var(--font-sm);
     }
-    
+
     .site-link {
         padding: 6px 12px;
         font-size: 0.8rem;
@@ -1063,11 +1118,11 @@ hr {
         width: 160px;
         height: 160px;
     }
-    
+
     .qr-card {
         padding: 1rem;
     }
-    
+
     .social-simple {
         gap: 0.75rem;
     }
@@ -1161,16 +1216,17 @@ hr {
         /* 保持水平排列 */
         flex-direction: row;
     }
-    
+
     .api-sub-tab {
         padding: 8px 10px;
         font-size: var(--font-xs);
         min-width: auto;
-        flex: 1; /* 平均分配宽度 */
+        flex: 1;
+        /* 平均分配宽度 */
         flex-direction: row;
         gap: 4px;
     }
-    
+
     .api-sub-tab svg {
         width: 14px;
         height: 14px;
@@ -1178,13 +1234,17 @@ hr {
 }
 
 /* Typography enhancements for better readability */
-p, .notice-content, .contact-intro, .tab-text {
+p,
+.notice-content,
+.contact-intro,
+.tab-text {
     text-wrap: pretty;
     orphans: 2;
     widows: 2;
     hyphens: auto;
     word-break: break-word;
-    font-weight: 520; /* 进一步增强内容字重 */
+    font-weight: 520;
+    /* 进一步增强内容字重 */
 }
 
 /* Focus states for accessibility */
@@ -1196,14 +1256,34 @@ p, .notice-content, .contact-intro, .tab-text {
 }
 
 /* Enhanced text contrast for headings */
-h1, h2, h3, .notice-heading {
+h1,
+h2,
+h3,
+.notice-heading {
     color: var(--text-high-contrast);
 }
 
 @media (prefers-reduced-motion: reduce) {
     * {
-        animation: none !important;
-        transition: none !important;
+        animation-duration: 0.01s !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.01s !important;
+    }
+
+    /* 确保内容始终可见,即使动画被快速跳过 */
+    .tab-content.active {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .bubble {
+        opacity: 0.26 !important;
+        transform: scale(1) !important;
+    }
+
+    .card {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
     }
 }
 
