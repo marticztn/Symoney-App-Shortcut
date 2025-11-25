@@ -661,26 +661,6 @@ hr {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
-    position: relative;
-}
-
-/* Divider line */
-.shortcut-grid::before {
-    content: '';
-    position: absolute;
-    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.2), transparent);
-    z-index: 0;
-}
-
-/* Desktop Divider (Vertical) */
-@media (min-width: 641px) {
-    .shortcut-grid::before {
-        top: 10%;
-        bottom: 10%;
-        left: 50%;
-        width: 1px;
-        transform: translateX(-50%);
-    }
 }
 
 .shortcut-column {
@@ -958,17 +938,6 @@ hr {
 @media (max-width: 640px) {
     .shortcut-grid {
         grid-template-columns: 1fr;
-    }
-
-    /* Mobile Divider (Horizontal) */
-    .shortcut-grid::before {
-        left: 10%;
-        right: 10%;
-        top: 50%;
-        height: 1px;
-        width: auto;
-        transform: translateY(-50%);
-        background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.2), transparent);
     }
 
     .shortcut-card {
