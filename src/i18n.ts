@@ -33,7 +33,7 @@ const baseTranslations: Record<Language, Translations> = {
     newBadge: 'NEW',
     step1: 'Get shortcuts:',
     shortcut1Text: 'Quick Record (OCR Assistive)',
-    shortcut1ShortText: 'Assist Quick Record',
+    shortcut1ShortText: 'Assisted Quick Record',
     shortcut2Text: 'Smart Quick Record (Smart Recognition)',
     shortcut2ShortText: 'Smart Quick Record',
     shortcutVersionLatest: 'v1.1.0',
