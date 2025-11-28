@@ -26,6 +26,8 @@ export function QuickRecordTab({
     translations.shortcut2ShortText ||
     translations.shortcut2Text ||
     "Smart Quick Record";
+  const shortcut1LiteLabel =
+    translations.shortcut1LiteText || "Assisted Quick Record (Lite)";
   const historyLabelDetailed = `${
     translations.shortcutHistoryLabel || "Shortcut version history"
   } · ${shortcut1Label}`;
@@ -58,17 +60,21 @@ export function QuickRecordTab({
             <div className="shortcut-grid">
               <div className="shortcut-column">
                 <div className="shortcut-card">
-                  <div className="shortcut-item">
+                  <div className="shortcut-buttons-row">
                     <ShortcutButton
                       href="https://www.icloud.com/shortcuts/fdd4e3825c4d4e98a458f4e90332bc95"
                       text={shortcut1Label}
                     />
-                    <div className="shortcut-meta">
-                      <span className="shortcut-version">{latestVersion}</span>
-                      <span className="shortcut-requirement">
-                        {latestRequirement}
-                      </span>
-                    </div>
+                    <ShortcutButton
+                      href="https://www.icloud.com/shortcuts/838898fc038c4b46b91e3ba83d8f9490"
+                      text={shortcut1LiteLabel}
+                    />
+                  </div>
+                  <div className="shortcut-meta">
+                    <span className="shortcut-version">{latestVersion}</span>
+                    <span className="shortcut-requirement">
+                      {latestRequirement}
+                    </span>
                   </div>
                 </div>
                 <details className="shortcut-history">

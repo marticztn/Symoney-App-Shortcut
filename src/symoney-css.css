@@ -708,6 +708,19 @@ hr {
 
 
 
+
+.shortcut-buttons-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.shortcut-buttons-row>.shortcut-button {
+    flex: 1;
+}
+
 .shortcut-item {
     display: flex;
     flex-direction: column;
@@ -850,7 +863,7 @@ hr {
     width: 100%;
     color: white;
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    padding: 14px 20px;
+    padding: 10px 20px;
     border-radius: 16px;
     text-decoration: none;
     font-size: 1rem;
