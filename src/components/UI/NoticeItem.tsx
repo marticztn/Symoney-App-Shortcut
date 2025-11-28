@@ -34,16 +34,15 @@ export function NoticeItem({ notice, translations, onTabChange }: NoticeItemProp
         <span>{notice.heading}</span>
         {notice.isNew && <span className="notice-new">{translations.newBadge}</span>}
       </h3>
-      <div className="notice-content">
-        {notice.content}
-        {notice.buttonText && notice.buttonAction && (
-          <div className="read-more-link">
-            <a href="#" onClick={handleButtonClick}>
-              {notice.buttonText}
-            </a>
-          </div>
-        )}
+      <div className="notice-content" dangerouslySetInnerHTML={{ __html: notice.content }}>
       </div>
+      {notice.buttonText && notice.buttonAction && (
+        <div className="read-more-link">
+          <a href="#" onClick={handleButtonClick}>
+            {notice.buttonText}
+          </a>
+        </div>
+      )}
     </div>
   )
 }
