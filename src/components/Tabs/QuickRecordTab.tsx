@@ -1,4 +1,5 @@
 import { ShortcutButton } from "../UI/ShortcutButton";
+import { Collapsible } from "../UI/Collapsible";
 import type { Translations } from "../../types";
 
 interface QuickRecordTabProps {
@@ -84,32 +85,33 @@ export function QuickRecordTab({
                     </span>
                   </div>
                 </div>
-                <details className="shortcut-history">
-                  <summary>
-                    <span className="shortcut-history-icon" aria-hidden="true">
-                      {historyIcon}
-                    </span>
-                    <span className="shortcut-history-text">
-                      {historyLabelDetailed}
-                    </span>
-                  </summary>
-                  <div className="shortcut-history-list">
-                    <div className="shortcut-item">
-                      <ShortcutButton
-                        href="https://www.icloud.com/shortcuts/f154d368bd4d4c27a22ea352d4e1b366"
-                        text={
-                          translations.legacyShortcut1Text ||
-                          "Quick Record (OCR Assistive) – Legacy"
-                        }
-                      />
-                      <div className="shortcut-meta">
-                        <span className="shortcut-version">
-                          {legacyVersion}
-                        </span>
-                      </div>
+                <Collapsible
+                  summary={
+                    <>
+                      <span className="shortcut-history-icon" aria-hidden="true">
+                        {historyIcon}
+                      </span>
+                      <span className="shortcut-history-text">
+                        {historyLabelDetailed}
+                      </span>
+                    </>
+                  }
+                >
+                  <div className="shortcut-item">
+                    <ShortcutButton
+                      href="https://www.icloud.com/shortcuts/f154d368bd4d4c27a22ea352d4e1b366"
+                      text={
+                        translations.legacyShortcut1Text ||
+                        "Quick Record (OCR Assistive) – Legacy"
+                      }
+                    />
+                    <div className="shortcut-meta">
+                      <span className="shortcut-version">
+                        {legacyVersion}
+                      </span>
                     </div>
                   </div>
-                </details>
+                </Collapsible>
               </div>
               <div className="shortcut-column">
                 <div className="shortcut-card premium-card">
@@ -130,33 +132,35 @@ export function QuickRecordTab({
                     </div>
                   </div>
                 </div>
-                <details className="shortcut-history">
-                  <summary>
-                    <span className="shortcut-history-icon" aria-hidden="true">
-                      {historyIcon}
-                    </span>
-                    <span className="shortcut-history-text">
-                      {historyLabelSmart}
-                    </span>
-                  </summary>
-                  <div className="shortcut-history-list">
-                    <div className="shortcut-item">
-                      <ShortcutButton
-                        href="https://www.icloud.com/shortcuts/26b2c3440d1c4df2b123700c1e9a9582"
-                        text={
-                          translations.legacyShortcut2Text ||
-                          "Smart Quick Record – Legacy"
-                        }
-                        isPremium={true}
-                      />
-                      <div className="shortcut-meta">
-                        <span className="shortcut-version">
-                          {premiumLegacyVersion}
-                        </span>
-                      </div>
+                <Collapsible
+                  summary={
+                    <>
+                      <span className="shortcut-history-icon" aria-hidden="true">
+                        {historyIcon}
+                      </span>
+                      <span className="shortcut-history-text">
+                        {historyLabelSmart}
+                      </span>
+                    </>
+                  }
+                  isPremium={true}
+                >
+                  <div className="shortcut-item">
+                    <ShortcutButton
+                      href="https://www.icloud.com/shortcuts/26b2c3440d1c4df2b123700c1e9a9582"
+                      text={
+                        translations.legacyShortcut2Text ||
+                        "Smart Quick Record – Legacy"
+                      }
+                      isPremium={true}
+                    />
+                    <div className="shortcut-meta">
+                      <span className="shortcut-version">
+                        {premiumLegacyVersion}
+                      </span>
                     </div>
                   </div>
-                </details>
+                </Collapsible>
               </div>
             </div>
           </div>

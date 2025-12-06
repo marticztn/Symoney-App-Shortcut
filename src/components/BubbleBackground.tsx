@@ -7,7 +7,6 @@ interface BubbleData {
   y: number;
   color: string;
   opacity: number;
-  duration: number;
 }
 
 const THEME_COLORS = [
@@ -21,9 +20,8 @@ const THEME_COLORS = [
 const BubbleBackground: React.FC = () => {
   const [bubbles, setBubbles] = useState<BubbleData[]>([]);
   const [isMobile, setIsMobile] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
   const resizeTimeoutRef = useRef<number | undefined>(undefined);
-  const animationIntervalRef = useRef<number | undefined>(undefined);
+  const fadeTimeoutRef = useRef<number | undefined>(undefined);
 
   const getRandomPosition = useCallback((width: number, height: number) => ({
     x: Math.random() * (width + 200) - 100,
@@ -42,22 +40,11 @@ const BubbleBackground: React.FC = () => {
         size: Math.random() * (maxSize - minSize) + minSize,
         x: pos.x,
         y: pos.y,
-        color: THEME_COLORS[Math.floor(Math.random() * THEME_COLORS.length)],
+        color: THEME_COLORS[Math.floor(Math.random() * THEME_COLORS.length)]!,
         opacity: 0,
-        duration: 15 + Math.random() * 20, // 15-35秒移动到下一个位置
       };
     });
   }, [getRandomPosition]);
-
-  // 更新气泡位置
-  const updateBubblePositions = useCallback(() => {
-    setBubbles(prev => prev.map(bubble => ({
-      ...bubble,
-      x: Math.random() * (window.innerWidth + 200) - 100,
-      y: Math.random() * (window.innerHeight + 200) - 100,
-      duration: 15 + Math.random() * 20,
-    })));
-  }, []);
 
   useEffect(() => {
     const mobile = window.innerWidth < 768;
@@ -66,31 +53,38 @@ const BubbleBackground: React.FC = () => {
     const initialBubbles = generateBubbles(window.innerWidth, window.innerHeight, mobile);
     setBubbles(initialBubbles);
 
-    // 延迟显示气泡
+    // 延迟淡入显示气泡
     const initTimeout = setTimeout(() => {
-      setBubbles(prev => prev.map((bubble, i) => ({
+      setBubbles(prev => prev.map(bubble => ({
         ...bubble,
         opacity: 0.26,
       })));
-      setIsInitialized(true);
     }, 100);
-
-    // 定期更新气泡位置（每20秒更新一批）
-    animationIntervalRef.current = window.setInterval(() => {
-      updateBubblePositions();
-    }, 20000);
 
     const handleResize = () => {
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
       }
+      if (fadeTimeoutRef.current) {
+        clearTimeout(fadeTimeoutRef.current);
+      }
+
+      // 开始过渡：先淡出现有气泡
+      setBubbles(prev => prev.map(b => ({ ...b, opacity: 0 })));
 
       resizeTimeoutRef.current = window.setTimeout(() => {
         const newMobile = window.innerWidth < 768;
         setIsMobile(newMobile);
+        
+        // 生成新气泡（初始透明度为0）
         const newBubbles = generateBubbles(window.innerWidth, window.innerHeight, newMobile);
-        setBubbles(newBubbles.map(b => ({ ...b, opacity: 0.26 })));
-      }, 500);
+        setBubbles(newBubbles);
+
+        // 延迟淡入新气泡
+        fadeTimeoutRef.current = window.setTimeout(() => {
+          setBubbles(prev => prev.map(b => ({ ...b, opacity: 0.26 })));
+        }, 100);
+      }, 800); // 等待淡出动画完成
     };
 
     window.addEventListener('resize', handleResize);
@@ -98,10 +92,10 @@ const BubbleBackground: React.FC = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       if (resizeTimeoutRef.current) clearTimeout(resizeTimeoutRef.current);
-      if (animationIntervalRef.current) clearInterval(animationIntervalRef.current);
+      if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current);
       clearTimeout(initTimeout);
     };
-  }, [generateBubbles, updateBubblePositions]);
+  }, [generateBubbles]);
 
   const blurAmount = isMobile ? 6 : 9;
   const backdropBlur = isMobile ? 15 : 30;
@@ -142,10 +136,8 @@ const BubbleBackground: React.FC = () => {
               filter: `blur(${blurAmount}px)`,
               boxShadow: `0 0 ${shadowSize}px ${bubble.color}${shadowOpacity}`,
               opacity: bubble.opacity,
-              transition: isInitialized
-                ? `left ${bubble.duration}s ease-in-out, top ${bubble.duration}s ease-in-out, opacity 1.5s ease-out`
-                : 'opacity 1.5s ease-out',
-              willChange: 'left, top, opacity',
+              transition: 'opacity 0.8s ease-in-out',
+              willChange: 'opacity',
               contain: 'layout style paint',
             }}
           />
