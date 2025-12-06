@@ -14,10 +14,14 @@ export function QuickRecordTab({
 
   const latestVersion = translations.shortcutVersionLatest || "v1.1.0";
   const legacyVersion = translations.shortcutVersionLegacy || "v1.0.1";
-  const premiumVersion = translations.shortcutVersionPremium || "v1.0.0";
+  const premiumVersion = translations.shortcutVersionPremium || "v1.1.0";
+  const premiumLegacyVersion = "v1.0.0";
   const latestRequirement =
     translations.shortcutLatestRequirement ||
     "Requires Symoney v1.6.0 or newer";
+  const smartRequirement =
+    translations.shortcutSmartRequirement ||
+    "Requires Symoney v1.7.0 or newer";
   const shortcut1Label =
     translations.shortcut1ShortText ||
     translations.shortcut1Text ||
@@ -31,6 +35,9 @@ export function QuickRecordTab({
   const historyLabelDetailed = `${
     translations.shortcutHistoryLabel || "Shortcut version history"
   } · ${shortcut1Label}`;
+  const historyLabelSmart = `${
+    translations.shortcutHistoryLabel || "Shortcut version history"
+  } · ${shortcut2Label}`;
   const historyIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -108,18 +115,48 @@ export function QuickRecordTab({
                 <div className="shortcut-card premium-card">
                   <div className="shortcut-item">
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/26b2c3440d1c4df2b123700c1e9a9582"
+                      href="https://www.icloud.com/shortcuts/c1f1e4613b14411f8947d17719d60639"
                       text={shortcut2Label}
                       isPremium={true}
                     />
                     <div className="shortcut-meta">
                       <span className="shortcut-version">{premiumVersion}</span>
                       <span className="shortcut-requirement">
+                        {smartRequirement}
+                      </span>
+                      <span className="shortcut-requirement">
                         {translations.noteSmart}
                       </span>
                     </div>
                   </div>
                 </div>
+                <details className="shortcut-history">
+                  <summary>
+                    <span className="shortcut-history-icon" aria-hidden="true">
+                      {historyIcon}
+                    </span>
+                    <span className="shortcut-history-text">
+                      {historyLabelSmart}
+                    </span>
+                  </summary>
+                  <div className="shortcut-history-list">
+                    <div className="shortcut-item">
+                      <ShortcutButton
+                        href="https://www.icloud.com/shortcuts/26b2c3440d1c4df2b123700c1e9a9582"
+                        text={
+                          translations.legacyShortcut2Text ||
+                          "Smart Quick Record – Legacy"
+                        }
+                        isPremium={true}
+                      />
+                      <div className="shortcut-meta">
+                        <span className="shortcut-version">
+                          {premiumLegacyVersion}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
