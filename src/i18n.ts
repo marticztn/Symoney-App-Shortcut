@@ -80,7 +80,7 @@ const baseTranslations: Record<Language, Translations> = {
     volcanicStep2: 'Sign up or sign in to your developer account.',
     volcanicStep3New: "In the console, scroll down the left panel, select 'API Key Management', then click 'Create API Key'. Enter any name and click 'Create'.",
     volcanicStep4New: "Then in the console's left panel, scroll up and select 'Online Inference', click 'Create Inference Endpoint'.",
-    volcanicStep5New: "Enter any name for the endpoint, select 'Doubao-1.5-pro-32k' as the model, and choose version 250115.",
+    volcanicStep5New: "Enter any name for the endpoint, select 'Doubao-Seed-1.6' as the model, and choose version 251015.",
     volcanicStep6New: "Click OK, then click 'Confirm Access'.",
   },
   'zh-cn': {
@@ -162,7 +162,7 @@ const baseTranslations: Record<Language, Translations> = {
     volcanicStep2: '注册或登录您的开发者账户。',
     volcanicStep3New: '控制台左侧面板往下滑动，选择「API Key 管理」，然后选择「创建API Key」，然后名称随意，然后点击「创建」即可。',
     volcanicStep4New: '然后在控制台左侧面板中，向上滑动，选中「在线推理」，点击「创建推理接入点」。',
-    volcanicStep5New: '接入点名称随意，模型必须选择「Doubao-1.5-pro-32k」，然后选择250115版本。',
+    volcanicStep5New: '接入点名称随意，模型必须选择「Doubao-Seed-1.6」，然后选择251015版本。',
     volcanicStep6New: '点击确定，最后点击「确认接入」即可。',
   },
   'zh-tw': {
@@ -244,7 +244,7 @@ const baseTranslations: Record<Language, Translations> = {
     volcanicStep2: '註冊或登入您的開發者帳戶。',
     volcanicStep3New: '控制台左側面板往下滑動，選擇「API Key 管理」，然後選擇「創建API Key」，名稱可隨意填寫，接著點選「創建」即可。',
     volcanicStep4New: '接著在控制台左側面板中，向上滑動，選取「線上推理」，點選「創建推理接入點」。',
-    volcanicStep5New: '接入點名稱可隨意填寫，模型請選擇「豆包」，配置選擇任一豆包版本，然後點選「創建」。',
+    volcanicStep5New: '接入點名稱可隨意填寫，模型請選擇「Doubao-Seed-1.6」，然後選擇251015版本。',
     volcanicStep6New: '最後複製接入點ID即可。',
   }
 };
