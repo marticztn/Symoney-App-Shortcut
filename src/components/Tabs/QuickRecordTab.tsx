@@ -70,11 +70,11 @@ export function QuickRecordTab({
                 <div className="shortcut-card">
                   <div className="shortcut-buttons-row">
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/fdd4e3825c4d4e98a458f4e90332bc95"
+                      href="https://www.icloud.com/shortcuts/2c75417075354224b8ef7b7e40577b6b"
                       text={shortcut1Label}
                     />
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/838898fc038c4b46b91e3ba83d8f9490"
+                      href="https://www.icloud.com/shortcuts/50750920a5904e5badb8d6da793a24fe"
                       text={shortcut1LiteLabel}
                     />
                   </div>
@@ -99,7 +99,7 @@ export function QuickRecordTab({
                 >
                   <div className="shortcut-item">
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/f154d368bd4d4c27a22ea352d4e1b366"
+                      href="https://www.icloud.com/shortcuts/407f5298ea4242b3a246ba45e4c90db8"
                       text={
                         translations.legacyShortcut1Text ||
                         "Quick Record (OCR Assistive) – Legacy"
@@ -117,7 +117,7 @@ export function QuickRecordTab({
                 <div className="shortcut-card premium-card">
                   <div className="shortcut-item">
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/c1f1e4613b14411f8947d17719d60639"
+                      href="https://www.icloud.com/shortcuts/60059be1484e43d196b11d3d2ee30095"
                       text={shortcut2Label}
                       isPremium={true}
                     />
@@ -147,7 +147,7 @@ export function QuickRecordTab({
                 >
                   <div className="shortcut-item">
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/26b2c3440d1c4df2b123700c1e9a9582"
+                      href="https://www.icloud.com/shortcuts/18f8c4c31ced4eb88c0380e37fbbfeb6"
                       text={
                         translations.legacyShortcut2Text ||
                         "Smart Quick Record – Legacy"
