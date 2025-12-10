@@ -87,7 +87,6 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
           <li>{translations.volcanicStep3New}</li>
           <li>{translations.volcanicStep4New}</li>
           <li>{translations.volcanicStep5New}</li>
-          <li>{translations.volcanicStep6New}</li>
           <li>{translations.copyToSymoney}</li>
         </ol>
       </div>

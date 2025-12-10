@@ -78,10 +78,9 @@ const baseTranslations: Record<Language, Translations> = {
     copyToSymoneyCustom: 'Open Symoney app, go to Settings > Quick Record > Smart > Select Custom Provider, fill in all three fields with the information above.',
     volcanicStep1: 'Go to the Volcano Engine developer portal.',
     volcanicStep2: 'Sign up or sign in to your developer account.',
-    volcanicStep3New: "In the console, scroll down the left panel, select 'API Key Management', then click 'Create API Key'. Enter any name and click 'Create'.",
-    volcanicStep4New: "Then in the console's left panel, scroll up and select 'Online Inference', click 'Create Inference Endpoint'.",
-    volcanicStep5New: "Enter any name for the endpoint, select 'Doubao-Seed-1.6' as the model, and choose version 251015.",
-    volcanicStep6New: "Click OK, then click 'Confirm Access'.",
+    volcanicStep3New: "In the console's left panel, scroll down and select 'API Key Management'. Click 'Create API Key', enter any name, and click 'Create'.",
+    volcanicStep4New: "In the console's left panel, select 'Activation Management'.",
+    volcanicStep5New: "Click 'Activate All Models' in the top right corner, then click 'Confirm Activation and Authorization'.",
   },
   'zh-cn': {
     headerTitle: '简钱 Symoney® 指南',
@@ -160,10 +159,9 @@ const baseTranslations: Record<Language, Translations> = {
     copyToSymoneyCustom: '打开简钱app，进入设置 > 快速记账 > 智能 > 选择自定义服务商，将上述三个字段的信息填入对应位置。',
     volcanicStep1: '前往火山引擎开发者平台。',
     volcanicStep2: '注册或登录您的开发者账户。',
-    volcanicStep3New: '控制台左侧面板往下滑动，选择「API Key 管理」，然后选择「创建API Key」，然后名称随意，然后点击「创建」即可。',
-    volcanicStep4New: '然后在控制台左侧面板中，向上滑动，选中「在线推理」，点击「创建推理接入点」。',
-    volcanicStep5New: '接入点名称随意，模型必须选择「Doubao-Seed-1.6」，然后选择251015版本。',
-    volcanicStep6New: '点击确定，最后点击「确认接入」即可。',
+    volcanicStep3New: '控制台左侧面板往下滑动，选择「API Key 管理」，点击「创建API Key」，名称随意填写后点击「创建」即可。',
+    volcanicStep4New: '在控制台左侧面板中，选择「开通管理」。',
+    volcanicStep5New: '点击右上角的「一键开通所有模型」，然后点击「确定开通与授权」。',
   },
   'zh-tw': {
     headerTitle: '簡錢 Symoney® 指南',
@@ -242,10 +240,9 @@ const baseTranslations: Record<Language, Translations> = {
     copyToSymoneyCustom: '開啟簡錢app，進入設定 > 快速記帳 > 智慧功能 > 選擇自訂服務商，將上述三個欄位的資訊填入對應位置。',
     volcanicStep1: '前往火山引擎開發者平台。',
     volcanicStep2: '註冊或登入您的開發者帳戶。',
-    volcanicStep3New: '控制台左側面板往下滑動，選擇「API Key 管理」，然後選擇「創建API Key」，名稱可隨意填寫，接著點選「創建」即可。',
-    volcanicStep4New: '接著在控制台左側面板中，向上滑動，選取「線上推理」，點選「創建推理接入點」。',
-    volcanicStep5New: '接入點名稱可隨意填寫，模型請選擇「Doubao-Seed-1.6」，然後選擇251015版本。',
-    volcanicStep6New: '最後複製接入點ID即可。',
+    volcanicStep3New: '控制台左側面板往下滑動，選擇「API Key 管理」，點選「創建API Key」，名稱隨意填寫後點選「創建」即可。',
+    volcanicStep4New: '在控制台左側面板中，選擇「開通管理」。',
+    volcanicStep5New: '點選右上角的「一鍵開通所有模型」，然後點選「確定開通與授權」。',
   }
 };
 
