@@ -93,8 +93,10 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
 
       {/* Custom Tab */}
       <div className={`api-sub-content ${apiTab === 'custom' ? 'active' : ''}`}>
-        <div className="url-notice" dangerouslySetInnerHTML={{ __html: translations.customUrlNotice || '' }} />
         <h2>{translations.customTitle}</h2>
+        <p className="custom-intro">{translations.customIntro}</p>
+        <div className="provider-list" dangerouslySetInnerHTML={{ __html: translations.customProviderList || '' }} />
+        <div className="url-notice" dangerouslySetInnerHTML={{ __html: translations.customUrlNotice || '' }} />
         <ol>
           <li>{translations.customStep1}</li>
           <li>{translations.customStep2}</li>

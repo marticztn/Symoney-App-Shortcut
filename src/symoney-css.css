@@ -1128,6 +1128,24 @@ hr {
     font-size: 0.9rem;
 }
 
+.custom-intro {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.provider-list {
+    background-color: rgba(59, 130, 246, 0.08);
+    border-left: 3px solid var(--primary);
+    padding: 0.8rem 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 0.85rem;
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+}
+
 .contact-intro {
     margin-bottom: 2rem;
     padding: 1rem 1.5rem;
