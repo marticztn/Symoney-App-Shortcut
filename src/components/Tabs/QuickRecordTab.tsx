@@ -31,8 +31,7 @@ export function QuickRecordTab({
     translations.shortcut2ShortText ||
     translations.shortcut2Text ||
     "Smart Quick Record";
-  const shortcut1LiteLabel =
-    translations.shortcut1LiteText || "Assisted Quick Record (Lite)";
+
   const historyLabelDetailed = `${
     translations.shortcutHistoryLabel || "Shortcut version history"
   } · ${shortcut1Label}`;
@@ -70,12 +69,8 @@ export function QuickRecordTab({
                 <div className="shortcut-card">
                   <div className="shortcut-buttons-row">
                     <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/2c75417075354224b8ef7b7e40577b6b"
+                      href="https://www.icloud.com/shortcuts/dc2530bb708b466787cbcaad3146c1cb"
                       text={shortcut1Label}
-                    />
-                    <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/50750920a5904e5badb8d6da793a24fe"
-                      text={shortcut1LiteLabel}
                     />
                   </div>
                   <div className="shortcut-meta">
