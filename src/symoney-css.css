@@ -936,6 +936,51 @@ hr {
     transition-delay: 0.2s;
 }
 
+/* History item styles - version/requirement above button */
+.shortcut-history-item {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 16px;
+    padding: 14px 16px;
+    gap: 10px;
+}
+
+.shortcut-history-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.shortcut-history-version {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 6px;
+    padding: 2px 8px;
+    letter-spacing: 0.02em;
+}
+
+.shortcut-history-requirement {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Premium theme for Smart Quick Record history items */
+.shortcut-column:last-child .shortcut-history-item {
+    background: rgba(250, 245, 255, 0.6);
+    border-color: rgba(139, 92, 246, 0.15);
+}
+
+.shortcut-column:last-child .shortcut-history-version {
+    color: #7c3aed;
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.2);
+}
+
 @keyframes buttonPopIn {
     from {
         opacity: 0;

@@ -23,14 +23,18 @@ export function QuickRecordTab({
   const smartRequirement =
     translations.shortcutSmartRequirement ||
     "Requires Symoney v1.7.0 or newer";
+  const legacyOcrRequirement =
+    translations.shortcutLegacyOcrRequirement ||
+    "Requires Symoney v1.6.0 or newer";
   const shortcut1Label =
     translations.shortcut1ShortText ||
     translations.shortcut1Text ||
     "Assisted Quick Record (OCR)";
-  const shortcut2Label =
+  const shortcut2Label = `${
     translations.shortcut2ShortText ||
     translations.shortcut2Text ||
-    "Smart Quick Record";
+    "Smart Quick Record"
+  } ${translations.noteSmart || "(Requires Symoney+)"}`;
 
   const historyLabelDetailed = `${
     translations.shortcutHistoryLabel || "Shortcut version history"
@@ -92,17 +96,32 @@ export function QuickRecordTab({
                     </>
                   }
                 >
-                  <div className="shortcut-item">
+                  <div className="shortcut-item shortcut-history-item">
+                    <ShortcutButton
+                      href="https://www.icloud.com/shortcuts/2c75417075354224b8ef7b7e40577b6b"
+                      text={shortcut1Label}
+                    />
+                    <div className="shortcut-history-meta">
+                      <span className="shortcut-history-version">v1.1.0</span>
+                      <span className="shortcut-history-requirement">
+                        {legacyOcrRequirement}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="shortcut-item shortcut-history-item">
                     <ShortcutButton
                       href="https://www.icloud.com/shortcuts/407f5298ea4242b3a246ba45e4c90db8"
                       text={
                         translations.legacyShortcut1Text ||
-                        "Quick Record (OCR Assistive) – Legacy"
+                        "Quick Record (OCR) – Legacy"
                       }
                     />
-                    <div className="shortcut-meta">
-                      <span className="shortcut-version">
+                    <div className="shortcut-history-meta">
+                      <span className="shortcut-history-version">
                         {legacyVersion}
+                      </span>
+                      <span className="shortcut-history-requirement">
+                        {translations.legacyRequirement || "For legacy Symoney versions"}
                       </span>
                     </div>
                   </div>
@@ -121,9 +140,6 @@ export function QuickRecordTab({
                       <span className="shortcut-requirement">
                         {smartRequirement}
                       </span>
-                      <span className="shortcut-requirement">
-                        {translations.noteSmart}
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -140,7 +156,7 @@ export function QuickRecordTab({
                   }
                   isPremium={true}
                 >
-                  <div className="shortcut-item">
+                  <div className="shortcut-item shortcut-history-item">
                     <ShortcutButton
                       href="https://www.icloud.com/shortcuts/18f8c4c31ced4eb88c0380e37fbbfeb6"
                       text={
@@ -149,9 +165,12 @@ export function QuickRecordTab({
                       }
                       isPremium={true}
                     />
-                    <div className="shortcut-meta">
-                      <span className="shortcut-version">
+                    <div className="shortcut-history-meta">
+                      <span className="shortcut-history-version">
                         {premiumLegacyVersion}
+                      </span>
+                      <span className="shortcut-history-requirement">
+                        {translations.legacyRequirement || "For legacy Symoney versions"}
                       </span>
                     </div>
                   </div>
