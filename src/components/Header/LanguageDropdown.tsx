@@ -28,6 +28,7 @@ export function LanguageDropdown({ currentLang, onLanguageChange }: LanguageDrop
       case 'en': return 'English'
       case 'zh-cn': return '简体中文'
       case 'zh-tw': return '繁體中文'
+      case 'ja': return '日本語'
       default: return 'English'
     }
   }
@@ -60,6 +61,12 @@ export function LanguageDropdown({ currentLang, onLanguageChange }: LanguageDrop
           onClick={() => handleLanguageSelect('zh-tw')}
         >
           繁體中文
+        </div>
+        <div 
+          className={`dropdown-item ${currentLang === 'ja' ? 'active' : ''}`} 
+          onClick={() => handleLanguageSelect('ja')}
+        >
+          日本語
         </div>
       </div>
     </div>

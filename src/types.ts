@@ -1,4 +1,4 @@
-export type Language = 'en' | 'zh-cn' | 'zh-tw';
+export type Language = 'en' | 'zh-cn' | 'zh-tw' | 'ja';
 
 export type MainTab = 'quickRecord' | 'apiKey' | 'automation' | 'notice' | 'contact';
 
