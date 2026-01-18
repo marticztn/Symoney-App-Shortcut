@@ -1,74 +1,110 @@
-import { useState, useEffect } from 'react'
-import type { Language } from '../../types'
+import { useState, useEffect } from "react";
+import type { Language } from "../../types";
 
 interface LanguageDropdownProps {
-  currentLang: Language
-  onLanguageChange: (lang: Language) => void
+  currentLang: Language;
+  onLanguageChange: (lang: Language) => void;
 }
 
-export function LanguageDropdown({ currentLang, onLanguageChange }: LanguageDropdownProps) {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+export function LanguageDropdown({
+  currentLang,
+  onLanguageChange,
+}: LanguageDropdownProps) {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (!target.closest('.language-dropdown')) setDropdownOpen(false)
-    }
-    document.addEventListener('click', onDocClick)
-    return () => document.removeEventListener('click', onDocClick)
-  }, [])
+      const target = e.target as HTMLElement;
+      if (!target.closest(".language-dropdown")) setDropdownOpen(false);
+    };
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
+  }, []);
 
   const handleLanguageSelect = (lang: Language) => {
-    onLanguageChange(lang)
-    setDropdownOpen(false)
-  }
+    onLanguageChange(lang);
+    setDropdownOpen(false);
+  };
 
   const getLanguageLabel = (lang: Language) => {
     switch (lang) {
-      case 'en': return 'English'
-      case 'zh-cn': return '简体中文'
-      case 'zh-tw': return '繁體中文'
-      case 'ja': return '日本語'
-      default: return 'English'
+      case "en":
+        return "English";
+      case "zh-cn":
+        return "简体中文";
+      case "zh-tw":
+        return "繁體中文";
+      case "ja":
+        return "日本語";
+      default:
+        return "English";
     }
-  }
+  };
 
   return (
-    <div className={`language-dropdown ${dropdownOpen ? 'open' : ''}`}>
-      <button className="dropdown-button" onClick={() => setDropdownOpen(v => !v)}>
+    <div className={`language-dropdown ${dropdownOpen ? "open" : ""}`}>
+      <button
+        className="dropdown-button"
+        onClick={() => setDropdownOpen((v) => !v)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          <path d="M2 12h20"></path>
+        </svg>
         <span className="dropdown-button-text">
           {getLanguageLabel(currentLang)}
         </span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
       <div className="dropdown-content">
-        <div 
-          className={`dropdown-item ${currentLang === 'en' ? 'active' : ''}`} 
-          onClick={() => handleLanguageSelect('en')}
+        <div
+          className={`dropdown-item ${currentLang === "en" ? "active" : ""}`}
+          onClick={() => handleLanguageSelect("en")}
         >
           English
         </div>
-        <div 
-          className={`dropdown-item ${currentLang === 'zh-cn' ? 'active' : ''}`} 
-          onClick={() => handleLanguageSelect('zh-cn')}
+        <div
+          className={`dropdown-item ${currentLang === "zh-cn" ? "active" : ""}`}
+          onClick={() => handleLanguageSelect("zh-cn")}
         >
           简体中文
         </div>
-        <div 
-          className={`dropdown-item ${currentLang === 'zh-tw' ? 'active' : ''}`} 
-          onClick={() => handleLanguageSelect('zh-tw')}
+        <div
+          className={`dropdown-item ${currentLang === "zh-tw" ? "active" : ""}`}
+          onClick={() => handleLanguageSelect("zh-tw")}
         >
           繁體中文
         </div>
-        <div 
-          className={`dropdown-item ${currentLang === 'ja' ? 'active' : ''}`} 
-          onClick={() => handleLanguageSelect('ja')}
+        <div
+          className={`dropdown-item ${currentLang === "ja" ? "active" : ""}`}
+          onClick={() => handleLanguageSelect("ja")}
         >
           日本語
         </div>
       </div>
     </div>
-  )
+  );
 }
