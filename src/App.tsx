@@ -11,7 +11,6 @@ import {
   AutomationTab,
   NoticeTab,
   ContactTab,
-  BubbleBackground
 } from './components'
 
 function App() {
@@ -26,8 +25,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <BubbleBackground />
-      
       <Header
         currentLang={lang}
         onLanguageChange={setLang}
