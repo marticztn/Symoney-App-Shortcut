@@ -9,14 +9,20 @@ interface ApiKeyTabProps {
 
 export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
   const [apiTab, setApiTab] = useState<ApiTab>('siluFlow')
+  const isSiluFlow = apiTab === 'siluFlow'
+  const isVolcanicEngine = apiTab === 'volcanicEngine'
+  const isCustom = apiTab === 'custom'
 
   return (
     <div className={`card tab-content ${isActive ? 'active' : ''}`}>
       <h1>{translations.apiKeyTitle}</h1>
 
-      <div className="api-sub-tabs">
-        <div 
-          className={`api-sub-tab ${apiTab === 'siluFlow' ? 'active' : ''}`} 
+      <div className="api-sub-tabs" role="tablist" aria-label={translations.apiKeyTitle}>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={isSiluFlow}
+          className={`api-sub-tab ${isSiluFlow ? 'active' : ''}`}
           onClick={() => setApiTab('siluFlow')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -24,10 +30,13 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
             <path d="m2 17 10 5 10-5"/>
             <path d="m2 12 10 5 10-5"/>
           </svg>
-          <span>{translations.siluFlow}</span>
-        </div>
-        <div 
-          className={`api-sub-tab ${apiTab === 'volcanicEngine' ? 'active' : ''}`} 
+          <span className="api-sub-tab-text">{translations.siluFlow}</span>
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={isVolcanicEngine}
+          className={`api-sub-tab ${isVolcanicEngine ? 'active' : ''}`}
           onClick={() => setApiTab('volcanicEngine')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -36,23 +45,26 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
             <path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/>
             <path d="M12 20c-3 0-6-1-6-1l-.835-7.467a2 2 0 0 1 .465-1.533H18.37a2 2 0 0 1 .465 1.533L18 19s-3 1-6 1Z"/>
           </svg>
-          <span>{translations.volcanicEngine}</span>
-        </div>
-        <div 
-          className={`api-sub-tab ${apiTab === 'custom' ? 'active' : ''}`} 
+          <span className="api-sub-tab-text">{translations.volcanicEngine}</span>
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={isCustom}
+          className={`api-sub-tab ${isCustom ? 'active' : ''}`}
           onClick={() => setApiTab('custom')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
-          <span>{translations.custom}</span>
-        </div>
+          <span className="api-sub-tab-text">{translations.custom}</span>
+        </button>
       </div>
 
       <div className="api-sub-panels">
         {/* Silicon Flow Tab */}
-        <div className={`api-sub-content ${apiTab === 'siluFlow' ? 'active' : ''}`}>
+        <div className={`api-sub-content ${isSiluFlow ? 'active' : ''}`} role="tabpanel">
           <h2>{translations.siluFlowTitle}</h2>
           <ol>
             <li>
@@ -72,7 +84,7 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
         </div>
 
         {/* Volcanic Engine Tab */}
-        <div className={`api-sub-content ${apiTab === 'volcanicEngine' ? 'active' : ''}`}>
+        <div className={`api-sub-content ${isVolcanicEngine ? 'active' : ''}`} role="tabpanel">
           <h2>{translations.volcanicEngineTitle}</h2>
           <ol>
             <li>
@@ -91,7 +103,7 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
         </div>
 
         {/* Custom Tab */}
-        <div className={`api-sub-content ${apiTab === 'custom' ? 'active' : ''}`}>
+        <div className={`api-sub-content ${isCustom ? 'active' : ''}`} role="tabpanel">
           <h2>{translations.customTitle}</h2>
           <p className="custom-intro">{translations.customIntro}</p>
           <div className="provider-list" dangerouslySetInnerHTML={{ __html: translations.customProviderList || '' }} />
