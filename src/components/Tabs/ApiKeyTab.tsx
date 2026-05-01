@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { SiteLink } from '../UI/SiteLink'
 import type { ApiTab, Translations } from '../../types'
 
@@ -9,33 +9,6 @@ interface ApiKeyTabProps {
 
 export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
   const [apiTab, setApiTab] = useState<ApiTab>('siluFlow')
-  const panelsRef = useRef<HTMLDivElement>(null)
-  const [panelHeight, setPanelHeight] = useState<number | undefined>()
-
-  useLayoutEffect(() => {
-    if (!isActive) return
-
-    const container = panelsRef.current
-    const activePanel = container?.querySelector<HTMLElement>('.api-sub-content.active')
-    if (!activePanel) return
-
-    let frame = 0
-    const updateHeight = () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      frame = window.requestAnimationFrame(() => {
-        setPanelHeight(activePanel.scrollHeight)
-      })
-    }
-
-    updateHeight()
-    const resizeObserver = new ResizeObserver(updateHeight)
-    resizeObserver.observe(activePanel)
-
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      resizeObserver.disconnect()
-    }
-  }, [apiTab, isActive, translations])
 
   return (
     <div className={`card tab-content ${isActive ? 'active' : ''}`}>
@@ -77,11 +50,7 @@ export function ApiKeyTab({ isActive, translations }: ApiKeyTabProps) {
         </div>
       </div>
 
-      <div
-        className="api-sub-panels"
-        ref={panelsRef}
-        style={panelHeight === undefined ? undefined : { height: panelHeight }}
-      >
+      <div className="api-sub-panels">
         {/* Silicon Flow Tab */}
         <div className={`api-sub-content ${apiTab === 'siluFlow' ? 'active' : ''}`}>
           <h2>{translations.siluFlowTitle}</h2>

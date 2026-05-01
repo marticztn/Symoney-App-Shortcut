@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './index.css'
 import './symoney-css.css'
 import type { Language, MainTab } from './types'
@@ -16,37 +16,12 @@ import {
 function App() {
   const [lang, setLang] = useState<Language>('zh-cn')
   const [tab, setTab] = useState<MainTab>('quickRecord')
-  const panelsRef = useRef<HTMLDivElement>(null)
-  const [panelHeight, setPanelHeight] = useState<number | undefined>()
 
   const t = useMemo(() => getTranslations(lang), [lang])
 
   useEffect(() => {
     document.title = t.headerTitle || 'Symoney Guide'
   }, [t])
-
-  useLayoutEffect(() => {
-    const container = panelsRef.current
-    const activePanel = container?.querySelector<HTMLElement>('.tab-content.active')
-    if (!activePanel) return
-
-    let frame = 0
-    const updateHeight = () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      frame = window.requestAnimationFrame(() => {
-        setPanelHeight(activePanel.scrollHeight)
-      })
-    }
-
-    updateHeight()
-    const resizeObserver = new ResizeObserver(updateHeight)
-    resizeObserver.observe(activePanel)
-
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      resizeObserver.disconnect()
-    }
-  }, [tab, lang])
 
   return (
     <div className="app-container">
@@ -64,11 +39,7 @@ function App() {
           translations={t}
         />
 
-        <div
-          className="tab-panels"
-          ref={panelsRef}
-          style={panelHeight === undefined ? undefined : { height: panelHeight }}
-        >
+        <div className="tab-panels">
           <QuickRecordTab
             isActive={tab === 'quickRecord'}
             translations={t}
