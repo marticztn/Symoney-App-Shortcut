@@ -10,8 +10,6 @@ interface NoticeTabProps {
 }
 
 export function NoticeTab({ isActive, currentLang, translations, onTabChange }: NoticeTabProps) {
-  if (!isActive) return null
-
   return (
     <div className={`card tab-content ${isActive ? 'active' : ''}`}>
       <h1>{translations.noticeTitle}</h1>

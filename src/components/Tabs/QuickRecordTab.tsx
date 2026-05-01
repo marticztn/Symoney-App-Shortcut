@@ -11,8 +11,6 @@ export function QuickRecordTab({
   isActive,
   translations,
 }: QuickRecordTabProps) {
-  if (!isActive) return null;
-
   const latestVersion = translations.shortcutVersionLatest || "v1.1.0";
   const legacyVersion = translations.shortcutVersionLegacy || "v1.0.1";
   const premiumVersion = translations.shortcutVersionPremium || "v1.1.0";

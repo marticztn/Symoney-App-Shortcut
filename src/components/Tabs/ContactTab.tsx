@@ -6,8 +6,6 @@ interface ContactTabProps {
 }
 
 export function ContactTab({ isActive, translations }: ContactTabProps) {
-  if (!isActive) return null
-
   return (
     <div className={`card tab-content ${isActive ? 'active' : ''}`}>
       <h1>{translations.contactTitle}</h1>

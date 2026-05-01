@@ -7,8 +7,6 @@ interface AutomationTabProps {
 }
 
 export function AutomationTab({ isActive, currentLang, translations }: AutomationTabProps) {
-  if (!isActive) return null
-
   const setupVideo = currentLang === 'en' ? '/asset/videos/en_setup.MP4' : '/asset/videos/cn_setup.MP4'
   const automationVideo = currentLang === 'en' ? '/asset/videos/en_automation.mov' : '/asset/videos/cn_automation.MOV'
 
