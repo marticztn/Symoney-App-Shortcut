@@ -1,192 +1,131 @@
-import { ShortcutButton } from "../UI/ShortcutButton";
-import { Collapsible } from "../UI/Collapsible";
-import type { Translations } from "../../types";
+import { Collapsible } from '../UI/Collapsible'
+import { IconDownload, IconSparkle } from '../Icons'
+import type { Translations } from '../../types'
 
 interface QuickRecordTabProps {
-  isActive: boolean;
-  translations: Translations;
+  translations: Translations
 }
 
-export function QuickRecordTab({
-  isActive,
-  translations,
-}: QuickRecordTabProps) {
-  const latestVersion = translations.shortcutVersionLatest || "v1.1.0";
-  const legacyVersion = translations.shortcutVersionLegacy || "v1.0.1";
-  const premiumVersion = translations.shortcutVersionPremium || "v1.1.0";
-  const premiumLegacyVersion = "v1.0.0";
-  const latestRequirement =
-    translations.shortcutLatestRequirement ||
-    "Requires Symoney v1.6.0 or newer";
-  const smartRequirement =
-    translations.shortcutSmartRequirement ||
-    "Requires Symoney v1.7.0 or newer";
-  const legacyOcrRequirement =
-    translations.shortcutLegacyOcrRequirement ||
-    "Requires Symoney v1.6.0 or newer";
-  const shortcut1Label =
-    translations.shortcut1ShortText ||
-    translations.shortcut1Text ||
-    "Assisted Quick Record (OCR)";
-  const shortcut2Label = `${
-    translations.shortcut2ShortText ||
-    translations.shortcut2Text ||
-    "Smart Quick Record"
-  } ${translations.noteSmart || "(Requires Symoney+)"}`;
-
-  const historyLabelDetailed = `${
-    translations.shortcutHistoryLabel || "Shortcut version history"
-  } · ${shortcut1Label}`;
-  const historyLabelSmart = `${
-    translations.shortcutHistoryLabel || "Shortcut version history"
-  } · ${shortcut2Label}`;
-  const historyIcon = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="13" r="7" />
-      <polyline points="12 10 12 13 14 13" />
-      <path d="M5 3 2 6" />
-      <path d="m22 6-3-3" />
-    </svg>
-  );
-
+export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
   return (
-    <div className={`card tab-content ${isActive ? "active" : ""}`}>
-      <h1>{translations.quickRecordTitle}</h1>
-      <ol>
-        <li>
-          <span>{translations.step1}</span>
-          <div className="shortcut-container">
-            <div className="shortcut-grid">
-              <div className="shortcut-column">
-                <div className="shortcut-card">
-                  <div className="shortcut-buttons-row">
-                    <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/dc2530bb708b466787cbcaad3146c1cb"
-                      text={shortcut1Label}
-                    />
-                  </div>
-                  <div className="shortcut-meta">
-                    <span className="shortcut-version">{latestVersion}</span>
-                    <span className="shortcut-requirement">
-                      {latestRequirement}
-                    </span>
-                  </div>
-                </div>
-                <Collapsible
-                  summary={
-                    <>
-                      <span className="shortcut-history-icon" aria-hidden="true">
-                        {historyIcon}
-                      </span>
-                      <span className="shortcut-history-text">
-                        {historyLabelDetailed}
-                      </span>
-                    </>
-                  }
-                >
-                  <div className="shortcut-item shortcut-history-item">
-                    <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/2c75417075354224b8ef7b7e40577b6b"
-                      text={shortcut1Label}
-                    />
-                    <div className="shortcut-history-meta">
-                      <span className="shortcut-history-version">v1.1.0</span>
-                      <span className="shortcut-history-requirement">
-                        {legacyOcrRequirement}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="shortcut-item shortcut-history-item">
-                    <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/407f5298ea4242b3a246ba45e4c90db8"
-                      text={
-                        translations.legacyShortcut1Text ||
-                        "Quick Record (OCR) – Legacy"
-                      }
-                    />
-                    <div className="shortcut-history-meta">
-                      <span className="shortcut-history-version">
-                        {legacyVersion}
-                      </span>
-                      <span className="shortcut-history-requirement">
-                        {translations.legacyRequirement || "For legacy Symoney versions"}
-                      </span>
-                    </div>
-                  </div>
-                </Collapsible>
-              </div>
-              <div className="shortcut-column">
-                <div className="shortcut-card premium-card">
-                  <div className="shortcut-item">
-                    <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/60059be1484e43d196b11d3d2ee30095"
-                      text={shortcut2Label}
-                      isPremium={true}
-                    />
-                    <div className="shortcut-meta">
-                      <span className="shortcut-version">{premiumVersion}</span>
-                      <span className="shortcut-requirement">
-                        {smartRequirement}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <Collapsible
-                  summary={
-                    <>
-                      <span className="shortcut-history-icon" aria-hidden="true">
-                        {historyIcon}
-                      </span>
-                      <span className="shortcut-history-text">
-                        {historyLabelSmart}
-                      </span>
-                    </>
-                  }
-                  isPremium={true}
-                >
-                  <div className="shortcut-item shortcut-history-item">
-                    <ShortcutButton
-                      href="https://www.icloud.com/shortcuts/18f8c4c31ced4eb88c0380e37fbbfeb6"
-                      text={
-                        translations.legacyShortcut2Text ||
-                        "Smart Quick Record – Legacy"
-                      }
-                      isPremium={true}
-                    />
-                    <div className="shortcut-history-meta">
-                      <span className="shortcut-history-version">
-                        {premiumLegacyVersion}
-                      </span>
-                      <span className="shortcut-history-requirement">
-                        {translations.legacyRequirement || "For legacy Symoney versions"}
-                      </span>
-                    </div>
-                  </div>
-                </Collapsible>
+    <div className="tab-content">
+      <div className="panel-header">
+        <h1>{t.quickRecordTitle}</h1>
+        <p className="panel-intro">{t.quickRecordIntro}</p>
+      </div>
+
+      <h2 style={{ marginTop: 12 }}>{t.step1}</h2>
+      <div className="shortcut-grid">
+        <div className="shortcut-card">
+          <div className="shortcut-label-row">
+            <div className="shortcut-label">{t.shortcut1Label}</div>
+          </div>
+          <a
+            className="shortcut-btn"
+            href="https://www.icloud.com/shortcuts/dc2530bb708b466787cbcaad3146c1cb"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <IconDownload w={14} h={14} sw={1.8} />
+            <span>{t.shortcut1Label}</span>
+          </a>
+          <div className="shortcut-meta">
+            <span className="version-chip">v1.2.0</span>
+            <span className="shortcut-req">{t.latestRequirement}</span>
+          </div>
+          <Collapsible summary={`${t.shortcutHistoryLabel} · ${t.shortcut1Label}`}>
+            <div className="history-item">
+              <a
+                className="shortcut-btn"
+                href="https://www.icloud.com/shortcuts/2c75417075354224b8ef7b7e40577b6b"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconDownload w={14} h={14} sw={1.8} />
+                <span>{t.shortcut1Label}</span>
+              </a>
+              <div className="shortcut-meta">
+                <span className="version-chip">v1.1.0</span>
+                <span className="shortcut-req">{t.legacyOcrRequirement}</span>
               </div>
             </div>
+            <div className="history-item">
+              <a
+                className="shortcut-btn"
+                href="https://www.icloud.com/shortcuts/407f5298ea4242b3a246ba45e4c90db8"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconDownload w={14} h={14} sw={1.8} />
+                <span>{t.shortcut1Label}</span>
+              </a>
+              <div className="shortcut-meta">
+                <span className="version-chip">v1.0.1</span>
+                <span className="shortcut-req">{t.legacyRequirement}</span>
+              </div>
+            </div>
+          </Collapsible>
+        </div>
+
+        <div className="shortcut-card premium">
+          <div className="shortcut-label-row">
+            <div className="shortcut-label">{t.shortcut2Label}</div>
+            <span className="shortcut-tag">{t.shortcut2Tag}</span>
           </div>
-        </li>
-        <li>{translations.step2}</li>
-        <li>{translations.step3}</li>
-        <li>{translations.step4}</li>
-        <li>{translations.step5}</li>
-        <li>{translations.step6}</li>
-        <li>{translations.step7}</li>
-        <li>{translations.step8}</li>
+          <a
+            className="shortcut-btn premium"
+            href="https://www.icloud.com/shortcuts/60059be1484e43d196b11d3d2ee30095"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <IconSparkle w={14} h={14} sw={1.8} />
+            <span>{t.shortcut2Label}</span>
+          </a>
+          <div className="shortcut-meta">
+            <span className="version-chip">v1.1.0</span>
+            <span className="shortcut-req">{t.smartRequirement}</span>
+          </div>
+          <Collapsible summary={`${t.shortcutHistoryLabel} · ${t.shortcut2Label}`}>
+            <div className="history-item">
+              <a
+                className="shortcut-btn premium"
+                href="https://www.icloud.com/shortcuts/18f8c4c31ced4eb88c0380e37fbbfeb6"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconSparkle w={14} h={14} sw={1.8} />
+                <span>{t.shortcut2Label}</span>
+              </a>
+              <div className="shortcut-meta">
+                <span className="version-chip">v1.0.0</span>
+                <span className="shortcut-req">{t.legacyRequirement}</span>
+              </div>
+            </div>
+          </Collapsible>
+        </div>
+      </div>
+
+      <ol className="steps">
+        <li>{t.step2}</li>
+        <li>{t.step3}</li>
+        <li>{t.step4}</li>
+        <li>{t.step5}</li>
+        <li>{t.step6}</li>
+        <li>{t.step7}</li>
+        <li>{t.step8}</li>
       </ol>
-      <hr />
-      <p className="note">{translations.actionNote}</p>
+
+      <p
+        style={{
+          marginTop: 18,
+          fontSize: 13,
+          color: 'var(--ink-3)',
+          textAlign: 'center',
+          fontStyle: 'italic',
+        }}
+      >
+        {t.actionNote}
+      </p>
     </div>
-  );
+  )
 }

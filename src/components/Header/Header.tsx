@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
 import { LanguageDropdown } from './LanguageDropdown'
+import { IconApple } from '../Icons'
 import type { Language, Translations } from '../../types'
 
 interface HeaderProps {
@@ -9,28 +9,30 @@ interface HeaderProps {
 }
 
 export function Header({ currentLang, onLanguageChange, translations }: HeaderProps) {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   return (
-    <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
-      <div className="header-left">
-        <div className="header-logo">
-          <img src="/asset/symoney_logo_rounded.svg" alt="Symoney Logo" />
+    <header className="topbar">
+      <div className="brand">
+        <div className="brand-logo">
+          <img src="/asset/logo.png" alt="Symoney" />
         </div>
-        <div className="header-title">{translations.headerTitle}</div>
+        <div className="brand-text">{translations.headerTitle}</div>
       </div>
-
-      <LanguageDropdown
-        currentLang={currentLang}
-        onLanguageChange={onLanguageChange}
-      />
+      <div className="topbar-actions">
+        <a
+          className="app-cta"
+          href={translations.ctaHref}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <IconApple w={14} h={14} />
+          <span>{translations.ctaLabel}</span>
+        </a>
+        <LanguageDropdown
+          currentLang={currentLang}
+          onLanguageChange={onLanguageChange}
+          translations={translations}
+        />
+      </div>
     </header>
   )
 }

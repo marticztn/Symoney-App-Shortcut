@@ -1,110 +1,94 @@
-import { useState, useEffect } from "react";
-import type { Language } from "../../types";
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
+import type { Language, Translations } from '../../types'
+import { LANGUAGES } from '../../types'
+import { IconGlobe, IconChev } from '../Icons'
 
 interface LanguageDropdownProps {
-  currentLang: Language;
-  onLanguageChange: (lang: Language) => void;
+  currentLang: Language
+  onLanguageChange: (lang: Language) => void
+  translations: Translations
 }
 
 export function LanguageDropdown({
   currentLang,
   onLanguageChange,
+  translations,
 }: LanguageDropdownProps) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [pos, setPos] = useState({ top: 0, right: 0 })
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    if (!open || !btnRef.current) return
+    const r = btnRef.current.getBoundingClientRect()
+    setPos({ top: r.bottom + 8, right: window.innerWidth - r.right })
+  }, [open])
 
   useEffect(() => {
-    const onDocClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest(".language-dropdown")) setDropdownOpen(false);
-    };
-    document.addEventListener("click", onDocClick);
-    return () => document.removeEventListener("click", onDocClick);
-  }, []);
-
-  const handleLanguageSelect = (lang: Language) => {
-    onLanguageChange(lang);
-    setDropdownOpen(false);
-  };
-
-  const getLanguageLabel = (lang: Language) => {
-    switch (lang) {
-      case "en":
-        return "English";
-      case "zh-cn":
-        return "简体中文";
-      case "zh-tw":
-        return "繁體中文";
-      case "ja":
-        return "日本語";
-      default:
-        return "English";
+    const handler = (e: MouseEvent) => {
+      const target = e.target as Node
+      if (
+        wrapRef.current &&
+        !wrapRef.current.contains(target) &&
+        menuRef.current &&
+        !menuRef.current.contains(target)
+      ) {
+        setOpen(false)
+      }
     }
-  };
+    const scroll = () => setOpen(false)
+    document.addEventListener('mousedown', handler)
+    window.addEventListener('scroll', scroll, true)
+    return () => {
+      document.removeEventListener('mousedown', handler)
+      window.removeEventListener('scroll', scroll, true)
+    }
+  }, [])
+
+  const currentLabel = translations.name
+
+  const menu = createPortal(
+    <div
+      ref={menuRef}
+      className={`lang-menu-portal ${open ? 'open' : ''}`}
+      style={{ top: pos.top, right: pos.right }}
+      role="listbox"
+    >
+      {LANGUAGES.map(([k, label]) => (
+        <button
+          key={k}
+          type="button"
+          className={`lang-item ${k === currentLang ? 'active' : ''}`}
+          onClick={() => {
+            onLanguageChange(k)
+            setOpen(false)
+          }}
+        >
+          <span>{label}</span>
+        </button>
+      ))}
+    </div>,
+    document.body
+  )
 
   return (
-    <div className={`language-dropdown ${dropdownOpen ? "open" : ""}`}>
+    <div className={`lang ${open ? 'open' : ''}`} ref={wrapRef}>
       <button
-        className="dropdown-button"
-        onClick={() => setDropdownOpen((v) => !v)}
+        ref={btnRef}
+        type="button"
+        className="lang-btn"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          <path d="M2 12h20"></path>
-        </svg>
-        <span className="dropdown-button-text">
-          {getLanguageLabel(currentLang)}
-        </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
+        <IconGlobe w={14} h={14} sw={1.6} />
+        <span>{currentLabel}</span>
+        <IconChev w={12} h={12} sw={2} className="chev-icon" />
       </button>
-      <div className="dropdown-content">
-        <div
-          className={`dropdown-item ${currentLang === "en" ? "active" : ""}`}
-          onClick={() => handleLanguageSelect("en")}
-        >
-          English
-        </div>
-        <div
-          className={`dropdown-item ${currentLang === "zh-cn" ? "active" : ""}`}
-          onClick={() => handleLanguageSelect("zh-cn")}
-        >
-          简体中文
-        </div>
-        <div
-          className={`dropdown-item ${currentLang === "zh-tw" ? "active" : ""}`}
-          onClick={() => handleLanguageSelect("zh-tw")}
-        >
-          繁體中文
-        </div>
-        <div
-          className={`dropdown-item ${currentLang === "ja" ? "active" : ""}`}
-          onClick={() => handleLanguageSelect("ja")}
-        >
-          日本語
-        </div>
-      </div>
+      {menu}
     </div>
-  );
+  )
 }

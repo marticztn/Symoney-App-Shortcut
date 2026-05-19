@@ -1,6 +1,6 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, useCallback, type ReactElement } from 'react'
 import type { Language, MainTab, Translations } from '../../types'
-import { notices } from '../../notices'
+import { IconZap, IconSettings, IconLayers, IconBell, IconUser } from '../Icons'
 
 interface TabNavigationProps {
   activeTab: MainTab
@@ -9,105 +9,118 @@ interface TabNavigationProps {
   translations: Translations
 }
 
-export function TabNavigation({ activeTab, onTabChange, currentLang, translations }: TabNavigationProps) {
-  const hasNewNotices = (notices[currentLang] || []).some(n =>
-    n.isNew && !(JSON.parse(localStorage.getItem('symoneyViewedNotices') || '{}') as Record<string, number>)[n.id]
-  )
+type TabDef = {
+  id: MainTab
+  labelKey: keyof Translations
+  Icon: (p: { w?: number; h?: number; sw?: number }) => ReactElement
+  hasNew?: boolean
+}
 
-  const tabsRef = useRef<HTMLDivElement>(null)
-  const [indicator, setIndicator] = useState<{ left: number; width: number; ready: boolean }>(
-    { left: 0, width: 0, ready: false }
-  )
+const TABS: TabDef[] = [
+  { id: 'quickRecord', labelKey: 'quickRecordTab', Icon: IconZap },
+  { id: 'apiKey', labelKey: 'apiKeyTab', Icon: IconSettings },
+  { id: 'automation', labelKey: 'automationTab', Icon: IconLayers },
+  { id: 'notice', labelKey: 'noticeTab', Icon: IconBell, hasNew: true },
+  { id: 'contact', labelKey: 'contactTab', Icon: IconUser },
+]
 
-  const measure = () => {
-    const container = tabsRef.current
-    if (!container) return
-    const active = container.querySelector<HTMLElement>('.tab[aria-selected="true"]')
-    if (!active) return
-    setIndicator({ left: active.offsetLeft, width: active.offsetWidth, ready: true })
+export function TabNavigation({
+  activeTab,
+  onTabChange,
+  currentLang,
+  translations,
+}: TabNavigationProps) {
+  const tabbarRef = useRef<HTMLDivElement>(null)
+  const refs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const [pill, setPill] = useState({ x: 0, w: 0, ready: false })
+
+  const refSettersRef = useRef<Record<string, (el: HTMLButtonElement | null) => void>>({})
+  const setTabRef = (id: MainTab) => {
+    if (!refSettersRef.current[id]) {
+      refSettersRef.current[id] = (el) => {
+        refs.current[id] = el
+      }
+    }
+    return refSettersRef.current[id]
   }
 
-  useLayoutEffect(measure, [activeTab, currentLang])
+  const activeTabRef = useRef(activeTab)
+  activeTabRef.current = activeTab
 
-  useEffect(() => {
-    const onResize = () => measure()
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
+  const measure = useCallback(() => {
+    const el = refs.current[activeTabRef.current]
+    if (!el || el.offsetWidth === 0) return
+    setPill((prev) => {
+      const next = { x: el.offsetLeft, w: el.offsetWidth, ready: true }
+      if (prev.x === next.x && prev.w === next.w && prev.ready) return prev
+      return next
+    })
   }, [])
 
-  const tabBtn = (tab: MainTab, label: string | undefined, icon: React.ReactNode, extra?: React.ReactNode) => (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={activeTab === tab}
-      className={`tab ${activeTab === tab ? 'active' : ''}`}
-      onClick={() => onTabChange(tab)}
-    >
-      {extra ? (
-        <span className="tab-icon-container">
-          {icon}
-          {extra}
-        </span>
-      ) : (
-        icon
-      )}
-      <span className="tab-text">{label}</span>
-    </button>
-  )
+  useLayoutEffect(() => {
+    measure()
+  }, [activeTab, currentLang, translations, measure])
+
+  useEffect(() => {
+    let raf = 0
+    const recompute = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(measure)
+    }
+
+    window.addEventListener('resize', recompute)
+    window.addEventListener('orientationchange', recompute)
+
+    let ro: ResizeObserver | undefined
+    if (typeof ResizeObserver !== 'undefined' && tabbarRef.current) {
+      ro = new ResizeObserver(recompute)
+      ro.observe(tabbarRef.current)
+      Object.values(refs.current).forEach((b) => b && ro!.observe(b))
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(recompute)
+    }
+
+    const t1 = setTimeout(recompute, 60)
+    const t2 = setTimeout(recompute, 300)
+
+    return () => {
+      window.removeEventListener('resize', recompute)
+      window.removeEventListener('orientationchange', recompute)
+      cancelAnimationFrame(raf)
+      clearTimeout(t1)
+      clearTimeout(t2)
+      ro?.disconnect()
+    }
+  }, [measure])
 
   return (
-    <div className="tab-container">
-      <div className="tabs" ref={tabsRef} role="tablist">
-        {tabBtn(
-          'quickRecord',
-          translations.quickRecordTab,
-          <svg className="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
-        )}
-        {tabBtn(
-          'apiKey',
-          translations.apiKeyTab,
-          <svg className="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" />
-            <path d="m21 2-9.6 9.6" />
-            <circle cx="7.5" cy="15.5" r="5.5" />
-          </svg>
-        )}
-        {tabBtn(
-          'automation',
-          translations.automationTab,
-          <svg className="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <rect width="18" height="18" x="3" y="3" rx="2" />
-            <path d="m9 8 6 4-6 4Z" />
-          </svg>
-        )}
-        {tabBtn(
-          'notice',
-          translations.noticeTab,
-          <svg className="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-          </svg>,
-          hasNewNotices ? <span className="new-badge" /> : null
-        )}
-        {tabBtn(
-          'contact',
-          translations.contactTab,
-          <svg className="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-          </svg>
-        )}
-        <span
-          className={`tab-indicator ${indicator.ready ? 'tab-indicator--ready' : ''}`}
-          style={{
-            transform: `translateX(${indicator.left}px)`,
-            width: `${indicator.width}px`,
-          }}
+    <div className="tabbar-wrap">
+      <div className="tabbar" role="tablist" ref={tabbarRef}>
+        <div
+          className={`tab-pill ${pill.ready ? 'ready' : ''}`}
+          style={{ transform: `translateX(${pill.x}px)`, width: pill.w }}
           aria-hidden="true"
         />
+        {TABS.map((tab) => {
+          const { Icon } = tab
+          return (
+            <button
+              key={tab.id}
+              ref={setTabRef(tab.id)}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              className={`tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => onTabChange(tab.id)}
+            >
+              <Icon w={15} h={15} sw={1.6} />
+              <span>{translations[tab.labelKey] as string}</span>
+              {tab.hasNew && <span className="dot-new" />}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
