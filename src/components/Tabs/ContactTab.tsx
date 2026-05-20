@@ -27,7 +27,7 @@ export function ContactTab({ translations: t }: ContactTabProps) {
           rel="noreferrer"
           className="contact-link"
         >
-          <img src="/asset/discord.png" alt="Discord" />
+          <img className="discord-icon" src="/asset/discord.png" alt="Discord" />
           <div className="info">
             <span className="label">Discord</span>
             <span className="value">{t.discordServer}</span>

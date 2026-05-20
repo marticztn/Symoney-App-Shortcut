@@ -15,7 +15,10 @@ export function Header({ currentLang, onLanguageChange, translations }: HeaderPr
         <div className="brand-logo">
           <img src="/asset/logo.png" alt="Symoney" />
         </div>
-        <div className="brand-text">{translations.headerTitle}</div>
+        <div className="brand-text">
+          <span className="brand-title-full">{translations.headerTitle}</span>
+          <span className="brand-title-short">{translations.headerTitleShort}</span>
+        </div>
       </div>
       <div className="topbar-actions">
         <a

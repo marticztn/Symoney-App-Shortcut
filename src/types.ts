@@ -23,7 +23,9 @@ export interface ProviderEntry {
 
 export interface Translations {
   name: string
+  nameShort: string
   headerTitle: string
+  headerTitleShort: string
   ctaLabel: string
   ctaHref: string
   heroTitle: string

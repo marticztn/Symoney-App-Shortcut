@@ -39,10 +39,14 @@ export function NoticeTab({ translations: t, onTabChange }: NoticeTabProps) {
                 className="notice-head"
                 onClick={() => setOpenId(open ? null : n.id)}
               >
-                <span className="notice-date">{n.date}</span>
-                <span className="notice-heading">{n.heading}</span>
-                {n.isNew && <span className="notice-badge new">NEW</span>}
-                <IconChev w={16} h={16} sw={1.8} className="notice-chev" />
+                <div className="notice-main">
+                  <span className="notice-heading">{n.heading}</span>
+                  <span className="notice-date">{n.date}</span>
+                </div>
+                <div className="notice-head-meta">
+                  {n.isNew && <span className="notice-badge new">NEW</span>}
+                  <IconChev w={16} h={16} sw={1.8} className="notice-chev" />
+                </div>
               </div>
               <div className="notice-body">
                 <div className="notice-body-wrap">

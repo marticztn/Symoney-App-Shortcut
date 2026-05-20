@@ -3,7 +3,9 @@ import type { Language, Translations } from './types'
 const translations: Record<Language, Translations> = {
   'zh-cn': {
     name: '简体中文',
+    nameShort: '简中',
     headerTitle: '简钱 Symoney® 指南',
+    headerTitleShort: '简钱 Symoney® 指南',
     ctaLabel: '下载 App',
     ctaHref:
       'https://apps.apple.com/cn/app/%E7%AE%80%E9%92%B1-symoney-%E8%BD%BB%E7%9B%88%E4%BC%98%E9%9B%85%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%AE%B0%E8%B4%A6%E6%9C%AC/id6502937308',
@@ -141,7 +143,9 @@ const translations: Record<Language, Translations> = {
   },
   en: {
     name: 'English',
+    nameShort: 'EN',
     headerTitle: 'Symoney® Guide',
+    headerTitleShort: 'Symoney Guide',
     ctaLabel: 'Get the App',
     ctaHref:
       'https://apps.apple.com/us/app/%E7%B0%A1%E9%8C%A2-symoney-personal-finance/id6502937308',
@@ -282,7 +286,9 @@ const translations: Record<Language, Translations> = {
   },
   'zh-tw': {
     name: '繁體中文',
+    nameShort: '繁中',
     headerTitle: '簡錢 Symoney® 指南',
+    headerTitleShort: '簡錢 Symoney® 指南',
     ctaLabel: '下載 App',
     ctaHref:
       'https://apps.apple.com/tw/app/%E7%B0%A1%E9%8C%A2-symoney-%E8%BC%95%E7%9B%88%E5%84%AA%E9%9B%85%E7%9A%84%E5%80%8B%E4%BA%BA%E8%A8%98%E5%B8%B3%E6%9C%AC/id6502937308',
@@ -419,7 +425,9 @@ const translations: Record<Language, Translations> = {
   },
   ja: {
     name: '日本語',
+    nameShort: '日本語',
     headerTitle: 'Symoney® ガイド',
+    headerTitleShort: 'Symoney ガイド',
     ctaLabel: 'App を入手',
     ctaHref:
       'https://apps.apple.com/jp/app/%E7%B0%A1%E9%8C%A2-symoney-%E8%BB%BD%E3%82%84%E3%81%8B%E3%81%A7%E4%B8%8A%E5%93%81%E3%81%AA%E5%AE%B6%E8%A8%88%E7%B0%BF/id6502937308',

@@ -49,6 +49,7 @@ export function LanguageDropdown({
   }, [])
 
   const currentLabel = translations.name
+  const currentShortLabel = translations.nameShort
 
   const menu = createPortal(
     <div
@@ -85,7 +86,8 @@ export function LanguageDropdown({
         aria-haspopup="listbox"
       >
         <IconGlobe w={14} h={14} sw={1.6} />
-        <span>{currentLabel}</span>
+        <span className="lang-label-full">{currentLabel}</span>
+        <span className="lang-label-short">{currentShortLabel}</span>
         <IconChev w={12} h={12} sw={2} className="chev-icon" />
       </button>
       {menu}

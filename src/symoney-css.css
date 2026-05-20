@@ -181,6 +181,7 @@ body {
    ========================================================= */
 
 .topbar {
+  --topbar-control-height: 34px;
   position: sticky;
   top: 14px;
   z-index: 50;
@@ -203,12 +204,13 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .brand-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
+  width: var(--topbar-control-height);
+  height: var(--topbar-control-height);
+  border-radius: 10px;
   overflow: hidden;
   background: #fff;
   flex-shrink: 0;
@@ -227,19 +229,29 @@ body {
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brand-title-short {
+  display: none;
 }
 
 .topbar-actions {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .app-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
-  padding: 8px 14px;
+  height: var(--topbar-control-height);
+  padding: 0 14px;
   background: var(--ink);
   color: #fff;
   border-radius: 999px;
@@ -273,7 +285,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px 8px 12px;
+  height: var(--topbar-control-height);
+  padding: 0 14px 0 12px;
   background: var(--glass-soft);
   border: 1px solid var(--glass-edge);
   border-radius: 999px;
@@ -283,6 +296,15 @@ body {
   color: var(--ink-2);
   cursor: pointer;
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-btn span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.lang-label-short {
+  display: none;
 }
 
 .lang-btn:hover {
@@ -470,8 +492,8 @@ body {
 .tab-pill.ready { opacity: 1; }
 
 .tab svg {
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   opacity: 0.85;
   flex-shrink: 0;
 }
@@ -888,16 +910,17 @@ body {
    ========================================================= */
 
 .subtabs {
-  display: inline-flex;
-  padding: 5px;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid var(--glass-edge);
-  border-radius: 14px;
-  gap: 2px;
-  margin: 8px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--glass-edge);
+  border-radius: 0;
+  gap: 0;
+  margin: 6px 0 24px;
   position: relative;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 }
 
 .sub-panel {
@@ -923,34 +946,68 @@ body {
   z-index: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 8px 14px;
+  min-width: 0;
+  padding: 10px 10px 12px;
   background: transparent;
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
   font: inherit;
   font-size: 13px;
   font-weight: 500;
   color: var(--ink-3);
   cursor: pointer;
   white-space: nowrap;
-  transition: color 200ms ease, background 200ms ease;
+  transition: color 180ms ease, background 180ms ease;
 }
 
-.subtab:hover { color: var(--ink); }
+.subtab::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--ink);
+  opacity: 0;
+  transform: scaleX(0.45);
+  transition: opacity 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.subtab:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.28);
+}
 
 .subtab.active {
   color: var(--ink);
   font-weight: 600;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(36, 24, 60, 0.08),
-              0 0 0 0.5px rgba(24, 22, 26, 0.06);
+  background: transparent;
+  box-shadow: none;
+}
+
+.subtab.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.subtab span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .subtab svg {
   width: 14px;
   height: 14px;
-  opacity: 0.8;
+  opacity: 0.72;
+  flex-shrink: 0;
+}
+
+.subtab.active svg {
+  opacity: 0.95;
 }
 
 /* =========================================================
@@ -1086,17 +1143,6 @@ body {
   overflow: hidden;
 }
 
-.sms-card::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 30%;
-  right: 30%;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 0 0 14px 14px;
-}
-
 .sms-card-header {
   display: flex;
   align-items: center;
@@ -1224,10 +1270,25 @@ body {
 .notice-head {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
+  gap: 12px;
+  padding: 15px 18px 14px;
   cursor: pointer;
   user-select: none;
+}
+
+.notice-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notice-head-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .notice-date {
@@ -1236,22 +1297,28 @@ body {
   font-weight: 500;
   color: var(--ink-4);
   letter-spacing: 0.05em;
-  flex-shrink: 0;
-  min-width: 84px;
+  line-height: 1.2;
 }
 
 .notice-heading {
-  flex: 1;
   font-size: 14.5px;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.005em;
+  line-height: 1.35;
+  min-width: 0;
 }
 
 .notice-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 18px;
   font-size: 10px;
   font-weight: 700;
-  padding: 2px 7px;
+  line-height: 1;
+  padding: 0 7px;
   border-radius: 999px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1365,6 +1432,12 @@ body {
   flex-shrink: 0;
 }
 
+.contact-link img.discord-icon {
+  display: block;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
 .contact-link .info {
   display: flex;
   flex-direction: column;
@@ -1459,9 +1532,11 @@ body {
   }
   .brand-text { font-size: 14px; }
   .app-cta {
-    padding: 7px 10px;
+    width: var(--topbar-control-height);
+    padding: 0;
     font-size: 12px;
   }
+  .app-cta svg { transform: translateX(1px); }
   .app-cta span { display: none; }
   .panel { padding: 24px 22px; border-radius: 22px; }
   .hero { padding: 20px 0 14px; }
@@ -1469,4 +1544,106 @@ body {
   .tab { padding: 9px 12px; font-size: 12.5px; }
   .contact-links { grid-template-columns: 1fr; }
   .qr-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    padding: 8px 8px 8px 12px;
+  }
+
+  .brand { gap: 10px; }
+  .brand-title-full,
+  .lang-label-full {
+    display: none;
+  }
+
+  .brand-title-short,
+  .lang-label-short {
+    display: inline;
+  }
+
+  .topbar-actions { gap: 6px; }
+
+  .lang-btn {
+    gap: 6px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar {
+    --topbar-control-height: 32px;
+  }
+
+  .lang-btn {
+    gap: 5px;
+    padding: 0 9px;
+  }
+
+  .lang-btn .chev-icon {
+    display: none;
+  }
+}
+
+/* Small phones: inactive tabs collapse to icons; active label expands smoothly inside the pill */
+@media (max-width: 480px) {
+  .tabbar {
+    gap: 0;
+    justify-content: space-between;
+    min-width: min(100%, 312px);
+    overflow: hidden;
+  }
+
+  .tab-pill { display: none; }
+
+  .tab {
+    padding: 10px;
+    min-width: 40px;
+    justify-content: center;
+    gap: 0;
+    transition: padding 360ms cubic-bezier(0.22, 1, 0.36, 1),
+                color 200ms ease;
+  }
+
+  .tab > span:not(.dot-new) {
+    display: inline-block;
+    max-width: 0;
+    margin-left: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transform: translateX(-4px);
+    transition: max-width 360ms cubic-bezier(0.22, 1, 0.36, 1),
+                margin-left 360ms cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 180ms ease,
+                transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .tab.active {
+    padding: 10px 14px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(36, 24, 60, 0.10), 0 0 0 0.5px rgba(24, 22, 26, 0.06);
+  }
+  .tab.active.has-new { padding-right: 24px; }
+  .tab.active > span:not(.dot-new) {
+    max-width: 6rem;
+    margin-left: 8px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tab.active .dot-new {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    margin: 0;
+    box-shadow: 0 0 0 2px #fff;
+  }
+
+  .tab:not(.active) .dot-new {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    margin: 0;
+  }
 }

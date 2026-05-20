@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, useCallback, type ReactElement } from 'react'
 import type { Language, MainTab, Translations } from '../../types'
-import { IconZap, IconSettings, IconLayers, IconBell, IconUser } from '../Icons'
+import { IconZapSolid, IconKeySolid, IconLayersSolid, IconBellSolid, IconUserSolid } from '../Icons'
 
 interface TabNavigationProps {
   activeTab: MainTab
@@ -17,11 +17,11 @@ type TabDef = {
 }
 
 const TABS: TabDef[] = [
-  { id: 'quickRecord', labelKey: 'quickRecordTab', Icon: IconZap },
-  { id: 'apiKey', labelKey: 'apiKeyTab', Icon: IconSettings },
-  { id: 'automation', labelKey: 'automationTab', Icon: IconLayers },
-  { id: 'notice', labelKey: 'noticeTab', Icon: IconBell, hasNew: true },
-  { id: 'contact', labelKey: 'contactTab', Icon: IconUser },
+  { id: 'quickRecord', labelKey: 'quickRecordTab', Icon: IconZapSolid },
+  { id: 'apiKey', labelKey: 'apiKeyTab', Icon: IconKeySolid },
+  { id: 'automation', labelKey: 'automationTab', Icon: IconLayersSolid },
+  { id: 'notice', labelKey: 'noticeTab', Icon: IconBellSolid, hasNew: true },
+  { id: 'contact', labelKey: 'contactTab', Icon: IconUserSolid },
 ]
 
 export function TabNavigation({
@@ -48,6 +48,7 @@ export function TabNavigation({
   activeTabRef.current = activeTab
 
   const measure = useCallback(() => {
+    if (window.matchMedia('(max-width: 480px)').matches) return
     const el = refs.current[activeTabRef.current]
     if (!el || el.offsetWidth === 0) return
     setPill((prev) => {
@@ -105,6 +106,7 @@ export function TabNavigation({
         />
         {TABS.map((tab) => {
           const { Icon } = tab
+          const label = translations[tab.labelKey] as string
           return (
             <button
               key={tab.id}
@@ -112,11 +114,12 @@ export function TabNavigation({
               type="button"
               role="tab"
               aria-selected={activeTab === tab.id}
-              className={`tab ${activeTab === tab.id ? 'active' : ''}`}
+              aria-label={label}
+              className={`tab ${activeTab === tab.id ? 'active' : ''} ${tab.hasNew ? 'has-new' : ''}`}
               onClick={() => onTabChange(tab.id)}
             >
-              <Icon w={15} h={15} sw={1.6} />
-              <span>{translations[tab.labelKey] as string}</span>
+              <Icon w={17} h={17} sw={1.6} />
+              <span>{label}</span>
               {tab.hasNew && <span className="dot-new" />}
             </button>
           )
