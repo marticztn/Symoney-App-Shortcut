@@ -712,6 +712,16 @@ body {
   pointer-events: none;
 }
 
+.shortcut-download {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shortcut-download .shortcut-meta {
+  margin-top: 0;
+}
+
 .shortcut-label-row {
   display: flex;
   align-items: center;

@@ -99,6 +99,15 @@ export const IconSparkle = (p: IconProps) => (
   />
 )
 
+export const IconMic = (p: IconProps) => (
+  <LineIcon {...p}>
+    <path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" />
+    <path d="M5 10v1a7 7 0 0 0 14 0v-1" />
+    <path d="M12 18v3" />
+    <path d="M8 21h8" />
+  </LineIcon>
+)
+
 export const IconHistory = (p: IconProps) => (
   <LineIcon {...p}>
     <circle cx="12" cy="13" r="7" />

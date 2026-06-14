@@ -43,6 +43,7 @@ export interface Translations {
   step1: string
   shortcut1Label: string
   shortcut2Label: string
+  shortcut3Label: string
   shortcut2Tag: string
   shortcutHistoryLabel: string
   legacyRequirement: string

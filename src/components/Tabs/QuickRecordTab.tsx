@@ -1,5 +1,5 @@
 import { Collapsible } from '../UI/Collapsible'
-import { IconDownload, IconSparkle } from '../Icons'
+import { IconDownload, IconMic, IconSparkle } from '../Icons'
 import type { Translations } from '../../types'
 
 interface QuickRecordTabProps {
@@ -72,18 +72,34 @@ export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
             <div className="shortcut-label">{t.shortcut2Label}</div>
             <span className="shortcut-tag">{t.shortcut2Tag}</span>
           </div>
-          <a
-            className="shortcut-btn premium"
-            href="https://www.icloud.com/shortcuts/60059be1484e43d196b11d3d2ee30095"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <IconSparkle w={14} h={14} sw={1.8} />
-            <span>{t.shortcut2Label}</span>
-          </a>
-          <div className="shortcut-meta">
-            <span className="version-chip">v1.1.0</span>
-            <span className="shortcut-req">{t.smartRequirement}</span>
+          <div className="shortcut-download">
+            <a
+              className="shortcut-btn premium"
+              href="https://www.icloud.com/shortcuts/60059be1484e43d196b11d3d2ee30095"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <IconSparkle w={14} h={14} sw={1.8} />
+              <span>{t.shortcut2Label}</span>
+            </a>
+            <div className="shortcut-meta">
+              <span className="version-chip">v1.1.0</span>
+              <span className="shortcut-req">{t.smartRequirement}</span>
+            </div>
+          </div>
+          <div className="shortcut-download">
+            <a
+              className="shortcut-btn premium"
+              href="https://www.icloud.com/shortcuts/d2b2bb30b4f840e29015f039430c82d9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <IconMic w={14} h={14} sw={1.8} />
+              <span>{t.shortcut3Label}</span>
+            </a>
+            <div className="shortcut-meta">
+              <span className="version-chip">v1.0.0</span>
+            </div>
           </div>
           <Collapsible summary={`${t.shortcutHistoryLabel} · ${t.shortcut2Label}`}>
             <div className="history-item">
