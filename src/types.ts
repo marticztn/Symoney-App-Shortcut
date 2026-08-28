@@ -87,6 +87,8 @@ export interface Translations {
 
   automationTitle: string
   automationIntro: string
+  smsTriggerTitle: string
+  smsTriggerDesc: string
   smsExampleTitle: string
   smsExampleDesc: string
   smsExample: string
@@ -95,6 +97,11 @@ export interface Translations {
   setupVideoDesc: string
   automationVideoTitle: string
   automationVideoDesc: string
+  notificationTriggerTitle: string
+  notificationTriggerDesc: string
+  notificationShortcutLabel: string
+  notificationShortcutHint: string
+  notificationRequirement: string
 
   noticeTitle: string
   noticeIntro: string
