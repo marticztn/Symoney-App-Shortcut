@@ -22,7 +22,7 @@ export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
           </div>
           <a
             className="shortcut-btn"
-            href="https://www.icloud.com/shortcuts/dc2530bb708b466787cbcaad3146c1cb"
+            href="https://www.icloud.com/shortcuts/dd0a44e1aa1e4f67b0d6d200205bde0f"
             target="_blank"
             rel="noreferrer"
           >
@@ -75,7 +75,7 @@ export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
           <div className="shortcut-download">
             <a
               className="shortcut-btn premium"
-              href="https://www.icloud.com/shortcuts/60059be1484e43d196b11d3d2ee30095"
+              href="https://www.icloud.com/shortcuts/9cf54f848a3b4b67aa8fe132a4f5dd40"
               target="_blank"
               rel="noreferrer"
             >
@@ -90,7 +90,7 @@ export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
           <div className="shortcut-download">
             <a
               className="shortcut-btn premium"
-              href="https://www.icloud.com/shortcuts/d2b2bb30b4f840e29015f039430c82d9"
+              href="https://www.icloud.com/shortcuts/46473339f6e84ba1b34942419ed157e3"
               target="_blank"
               rel="noreferrer"
             >
