@@ -108,7 +108,7 @@ export function AutomationTab({ currentLang, translations: t }: AutomationTabPro
             </div>
             <a
               className="shortcut-btn notification-shortcut-btn"
-              href="https://www.icloud.com/shortcuts/3c89b94831394282aafceb306d85c036"
+              href="https://www.icloud.com/shortcuts/b0424e8192de4954a66e8b3440c593a4"
               target="_blank"
               rel="noreferrer"
             >
