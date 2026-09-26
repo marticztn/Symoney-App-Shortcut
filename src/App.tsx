@@ -14,8 +14,15 @@ import {
 } from './components'
 
 function App() {
-  const [lang, setLang] = useState<Language>('zh-cn')
-  const [tab, setTab] = useState<MainTab>('quickRecord')
+  const [lang, setLang] = useState<Language>(() => {
+    const value = new URLSearchParams(window.location.search).get('lang')
+    return value === 'en' || value === 'zh-tw' || value === 'ja' ? value : 'zh-cn'
+  })
+  const [tab, setTab] = useState<MainTab>(() => {
+    const value = new URLSearchParams(window.location.search).get('tab')
+    return value === 'apiKey' || value === 'automation' || value === 'notice' || value === 'contact'
+      ? value : 'quickRecord'
+  })
 
   const t = useMemo(() => getTranslations(lang), [lang])
 
