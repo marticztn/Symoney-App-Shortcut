@@ -52,6 +52,26 @@ export function NoticeTab({ translations: t, onTabChange }: NoticeTabProps) {
                 <div className="notice-body-wrap">
                   <div className="notice-content">
                     {renderContent(n.content)}
+                    {n.sections?.map((section) => (
+                      <section className="notice-section" key={section.heading}>
+                        <h2>{section.heading}</h2>
+                        <ol>
+                          {section.items.map((item) => (
+                            <li key={item.title}>
+                              <h3>{item.title}</h3>
+                              <p>{item.content}</p>
+                            </li>
+                          ))}
+                        </ol>
+                      </section>
+                    ))}
+                    {n.source && (
+                      <p className="notice-source">
+                        <a href={n.source.href} target="_blank" rel="noopener noreferrer">
+                          {n.source.label}
+                        </a>
+                      </p>
+                    )}
                     {n.actionLabel && n.actionTab && (
                       <button
                         type="button"

@@ -9,6 +9,11 @@ export interface Notice {
   date: string
   heading: string
   content: string
+  sections?: {
+    heading: string
+    items: { title: string; content: string }[]
+  }[]
+  source?: { label: string; href: string }
   warning?: boolean
   isNew?: boolean
   actionLabel?: string

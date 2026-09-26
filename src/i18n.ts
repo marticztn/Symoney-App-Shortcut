@@ -107,6 +107,60 @@ const translations: Record<Language, Translations> = {
     communityHeading: '用户社群',
     notices: [
       {
+        "id": "n7",
+        "date": "2026.09.26",
+        "heading": "关于账单消失与数据恢复的说明",
+        "warning": true,
+        "isNew": true,
+        "content": "如果账单突然不见了，并不一定代表数据已被永久删除。可能的原因包括 iCloud 账户变化、数据重置、备份恢复，以及筛选或同步状态。请根据以下情况核对。",
+        "sections": [
+          {
+            "heading": "可能导致数据丢失的情况",
+            "items": [
+              {
+                "title": "退出 iCloud，或在系统设置关闭简钱的 iCloud 权限",
+                "content": "简钱的账单、账户、分类和图片由 iCloud 同步框架管理。退出 iCloud 或关闭系统中的 App iCloud 权限时，本机数据可能被清除，尚未上传的数据也可能受影响。已上传的数据在重新连接原账户后可能同步回来；没有上传且没有备份的数据可能无法恢复。这里指 iPhone 系统设置中的操作；简钱 App 内的同步开关没有直接清空数据的逻辑。"
+              },
+              {
+                "title": "执行「重置 App」，包括在其他设备上操作",
+                "content": "「重置 App」会删除云端数据，并在下次启动时清除本地数据库。相同 iCloud 账户下开启同步的其他设备也可能受到影响，因此即使当前手机没有操作，也需要确认其他设备是否执行过重置或删除。重置会保留已有备份文件。"
+              },
+              {
+                "title": "恢复旧备份、空备份或内容异常的备份",
+                "content": "恢复备份会替换当前数据，不会与现有账单合并。恢复旧备份会失去备份之后新增的数据，恢复空备份会清空现有数据。当前恢复流程对部分异常备份的校验仍不充分，也可能在未提示错误的情况下清空数据。恢复前请先另存当前数据，并确认所选备份的日期、来源和完整性。"
+              },
+              {
+                "title": "删除 App 后重新安装，或换机时没有可恢复的数据",
+                "content": "如果此前未成功同步，也没有独立备份，删除 App 后本机数据可能无法找回。iCloud 不可用时，自动备份会保存在 App 本地；这类备份也会随删除 App 一起移除。换机前，请确认云端同步情况，或将备份另存到 App 以外的位置。"
+              }
+            ]
+          },
+          {
+            "heading": "也可能只是账单暂未显示",
+            "items": [
+              {
+                "title": "日期或筛选条件发生变化",
+                "content": "首页显示当前选定日期的账单。请先检查日期，以及是否开启了仅支出或仅收入筛选；当前页面为空，不代表其他日期的账单也被删除。"
+              },
+              {
+                "title": "iCloud 数据尚未下载完成",
+                "content": "重新安装或换机后，云端数据需要时间下载到本机。请确认使用原来的 iCloud 账户、简钱的 iCloud 权限已开启且网络正常，再等待同步。尚未显示的账单不一定已经丢失。"
+              },
+              {
+                "title": "数据读取失败",
+                "content": "部分读取失败的情况目前也可能显示为空列表，界面尚不能完全区分「读取失败」和「没有账单」。目前未发现正常版本更新会主动清空全部账单的逻辑，因此不能仅凭空白页面判断 App 已被初始化。"
+              }
+            ]
+          }
+        ],
+        "source": {
+          "label": "参考：Apple 工程师对 iCloud 账户变化与本机数据清理的说明",
+          "href": "https://developer.apple.com/forums/thread/811294"
+        },
+        "actionLabel": "联系开发者",
+        "actionTab": "contact"
+      },
+      {
         id: 'n6',
         date: '2025.11.27',
         heading: '切换 Apple ID 后「简钱+」订阅消失的解决办法',
@@ -259,6 +313,60 @@ const translations: Record<Language, Translations> = {
     communityHeading: 'Community',
     notices: [
       {
+        "id": "n7",
+        "date": "2026.09.26",
+        "heading": "Missing records: data loss and recovery",
+        "warning": true,
+        "isNew": true,
+        "content": "If your records suddenly disappear, they may not be permanently deleted. Possible causes include iCloud account changes, an app reset, restoring a backup, or the current filters and sync state. Check the situations below.",
+        "sections": [
+          {
+            "heading": "Situations that may cause data loss",
+            "items": [
+              {
+                "title": "Signing out of iCloud or disabling Symoney’s iCloud access in system Settings",
+                "content": "Symoney’s records, accounts, categories, and photos are managed by the iCloud sync framework. Signing out or disabling the app’s iCloud access in system Settings may remove local data, including changes that have not yet uploaded. Uploaded data may return after reconnecting the original account; data without a cloud copy or backup may be unrecoverable. This refers to iPhone system Settings. The sync switch inside Symoney has no direct data-clearing logic."
+              },
+              {
+                "title": "Using Reset App, including on another device",
+                "content": "Reset App deletes cloud data and clears the local database on the next launch. Other devices syncing with the same iCloud account may also be affected. Even if nothing was changed on this phone, check whether data was reset or deleted on another device. Existing backup files are kept during an app reset."
+              },
+              {
+                "title": "Restoring an old, empty, or malformed backup",
+                "content": "Restoring a backup replaces current data; it does not merge with existing records. An old backup removes changes made since that backup, and an empty backup clears current data. The current restore process does not fully validate some malformed backups, which may also clear data without reporting an error. Before restoring, save a separate copy of your current data and check the backup’s date, source, and integrity."
+              },
+              {
+                "title": "Deleting and reinstalling the app, or moving to a new device without recoverable data",
+                "content": "If your data never synced successfully and you have no separate backup, deleting the app may make local data unrecoverable. When iCloud is unavailable, automatic backups are stored inside the app and are also removed when the app is deleted. Before changing devices, check cloud sync or save a backup outside the app."
+              }
+            ]
+          },
+          {
+            "heading": "Your records may simply not be showing yet",
+            "items": [
+              {
+                "title": "A different date or filter is selected",
+                "content": "The home page shows records for the selected date. Check the date and whether the expense-only or income-only filter is active. An empty page does not mean records on other dates have been deleted."
+              },
+              {
+                "title": "iCloud data is still downloading",
+                "content": "After reinstalling or changing devices, cloud data needs time to download. Confirm that you are using the original iCloud account, that Symoney’s iCloud access is enabled, and that the network is available, then allow time for sync. Records that have not appeared yet are not necessarily lost."
+              },
+              {
+                "title": "The app could not read the data",
+                "content": "Some data-reading failures currently appear as an empty list, so the interface does not always distinguish a read error from having no records. Our review has not found logic that deliberately clears all records during a normal app update. An empty page alone does not establish that the app has been reset."
+              }
+            ]
+          }
+        ],
+        "source": {
+          "label": "Reference: Apple engineer’s explanation of iCloud account changes and local data removal",
+          "href": "https://developer.apple.com/forums/thread/811294"
+        },
+        "actionLabel": "Contact the developer",
+        "actionTab": "contact"
+      },
+      {
         id: 'n6',
         date: '2025.11.27',
         heading: 'Restoring Symoney+ after switching Apple ID',
@@ -405,6 +513,60 @@ const translations: Record<Language, Translations> = {
     scanToJoin: '掃碼加入群聊',
     communityHeading: '使用者社群',
     notices: [
+      {
+        "id": "n7",
+        "date": "2026.09.26",
+        "heading": "關於帳單消失與資料復原的說明",
+        "warning": true,
+        "isNew": true,
+        "content": "如果帳單突然不見了，並不一定代表資料已被永久刪除。可能的原因包括 iCloud 帳號變更、資料重置、備份還原，以及篩選或同步狀態。請依照以下情況確認。",
+        "sections": [
+          {
+            "heading": "可能導致資料遺失的情況",
+            "items": [
+              {
+                "title": "登出 iCloud，或在系統設定關閉簡錢的 iCloud 權限",
+                "content": "簡錢的帳單、帳戶、分類和圖片由 iCloud 同步框架管理。登出 iCloud 或關閉系統中的 App iCloud 權限時，本機資料可能被清除，尚未上傳的資料也可能受到影響。已上傳的資料在重新連接原帳號後可能同步回來；未上傳且沒有備份的資料可能無法復原。這裡指 iPhone 系統設定中的操作；簡錢 App 內的同步開關沒有直接清空資料的邏輯。"
+              },
+              {
+                "title": "執行「重置 App」，包括在其他裝置上操作",
+                "content": "「重置 App」會刪除雲端資料，並在下次啟動時清除本機資料庫。相同 iCloud 帳號下開啟同步的其他裝置也可能受到影響，因此即使目前手機沒有操作，也需要確認其他裝置是否執行過重置或刪除。重置會保留既有備份檔案。"
+              },
+              {
+                "title": "還原舊備份、空備份或內容異常的備份",
+                "content": "還原備份會取代目前資料，不會與既有帳單合併。還原舊備份會失去備份之後新增的資料，還原空備份會清空目前資料。目前還原流程對部分異常備份的檢查仍不充分，也可能在未提示錯誤的情況下清空資料。還原前請先另存目前資料，並確認所選備份的日期、來源和完整性。"
+              },
+              {
+                "title": "刪除 App 後重新安裝，或換機時沒有可復原的資料",
+                "content": "如果先前未成功同步，也沒有獨立備份，刪除 App 後本機資料可能無法找回。iCloud 無法使用時，自動備份會儲存在 App 本機；這類備份也會隨刪除 App 一起移除。換機前，請確認雲端同步情況，或將備份另存到 App 以外的位置。"
+              }
+            ]
+          },
+          {
+            "heading": "也可能只是帳單暫未顯示",
+            "items": [
+              {
+                "title": "日期或篩選條件發生變化",
+                "content": "首頁顯示目前選定日期的帳單。請先檢查日期，以及是否開啟了僅支出或僅收入篩選；目前頁面為空，不代表其他日期的帳單也被刪除。"
+              },
+              {
+                "title": "iCloud 資料尚未下載完成",
+                "content": "重新安裝或換機後，雲端資料需要時間下載到本機。請確認使用原來的 iCloud 帳號、簡錢的 iCloud 權限已開啟且網路正常，再等待同步。尚未顯示的帳單不一定已經遺失。"
+              },
+              {
+                "title": "資料讀取失敗",
+                "content": "部分讀取失敗的情況目前也可能顯示為空列表，介面尚不能完全區分「讀取失敗」和「沒有帳單」。目前未發現正常版本更新會主動清空全部帳單的邏輯，因此不能僅憑空白頁面判斷 App 已被初始化。"
+              }
+            ]
+          }
+        ],
+        "source": {
+          "label": "參考：Apple 工程師對 iCloud 帳號變更與本機資料清理的說明",
+          "href": "https://developer.apple.com/forums/thread/811294"
+        },
+        "actionLabel": "聯絡開發者",
+        "actionTab": "contact"
+      },
       {
         id: 'n6',
         date: '2025.11.27',
@@ -563,6 +725,60 @@ const translations: Record<Language, Translations> = {
     scanToJoin: 'スキャンして参加',
     communityHeading: 'コミュニティ',
     notices: [
+      {
+        "id": "n7",
+        "date": "2026.09.26",
+        "heading": "記録が表示されない場合とデータ復元について",
+        "warning": true,
+        "isNew": true,
+        "content": "記録が突然見えなくなっても、必ずしも完全に削除されたとは限りません。iCloud アカウントの変更、アプリのリセット、バックアップの復元、表示フィルターや同期の状態などが関係する場合があります。以下の内容をご確認ください。",
+        "sections": [
+          {
+            "heading": "データが失われる可能性がある操作",
+            "items": [
+              {
+                "title": "iCloud からのサインアウト、またはシステム設定での iCloud アクセスの無効化",
+                "content": "Symoney の記録、口座、カテゴリ、写真は iCloud の同期フレームワークで管理されています。iCloud からサインアウトしたり、システム設定でアプリの iCloud アクセスを無効にしたりすると、未アップロードの変更を含め、端末内のデータが削除される場合があります。アップロード済みのデータは元のアカウントに接続し直すと戻る可能性がありますが、クラウドにもバックアップにもないデータは復元できない場合があります。ここでいう操作は iPhone のシステム設定での操作です。Symoney 内の同期スイッチには、データを直接消去する処理はありません。"
+              },
+              {
+                "title": "別の端末を含め、「アプリをリセット」を実行する",
+                "content": "アプリをリセットするとクラウドのデータが削除され、次回起動時に端末内のデータベースも消去されます。同じ iCloud アカウントで同期している別の端末にも影響する場合があります。この端末で操作していなくても、他の端末でリセットや削除を行っていないかご確認ください。リセット時に既存のバックアップファイルは保持されます。"
+              },
+              {
+                "title": "古い、空の、または内容に問題があるバックアップを復元する",
+                "content": "バックアップの復元は現在のデータを置き換える操作で、既存の記録との結合ではありません。古いバックアップを復元すると、その後に追加したデータが失われ、空のバックアップでは現在のデータが消去されます。現在の復元処理では、一部の不正な形式のバックアップを十分に検証できず、エラーを表示せずにデータを消去する可能性もあります。復元前に現在のデータを別途保存し、バックアップの日時、入手元、完全性をご確認ください。"
+              },
+              {
+                "title": "アプリを削除して再インストールする、または復元可能なデータがないまま機種変更する",
+                "content": "同期が成功しておらず、別途保存したバックアップもない場合、アプリを削除すると端末内のデータを復元できなくなる可能性があります。iCloud が使えないときの自動バックアップはアプリ内に保存されるため、アプリの削除とともに失われます。機種変更の前にクラウドへの同期を確認するか、アプリの外にバックアップを保存してください。"
+              }
+            ]
+          },
+          {
+            "heading": "データが一時的に表示されていない場合",
+            "items": [
+              {
+                "title": "選択した日付やフィルターが変わっている",
+                "content": "ホーム画面には選択した日付の記録が表示されます。日付と、支出のみ・収入のみのフィルターをご確認ください。現在の画面が空でも、他の日付の記録が削除されたとは限りません。"
+              },
+              {
+                "title": "iCloud データのダウンロードが終わっていない",
+                "content": "再インストールや機種変更の後は、クラウドのデータが端末にダウンロードされるまで時間がかかります。元の iCloud アカウントを使用していること、Symoney の iCloud アクセスが有効なこと、ネットワークに接続されていることを確認し、同期をお待ちください。まだ表示されない記録も、失われたとは限りません。"
+              },
+              {
+                "title": "データの読み込みに失敗している",
+                "content": "現在、一部の読み込みエラーでも空の一覧が表示される場合があり、画面上で「読み込み失敗」と「記録なし」を完全には区別できません。通常のアプリ更新で全記録を意図的に消去する処理は、現時点の調査では見つかっていません。空の画面だけで、アプリが初期化されたと判断することはできません。"
+              }
+            ]
+          }
+        ],
+        "source": {
+          "label": "参考：iCloud アカウントの変更と端末内データの削除についての Apple エンジニアの説明",
+          "href": "https://developer.apple.com/forums/thread/811294"
+        },
+        "actionLabel": "開発者に連絡",
+        "actionTab": "contact"
+      },
       {
         id: 'n6',
         date: '2025.11.27',
