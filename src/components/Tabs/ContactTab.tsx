@@ -40,14 +40,14 @@ export function ContactTab({ translations: t }: ContactTabProps) {
         <div className="qr-card">
           <h3>{t.redbookGroup}</h3>
           <div className="qr-frame">
-            <img src="/asset/red_group.JPG" alt={t.redbookGroup} />
+            <img src="/asset/red_group.jpg" alt={t.redbookGroup} />
           </div>
           <p>{t.scanToJoin}</p>
         </div>
         <div className="qr-card">
           <h3>{t.wechatGroup}</h3>
           <div className="qr-frame">
-            <img src="/asset/wechat_group.JPG" alt={t.wechatGroup} />
+            <img src="/asset/wechat_group.jpg" alt={t.wechatGroup} />
           </div>
           <p>{t.scanToJoin}</p>
         </div>
