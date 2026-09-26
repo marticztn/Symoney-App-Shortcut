@@ -37,6 +37,7 @@ export interface Translations {
   heroTitleItalic: string
   heroIntro: string
 
+  shortTabLabels: Record<MainTab, string>
   quickRecordTab: string
   apiKeyTab: string
   automationTab: string

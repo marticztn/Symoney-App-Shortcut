@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, useCallback, type ReactElement } from 'react'
 import type { Language, MainTab, Translations } from '../../types'
-import { IconZapSolid, IconKeySolid, IconLayersSolid, IconBellSolid, IconUserSolid } from '../Icons'
+import { IconNavRecord, IconNavKey, IconNavAutomation, IconNavNotice, IconNavContact } from '../Icons'
 
 interface TabNavigationProps {
   activeTab: MainTab
@@ -17,11 +17,11 @@ type TabDef = {
 }
 
 const TABS: TabDef[] = [
-  { id: 'quickRecord', labelKey: 'quickRecordTab', Icon: IconZapSolid },
-  { id: 'apiKey', labelKey: 'apiKeyTab', Icon: IconKeySolid },
-  { id: 'automation', labelKey: 'automationTab', Icon: IconLayersSolid },
-  { id: 'notice', labelKey: 'noticeTab', Icon: IconBellSolid, hasNew: true },
-  { id: 'contact', labelKey: 'contactTab', Icon: IconUserSolid },
+  { id: 'quickRecord', labelKey: 'quickRecordTab', Icon: IconNavRecord },
+  { id: 'apiKey', labelKey: 'apiKeyTab', Icon: IconNavKey },
+  { id: 'automation', labelKey: 'automationTab', Icon: IconNavAutomation },
+  { id: 'notice', labelKey: 'noticeTab', Icon: IconNavNotice, hasNew: true },
+  { id: 'contact', labelKey: 'contactTab', Icon: IconNavContact },
 ]
 
 export function TabNavigation({
@@ -118,8 +118,9 @@ export function TabNavigation({
               className={`tab ${activeTab === tab.id ? 'active' : ''} ${tab.hasNew ? 'has-new' : ''}`}
               onClick={() => onTabChange(tab.id)}
             >
-              <Icon w={17} h={17} sw={1.6} />
-              <span>{label}</span>
+              <Icon w={18} h={18} sw={1.8} />
+              <span className="tab-label-full" aria-hidden="true">{label}</span>
+              <span className="tab-label-short" aria-hidden="true">{translations.shortTabLabels[tab.id]}</span>
               {tab.hasNew && <span className="dot-new" />}
             </button>
           )

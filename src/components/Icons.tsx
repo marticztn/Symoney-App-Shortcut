@@ -218,3 +218,17 @@ export const IconApple = (p: Omit<IconProps, 'fill'>) => (
     <path d="M16.4 12.8c0-2.7 2.2-4 2.3-4-1.2-1.8-3.2-2-3.9-2.1-1.7-.2-3.2 1-4.1 1-.9 0-2.1-1-3.5-.9-1.8 0-3.5 1-4.4 2.7-1.9 3.2-.5 8 1.3 10.6.9 1.3 2 2.7 3.4 2.7 1.4-.1 1.9-.9 3.5-.9s2.1.9 3.5.9c1.5 0 2.4-1.3 3.3-2.6 1.1-1.5 1.5-3 1.5-3-.1 0-2.9-1.1-2.9-4.4zM13.8 5c.8-1 1.3-2.3 1.1-3.6-1.1.1-2.4.8-3.2 1.7-.7.8-1.4 2.1-1.2 3.4 1.2.1 2.5-.6 3.3-1.5z" />
   </svg>
 )
+
+// Filled navigation icons share a 24-point grid and rounded silhouettes.
+export const IconNavRecord = IconZap
+export const IconNavKey = IconKey
+export const IconNavNotice = IconBell
+export const IconNavContact = IconUser
+export const IconNavAutomation = (p: IconProps) => (
+  <SolidIcon {...p}>
+    <rect x="2" y="2" width="8" height="8" rx="2.5" />
+    <rect x="14" y="14" width="8" height="8" rx="2.5" />
+    <path d="M10 6h5a3 3 0 0 1 3 3v2m-2-2 2 2 2-2M14 18H9a3 3 0 0 1-3-3v-2m-2 2 2-2 2 2"
+      fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+  </SolidIcon>
+)
