@@ -71,6 +71,7 @@ export interface Translations {
   volcanicEngine: string
   custom: string
   officialSite: string
+  siluSiteUrl: string
   siluStep1: string
   siluStep2: string
   siluStep3New: string

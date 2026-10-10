@@ -30,7 +30,7 @@ export function ApiKeyTab({ translations: t }: ApiKeyTabProps) {
       <ol className="steps">
         <li>
           <span>{t.siluStep1}</span>
-          <SiteLink href="https://cloud.siliconflow.cn/account/ak" text={t.officialSite} />
+          <SiteLink href={t.siluSiteUrl} text={t.officialSite} />
         </li>
         <li>{t.siluStep2}</li>
         <li>{t.siluStep3New}</li>
