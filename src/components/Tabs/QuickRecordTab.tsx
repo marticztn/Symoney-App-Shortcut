@@ -30,10 +30,25 @@ export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
             <span>{t.shortcut1Label}</span>
           </a>
           <div className="shortcut-meta">
-            <span className="version-chip">v1.2.0</span>
+            <span className="version-chip">v1.3.0</span>
             <span className="shortcut-req">{t.latestRequirement}</span>
           </div>
           <Collapsible summary={`${t.shortcutHistoryLabel} · ${t.shortcut1Label}`}>
+            <div className="history-item">
+              <a
+                className="shortcut-btn"
+                href="https://www.icloud.com/shortcuts/dd0a44e1aa1e4f67b0d6d200205bde0f"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconDownload w={14} h={14} sw={1.8} />
+                <span>{t.shortcut1Label}</span>
+              </a>
+              <div className="shortcut-meta">
+                <span className="version-chip">v1.2.0</span>
+                <span className="shortcut-req">{t.latestRequirement}</span>
+              </div>
+            </div>
             <div className="history-item">
               <a
                 className="shortcut-btn"
