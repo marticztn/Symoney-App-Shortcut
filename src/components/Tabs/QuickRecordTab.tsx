@@ -22,7 +22,7 @@ export function QuickRecordTab({ translations: t }: QuickRecordTabProps) {
           </div>
           <a
             className="shortcut-btn"
-            href="https://www.icloud.com/shortcuts/dd0a44e1aa1e4f67b0d6d200205bde0f"
+            href="https://www.icloud.com/shortcuts/5c5825c624454a959e584d0500d7b39c"
             target="_blank"
             rel="noreferrer"
           >
